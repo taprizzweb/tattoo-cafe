@@ -457,14 +457,48 @@ p { margin: 0; }
 .enquiry--feature .enquiry__go { color: #fff; }
 .enquire__small { text-align: center; color: var(--on-dark-muted); font-size: 0.875rem; margin-top: 28px; }
 
-/* ---------- Visit ---------- */
-.visit { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 6vw, 72px); align-items: stretch; }
-.visit__list { margin: 32px 0; display: grid; gap: 20px; }
-.visit__list dt { font-size: 0.72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--pink-deep); font-weight: 700; margin-bottom: 4px; }
-.visit__list dd { margin: 0; color: var(--muted); }
-.visit__actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.visit__map { min-height: 420px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--sand); }
-.visit__map iframe { width: 100%; height: 100%; min-height: 420px; border: 0; }
+/* ---------- Reservations ---------- */
+.reserve { padding-bottom: 0; }
+.reserve__grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: start; }
+.reserve__main h2 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
+.reserve__main .section__lead { margin-top: 12px; }
+.rform { margin-top: 32px; display: grid; gap: 18px; }
+.rform__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field label { font-size: .85rem; font-weight: 700; color: var(--text); }
+.field__opt { font-weight: 400; color: var(--muted); }
+.field input, .field select, .field textarea {
+  font: inherit; font-size: 1rem; color: var(--text);
+  background: #fff; border: 1px solid #dccbb5; border-radius: 8px;
+  min-height: 50px; padding: 12px 14px; width: 100%;
+  transition: border-color .15s var(--ease), box-shadow .15s var(--ease);
+}
+.field textarea { resize: vertical; min-height: 96px; }
+.field select {
+  appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 44px;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237f3016' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right 16px center no-repeat;
+}
+.field input::placeholder, .field textarea::placeholder { color: #a99a8c; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: none; border-color: var(--maroon); box-shadow: 0 0 0 3px rgba(127,48,22,.15);
+}
+.field__err { display: none; color: #b42318; font-size: .82rem; }
+.field.has-err input, .field.has-err select { border-color: #b42318; }
+.field.has-err .field__err { display: block; }
+.btn--block { width: 100%; min-height: 54px; margin-top: 6px; }
+.rform__small { color: var(--muted); font-size: .85rem; text-align: center; }
+
+.reserve__info { display: grid; gap: 14px; }
+.icard { background: var(--sand); border: 1px solid #e6d5bd; border-radius: 12px; padding: 22px 24px; }
+.icard__icon { width: 22px; height: 22px; fill: none; stroke: var(--maroon); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 10px; }
+.icard h3 { font-size: 1.35rem; margin-bottom: 6px; }
+.icard p { color: var(--muted); font-size: .95rem; }
+.icard p a { color: var(--text); font-weight: 600; text-decoration: none; }
+.icard__link { display: inline-block; margin-top: 10px; font-size: .88rem; font-weight: 700; color: var(--maroon); text-decoration: none; }
+.icard__link:hover { text-decoration: underline; }
+
+.reserve__map { margin-top: clamp(56px, 7vw, 88px); height: clamp(320px, 42vw, 460px); background: var(--sand); }
+.reserve__map iframe { width: 100%; height: 100%; border: 0; display: block; }
 
 /* ---------- Footer ---------- */
 .footer { background: var(--maroon-deep); color: var(--on-dark); padding: 56px 0 40px; }
@@ -543,7 +577,8 @@ p { margin: 0; }
   .hero__actions .btn--ghost { display: none; }
   .rating-chip { margin-top: 20px; }
 
-  .hm__grid, .cafe, .visit { grid-template-columns: 1fr; }
+  .hm__grid, .cafe, .reserve__grid { grid-template-columns: 1fr; }
+  .reserve__info { grid-template-columns: 1fr 1fr; }
   .hm__photo { max-width: 460px; margin: 0 auto; width: calc(100% - 28px); }
   .moments { grid-template-columns: 1fr; }
   .moment { display: grid; grid-template-columns: 120px 1fr; }
@@ -575,6 +610,7 @@ p { margin: 0; }
 }
 
 @media (max-width: 560px) {
+  .rform__row, .reserve__info { grid-template-columns: 1fr; }
   .services, .enquiry-grid, .steps { grid-template-columns: 1fr; }
   .enquiry { min-height: 0; }
   .hm__facts { gap: 10px; }

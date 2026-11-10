@@ -53,7 +53,7 @@
       <a href="#reviews">Reviews</a>
       <a href="#lounge">Rooftop</a>
       <a href="#menu">Menu</a>
-      <a href="#visit">Visit</a>
+      <a href="#visit">Book a Table</a>
     </nav>
     <a href="#enquire" class="btn btn--gold btn--sm header__cta">Enquire</a>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
@@ -403,27 +403,98 @@
   </div>
 </section>
 
-<!-- ============ VISIT ============ -->
-<section class="section" id="visit">
-  <div class="container visit">
-    <div class="visit__info">
-      <p class="eyebrow eyebrow--dark">Find us</p>
-      <h2>Right across from Hawa Mahal</h2>
-      <dl class="visit__list">
-        <div><dt>Address</dt><dd data-address>3rd Floor, 30, Opposite Hawa Mahal, Hawa Mahal Road, Jaipur, Rajasthan 302002</dd></div>
-        <div><dt>Hours</dt><dd data-hours>Open daily · 8:30 AM – 11:00 PM</dd></div>
-        <div><dt>WhatsApp &amp; call</dt><dd><a href="#" data-phone>+91 98280 65533</a></dd></div>
-        <div><dt>Entry</dt><dd>Cover charge applies. Ask us on WhatsApp for current rates.</dd></div>
-        <div><dt>Getting here</dt><dd>Stand facing Hawa Mahal, then turn around. Look for our sign and take the stairs to the 3rd floor.</dd></div>
-      </dl>
-      <div class="visit__actions">
-        <a class="btn btn--dark" href="#" data-maps target="_blank" rel="noopener">Get directions</a>
-        <a class="btn btn--outline" href="#" data-wa="general" target="_blank" rel="noopener">WhatsApp us</a>
+<!-- ============ RESERVATIONS + VISIT ============ -->
+<section class="section reserve" id="visit">
+  <div class="container reserve__grid">
+    <div class="reserve__main" id="reserve">
+      <p class="eyebrow eyebrow--dark">Reservations</p>
+      <h2>Book your table.</h2>
+      <p class="section__lead">Fill in the details below. Your request opens in WhatsApp, and our team confirms it there.</p>
+
+      <form class="rform" id="reserveForm" novalidate>
+        <div class="rform__row">
+          <div class="field">
+            <label for="rName">Your name</label>
+            <input id="rName" name="name" autocomplete="name" placeholder="e.g. Priya Sharma" required>
+            <p class="field__err" id="rNameErr">Add your name so we know who to expect.</p>
+          </div>
+          <div class="field">
+            <label for="rPhone">Phone number</label>
+            <input id="rPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+91 98765 43210" required>
+            <p class="field__err" id="rPhoneErr">Add a phone number with at least 10 digits.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="rType">What are you looking for?</label>
+          <select id="rType" name="type" required>
+            <option value="">Select an option</option>
+            <option>Table Reservation</option>
+            <option>Sunset Table (Hawa Mahal view)</option>
+            <option>Birthday Celebration</option>
+            <option>Date Night</option>
+            <option>Group Booking</option>
+            <option>Private Event</option>
+            <option>Tattoo Appointment</option>
+          </select>
+          <p class="field__err" id="rTypeErr">Choose what you'd like to book.</p>
+        </div>
+
+        <div class="rform__row">
+          <div class="field">
+            <label for="rDate">Date</label>
+            <input id="rDate" name="date" type="date">
+          </div>
+          <div class="field">
+            <label for="rGuests">Guests</label>
+            <select id="rGuests" name="guests">
+              <option>1</option><option selected>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option><option>7–10</option><option>10+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="rNote">Anything we should know? <span class="field__opt">(optional)</span></label>
+          <textarea id="rNote" name="note" rows="3" placeholder="Preferred time, occasion, tattoo idea…"></textarea>
+        </div>
+
+        <button class="btn btn--wa btn--block" type="submit">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><use href="#i-wa"/></svg>
+          Send booking request on WhatsApp
+        </button>
+        <p class="rform__small">No payment now. A cover charge applies for entry on the day.</p>
+      </form>
+    </div>
+
+    <aside class="reserve__info" aria-label="Contact details">
+      <div class="icard">
+        <svg class="icard__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        <h3>Find us</h3>
+        <p data-address>3rd Floor, 30, Opposite Hawa Mahal, Hawa Mahal Road, Jaipur, Rajasthan 302002</p>
+        <a class="icard__link" href="#" data-maps target="_blank" rel="noopener">Get directions →</a>
       </div>
-    </div>
-    <div class="visit__map">
-      <iframe title="Map showing The Tattoo Cafe & Lounge opposite Hawa Mahal" data-map-embed loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+      <div class="icard">
+        <svg class="icard__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+        <h3>Call or WhatsApp</h3>
+        <p><a href="#" data-phone>+91 98280 65533</a></p>
+        <a class="icard__link" href="#" data-wa="general" target="_blank" rel="noopener">Chat on WhatsApp →</a>
+      </div>
+      <div class="icard">
+        <svg class="icard__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <h3>Opening hours</h3>
+        <p>Monday – Sunday<br>8:30 AM – 11:00 PM</p>
+      </div>
+      <div class="icard">
+        <svg class="icard__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9Z"/><path d="M7 9V6a5 5 0 0 1 10 0v3"/></svg>
+        <h3>Entry</h3>
+        <p>Cover charge applies. Ask us on WhatsApp for current rates.</p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="reserve__map">
+    <iframe title="Map showing The Tattoo Cafe &amp; Lounge opposite Hawa Mahal" data-map-embed loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </section>
 

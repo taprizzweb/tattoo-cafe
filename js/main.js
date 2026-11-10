@@ -41,6 +41,54 @@
     track.innerHTML = "<div class='film__set'>" + frames + "</div><div class='film__set' aria-hidden='true'>" + frames + "</div>";
   }
 
+  /* ---------- Reservation form -> WhatsApp ---------- */
+  var rform = document.getElementById("reserveForm");
+  if (rform) {
+    var checks = {
+      rName: function (v) { return v.trim().length > 1; },
+      rPhone: function (v) { return v.replace(/\D/g, "").length >= 10; },
+      rType: function (v) { return v !== ""; },
+    };
+    var setErr = function (id, bad) {
+      var el = document.getElementById(id);
+      el.closest(".field").classList.toggle("has-err", bad);
+      el.setAttribute("aria-invalid", bad ? "true" : "false");
+      el.setAttribute("aria-describedby", id + "Err");
+    };
+    Object.keys(checks).forEach(function (id) {
+      var el = document.getElementById(id);
+      el.addEventListener("blur", function () { if (el.value) setErr(id, !checks[id](el.value)); });
+      el.addEventListener("input", function () { if (checks[id](el.value)) setErr(id, false); });
+      el.addEventListener("change", function () { if (checks[id](el.value)) setErr(id, false); });
+    });
+    rform.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var firstBad = null;
+      Object.keys(checks).forEach(function (id) {
+        var el = document.getElementById(id), bad = !checks[id](el.value);
+        setErr(id, bad); if (bad && !firstBad) firstBad = el;
+      });
+      if (firstBad) { firstBad.focus(); return; }
+      var f = rform.elements, date = f.date.value;
+      if (date) { var d = new Date(date + "T00:00"); date = d.toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short", year: "numeric" }); }
+      var lines = [
+        "Hi! I'd like to make a booking at The Tattoo Cafe & Lounge.",
+        "",
+        "Name: " + f.name.value.trim(),
+        "Phone: " + f.phone.value.trim(),
+        "Looking for: " + f.type.value,
+        "Date: " + (date || "Flexible"),
+        "Guests: " + f.guests.value,
+      ];
+      if (f.note.value.trim()) lines.push("Note: " + f.note.value.trim());
+      var url = "https://wa.me/" + S.whatsapp + "?text=" + encodeURIComponent(lines.join("\n"));
+      var w = window.open(url, "_blank");
+      if (w) w.opener = null; else location.href = url;
+    });
+    var rDate = document.getElementById("rDate");
+    if (rDate) rDate.min = new Date().toISOString().slice(0, 10);
+  }
+
   /* ---------- Menu pages + lightbox ---------- */
   var menuWrap = document.getElementById("menuPages");
   var pages = S.menuPages || [];
@@ -99,7 +147,7 @@
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeMenu(); });
 
   /* ---------- Reveal on scroll ---------- */
-  var revealEls = document.querySelectorAll(".section__head, .service, .moment, .tile, .stars-reel__head, .artist, .enquiry, .hm__grid, .cafe, .visit, .steps li");
+  var revealEls = document.querySelectorAll(".section__head, .service, .moment, .tile, .stars-reel__head, .artist, .enquiry, .hm__grid, .cafe, .reserve__grid, .steps li");
   if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     revealEls.forEach(function (el) { el.classList.add("reveal"); });
     var io = new IntersectionObserver(function (entries) {
