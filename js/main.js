@@ -140,6 +140,7 @@
       var x = tTrack.scrollLeft, best = 0, bestD = Infinity;
       slides.forEach(function (sl, i) { var d = Math.abs(sl.offsetLeft - tTrack.offsetLeft - x); if (d < bestD) { bestD = d; best = i; } });
       tIndex = best;
+      var cnt = document.getElementById("tattooCount"); if (cnt) cnt.textContent = (best + 1) + " / " + slides.length;
       dots.querySelectorAll(".tdot").forEach(function (d, i) { d.classList.toggle("is-on", i === best); d.setAttribute("aria-selected", i === best ? "true" : "false"); });
     };
     tTrack.addEventListener("scroll", function () { window.requestAnimationFrame(markDots); }, { passive: true });

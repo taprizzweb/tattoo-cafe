@@ -34,11 +34,26 @@ window.SITE = {
 
   // TATTOO SLIDESHOW — photos assets/tattoos/ mein, caption = chhota description
   tattoos: [
-    { src: "assets/tattoos/tattoo-3.jpg", caption: "Trishul & Sanskrit spine piece", note: "Shot with Hawa Mahal behind" },
-    { src: "assets/tattoos/tattoo-5.jpg", caption: "Shiva & trishul with Sanskrit", note: "Spiritual · Blackwork" },
-    { src: "assets/tattoos/tattoo-1.jpg", caption: "Eye of Horus", note: "Fine-line · Dotwork" },
-    { src: "assets/tattoos/tattoo-4.jpg", caption: "Little tiger", note: "Fine-line · Minimal" },
-    { src: "assets/tattoos/tattoo-2.jpg", caption: "\"Blessed\" hand script", note: "Lettering" },
+    { src: "assets/tattoos/tattoo-11.jpg", caption: "Lotus on the nape", note: "Fine-line · Shot facing Hawa Mahal" },
+    { src: "assets/tattoos/tattoo-20.jpg", caption: "Travel flash back piece", note: "Blackwork · Shot facing Hawa Mahal" },
+    { src: "assets/tattoos/tattoo-7.jpg", caption: "Trishul, serpent & Om", note: "Spiritual · Blackwork" },
+    { src: "assets/tattoos/tattoo-2.jpg", caption: "Rising phoenix", note: "Colour · Hand piece" },
+    { src: "assets/tattoos/tattoo-5.jpg", caption: "Connected by a thread", note: "Couple tattoo" },
+    { src: "assets/tattoos/tattoo-18.jpg", caption: "World on the spine", note: "Fine-line · Shot facing Hawa Mahal" },
+    { src: "assets/tattoos/tattoo-4.jpg", caption: "Lioness & wolf with flowers", note: "Realism · Floral" },
+    { src: "assets/tattoos/tattoo-10.jpg", caption: "Watercolour lion", note: "Watercolour" },
+    { src: "assets/tattoos/tattoo-12.jpg", caption: "Devi on a lion", note: "Spiritual · Linework" },
+    { src: "assets/tattoos/tattoo-3.jpg", caption: "Leo sun & lotus", note: "Zodiac · Colour" },
+    { src: "assets/tattoos/tattoo-19.jpg", caption: "Sun & lion", note: "Colour · Dotwork" },
+    { src: "assets/tattoos/tattoo-17.jpg", caption: "\"Self Made\" knuckles", note: "Lettering" },
+    { src: "assets/tattoos/tattoo-6.jpg", caption: "Eye of Horus", note: "Blackwork" },
+    { src: "assets/tattoos/tattoo-15.jpg", caption: "Matching stamps", note: "Couple tattoo" },
+    { src: "assets/tattoos/tattoo-9.jpg", caption: "Butterfly on a stem", note: "Fine-line · Minimal" },
+    { src: "assets/tattoos/tattoo-8.jpg", caption: "Wild roses", note: "Colour · Floral" },
+    { src: "assets/tattoos/tattoo-13.jpg", caption: "Compass", note: "Fine-line" },
+    { src: "assets/tattoos/tattoo-16.jpg", caption: "Mandala lotus", note: "Ornamental · Blackwork" },
+    { src: "assets/tattoos/tattoo-14.jpg", caption: "Phoenix in black", note: "Blackwork · Dotwork" },
+    { src: "assets/tattoos/tattoo-1.jpg", caption: "Happy fig", note: "Colour · Cute" },
   ],
 
   // MENU — har page ki photo assets/menu/ mein daalo aur yahan path likho.

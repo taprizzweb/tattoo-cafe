@@ -311,6 +311,7 @@ p { margin: 0; }
 .tdot { width: 26px; height: 4px; border: 0; padding: 0; border-radius: 2px; background: #dccbb5; cursor: pointer; transition: background-color .2s var(--ease), width .2s var(--ease); }
 .tdot.is-on { background: var(--maroon); width: 40px; }
 .tshow__nav { display: flex; gap: 10px; }
+.tshow__count { display: none; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
 .rnav.rnav--dark { color: var(--text); border-color: #cdb89d; }
 .rnav.rnav--dark:hover { background: var(--sand); border-color: var(--maroon); }
 
@@ -622,6 +623,8 @@ p { margin: 0; }
 
 @media (max-width: 560px) {
   .tshow__track { grid-auto-columns: 82%; }
+  .tshow__dots { display: none; }
+  .tshow__count { display: block; }
   .reviews__nav { width: 100%; justify-content: flex-end; }
   .rform__row, .reserve__info { grid-template-columns: 1fr; }
   .enquiry-grid, .steps { grid-template-columns: 1fr; }
