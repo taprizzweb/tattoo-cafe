@@ -36,6 +36,7 @@
       return "<figure class='frame'>" + pic + cap + "</figure>";
     }).join("");
     // Two copies make a seamless loop; the second copy is hidden from screen readers.
+    track.style.animationDuration = Math.round(list.length * 5.5) + "s"; // same speed whatever the count
     track.innerHTML = "<div class='film__set'>" + frames + "</div><div class='film__set' aria-hidden='true'>" + frames + "</div>";
   }
 
