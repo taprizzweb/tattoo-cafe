@@ -125,7 +125,7 @@ h1, h2, h3, p { margin: 0; }
 .history__card { margin: 0; position: relative; transform: rotate(-2.5deg); }
 .history__card::before { content: ""; position: absolute; inset: -12px; border: 1px solid rgba(230,172,120,.45); transform: rotate(3deg); pointer-events: none; }
 .history__card img { width: 100%; height: auto; box-shadow: 0 30px 60px -20px rgba(0,0,0,.9); }
-.history__title { font: italic 500 clamp(2.2rem, 4.6vw, 3.6rem)/1.05 var(--serif); margin-bottom: 26px; }
+.history__title { color: var(--cream) !important; margin-bottom: 26px; }
 .history__body > p:not(.eyebrow) { color: rgba(252,246,236,.8); font-size: 15px; margin-bottom: 16px; max-width: 62ch; }
 .history__facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0 26px; }
 .history__facts div { border-top: 1px solid rgba(230,172,120,.35); padding-top: 14px; }
