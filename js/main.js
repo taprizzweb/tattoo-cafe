@@ -114,56 +114,31 @@
     if (e.key === "ArrowRight") lbShow(lbCur + 1);
   });
 
-  /* ---------- Tattoo slideshow ---------- */
-  var tTrack = document.getElementById("tattooTrack");
+  /* ---------- Tattoo marquee (two rows, always moving) ---------- */
   var tats = S.tattoos || [];
-  if (tTrack && tats.length) {
+  var rowA = document.getElementById("tattooRowA"), rowB = document.getElementById("tattooRowB");
+  if (rowA && rowB && tats.length) {
     var escT = function (t) { return String(t || "").replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
-    tTrack.innerHTML = tats.map(function (t, i) {
-      return "<figure class='tslide' role='group' aria-roledescription='slide' aria-label='" + (i + 1) + " of " + tats.length + "'>" +
-        "<button type='button' class='tslide__btn' data-i='" + i + "' aria-label='View " + escT(t.caption) + " full size'>" +
-        "<img src='" + escT(t.src) + "' alt='" + escT(t.caption) + " tattoo made at The Tattoo Cafe' loading='lazy'></button>" +
-        "<figcaption><strong>" + escT(t.caption) + "</strong><span>" + escT(t.note) + "</span></figcaption></figure>";
-    }).join("");
-    var dots = document.getElementById("tattooDots");
-    dots.innerHTML = tats.map(function (t, i) {
-      return "<button type='button' role='tab' class='tdot' data-i='" + i + "' aria-label='Show " + escT(t.caption) + "'></button>";
-    }).join("");
-    var slides = tTrack.querySelectorAll(".tslide");
-    var tIndex = 0;
-    var goTo = function (i, smooth) {
-      tIndex = (i + slides.length) % slides.length;
-      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      tTrack.scrollTo({ left: slides[tIndex].offsetLeft - tTrack.offsetLeft, behavior: smooth === false || reduce ? "auto" : "smooth" });
+    var lbTats = tats.map(function (t) { return { src: t.src, alt: t.caption }; });
+    var half = Math.ceil(tats.length / 2);
+    var build = function (row, list, offset) {
+      var cards = list.map(function (t, i) {
+        return "<button type='button' class='tcard' data-i='" + (i + offset) + "' aria-label='View " + escT(t.caption) + " tattoo'>" +
+          "<img src='" + escT(t.src) + "' alt='" + escT(t.caption) + " tattoo made at The Tattoo Cafe' loading='lazy'>" +
+          "<span class='tcard__cap'><strong>" + escT(t.caption) + "</strong><small>" + escT(t.note) + "</small></span></button>";
+      }).join("");
+      // Two copies make a seamless loop; the copy is hidden from screen readers and keyboard.
+      row.innerHTML = "<div class='tmarquee__set'>" + cards + "</div><div class='tmarquee__set' aria-hidden='true' inert>" + cards + "</div>";
+      row.style.setProperty("--dur", Math.round(list.length * 6) + "s");
     };
-    var markDots = function () {
-      var x = tTrack.scrollLeft, best = 0, bestD = Infinity;
-      slides.forEach(function (sl, i) { var d = Math.abs(sl.offsetLeft - tTrack.offsetLeft - x); if (d < bestD) { bestD = d; best = i; } });
-      tIndex = best;
-      var cnt = document.getElementById("tattooCount"); if (cnt) cnt.textContent = (best + 1) + " / " + slides.length;
-      dots.querySelectorAll(".tdot").forEach(function (d, i) { d.classList.toggle("is-on", i === best); d.setAttribute("aria-selected", i === best ? "true" : "false"); });
-    };
-    tTrack.addEventListener("scroll", function () { window.requestAnimationFrame(markDots); }, { passive: true });
-    markDots();
-    document.getElementById("tPrev").addEventListener("click", function () { stopAuto(); goTo(tIndex - 1); });
-    document.getElementById("tNext").addEventListener("click", function () { stopAuto(); goTo(tIndex + 1); });
-    dots.addEventListener("click", function (e) { var d = e.target.closest(".tdot"); if (d) { stopAuto(); goTo(Number(d.getAttribute("data-i"))); } });
-    tTrack.addEventListener("click", function (e) {
-      var b = e.target.closest(".tslide__btn"); if (!b) return;
-      stopAuto();
-      openLightbox(tats.map(function (t) { return { src: t.src, alt: t.caption }; }), Number(b.getAttribute("data-i")), "Tattoo photo");
+    build(rowA, tats.slice(0, half), 0);
+    build(rowB, tats.slice(half), half);
+    [rowA, rowB].forEach(function (row) {
+      row.addEventListener("click", function (e) {
+        var c = e.target.closest(".tcard"); if (!c) return;
+        openLightbox(lbTats, Number(c.getAttribute("data-i")), "Tattoo photo");
+      });
     });
-    // Autoplay: advance every 4s while visible; stop for good once the visitor takes control.
-    var auto = null, stopped = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var stopAuto = function () { stopped = true; clearInterval(auto); };
-    var startAuto = function () { if (!stopped && !auto) auto = setInterval(function () { goTo(tIndex + 1); }, 4000); };
-    var pauseAuto = function () { clearInterval(auto); auto = null; };
-    ["pointerdown", "touchstart", "wheel", "keydown"].forEach(function (ev) { tTrack.addEventListener(ev, stopAuto, { passive: true }); });
-    tTrack.addEventListener("mouseenter", pauseAuto);
-    tTrack.addEventListener("mouseleave", startAuto);
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver(function (en) { en[0].isIntersecting ? startAuto() : pauseAuto(); }, { threshold: 0.4 }).observe(tTrack);
-    }
   }
 
   /* ---------- Menu pages + lightbox ---------- */
