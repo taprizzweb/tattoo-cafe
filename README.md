@@ -37,13 +37,34 @@ Phir browser mein `http://localhost:8000` kholo. Local pe sample reviews dikheng
 
 Website sirf **4★ aur 5★** reviews dikhati hai aur 24 ghante mein ek baar Google se refresh karti hai.
 
-## WhatsApp enquiries + auto-reply
+## WhatsApp Assistant (bot)
 
-Har button `wa.me` link se WhatsApp kholta hai, message pehle se likha hota hai (`js/config.js` → `waMessages`).
-Auto-reply cafe ke **WhatsApp Business** se hoga:
+| File | Kya hai |
+|---|---|
+| `bot/flow.js` | Bot ke saare jawab, buttons aur FAQ. **Jawab yahin badlo**, demo aur asli bot dono mein apne aap badal jaayenge. |
+| `bot-demo.html` | Pitch ke liye demo, phone pe chalta hai: `/bot-demo.html`. Isme Meta ki zaroorat nahi. |
+| `api/whatsapp.js` | Asli bot: Meta WhatsApp Cloud API ka webhook |
 
-- **Free tarika (WhatsApp Business app):** Business tools → Greeting message, Away message, Quick replies (`/price`, `/aftercare`, `/location`), Catalog (tattoo styles + rates).
-- **Advanced (Meta WhatsApp Cloud API + chatbot):** Interakt / AiSensy / WATI jaise tools se button wala menu bot: "Tattoo price", "Book slot", "Location" → booking WhatsApp pe hi close. ~₹1,000–2,500/mahina + Meta ka per-conversation charge.
+**Kaise kaam karta hai:** customer "Hi" bhejta hai, bot 3 button dikhata hai (Cafe visit / Tattoo / Table-Menu). Tattoo ya table chunne pe bot sawaal poochhta hai aur jawab milne pe **owner ko WhatsApp alert** jaata hai. Jo sawaal kisi rule mein nahi aata, uska jawab Claude (AI) deta hai. AI key na ho toh chat team ko de di jaati hai.
+
+### Meta se jodna (test number, free)
+1. https://developers.facebook.com → **Create app** → *Business* → **WhatsApp** product add karo.
+2. **WhatsApp → API Setup**: Meta ek free **test number** deta hai. Wahan apna phone number "To" mein add karke verify karo (test mode mein max 5 numbers).
+3. Vercel → Project → Settings → **Environment Variables** mein ye daalo:
+   - `WA_TOKEN`: API Setup ka access token (24 ghante wala chalega; lambe samay ke liye System User token)
+   - `WA_PHONE_NUMBER_ID`: usi page se
+   - `WA_VERIFY_TOKEN`: koi bhi secret shabd jo tum khud chuno
+   - `WA_APP_SECRET`: App settings → Basic → App secret
+   - `OWNER_WHATSAPP`: jis number pe lead alert chahiye, jaise `919828065533`
+   - `ANTHROPIC_API_KEY`: AI jawab ke liye (optional)
+4. Redeploy karo.
+5. **WhatsApp → Configuration → Webhook**: Callback URL `https://thetattoocafe-jaipur.vercel.app/api/whatsapp`, Verify token wahi `WA_VERIFY_TOKEN`. Phir **messages** field subscribe karo.
+6. Apne phone se test number pe "Hi" bhejo.
+
+**Dhyan rakhna:**
+- Customer ke message ke 24 ghante ke andar diye jawab free hain. **Owner ko alert** tabhi free hai jab owner ne pichhle 24 ghante mein bot number pe koi message kiya ho. Nahi toh Meta ka approved template chahiye (~₹0.15 per message).
+- Bot ko yaad rehta hai ki customer kaun se sawaal pe hai, lekin ye yaad server ki memory mein hai. Server kabhi restart hua toh chal rahi baat-cheet wapas main menu pe aa jaati hai. Production ke liye Upstash Redis jaisa chhota store lagana.
+- AI ke jawab `claude-opus-5-5` (effort `low`) se aate hain. Sasta chahiye toh `api/whatsapp.js` mein model badal sakte ho.
 
 ## Abhi baaki (TODO)
 

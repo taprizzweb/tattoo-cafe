@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>WhatsApp Assistant Demo · The Tattoo Cafe</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0b141a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #150e0b; --panel: #1f1612; --line: rgba(246,238,228,.12);
+      --text: #f6eee4; --muted: rgba(246,238,228,.65); --gold: #dcae66; --maroon: #7f3016;
+      --wa-bg: #0b141a; --wa-head: #202c33; --wa-in: #202c33; --wa-out: #005c4b; --wa-green: #25d366; --wa-text: #e9edef; --wa-sub: #8696a0; --wa-link: #53bdeb;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body { background: var(--bg); color: var(--text); font: 400 15px/1.5 "Manrope", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    .page { min-height: 100%; display: grid; grid-template-columns: 1fr minmax(340px, 400px) minmax(260px, 320px); gap: 40px; align-items: center; max-width: 1280px; margin: 0 auto; padding: 32px 24px; }
+
+    .intro h1 { font: 600 clamp(2rem, 3.4vw, 3rem)/1.08 "Cormorant Garamond", Georgia, serif; margin: 0 0 16px; }
+    .intro h1 span { color: var(--gold); }
+    .eyebrow { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin: 0 0 14px; }
+    .intro p { color: var(--muted); margin: 0 0 14px; max-width: 46ch; }
+    .tries { list-style: none; padding: 0; margin: 22px 0; display: grid; gap: 8px; }
+    .tries button { width: 100%; text-align: left; background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; font: inherit; cursor: pointer; }
+    .tries button:hover { border-color: var(--gold); }
+    .tries small { display: block; color: var(--muted); font-size: .78rem; }
+    .back { color: var(--gold); font-weight: 600; text-decoration: none; font-size: .9rem; }
+
+    /* Phone */
+    .phone { height: min(760px, calc(100vh - 64px)); min-height: 560px; background: var(--wa-bg); border-radius: 36px; border: 10px solid #000; box-shadow: 0 40px 80px -30px rgba(0,0,0,.9), 0 0 0 1px rgba(220,174,102,.3); display: flex; flex-direction: column; overflow: hidden; }
+    .wa-head { display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: var(--wa-head); color: var(--wa-text); }
+    .wa-av { width: 38px; height: 38px; border-radius: 50%; background: #2a1309 url("assets/logo-wordmark-sm.png") center / 86% no-repeat; flex: none; }
+    .wa-head strong { display: block; font-size: .98rem; font-weight: 600; }
+    .wa-head small { color: var(--wa-sub); font-size: .78rem; }
+    .wa-reset { margin-left: auto; background: none; border: 0; color: var(--wa-sub); cursor: pointer; font: inherit; font-size: .8rem; padding: 6px; }
+    .chat { flex: 1; overflow-y: auto; padding: 14px 10px 8px; display: flex; flex-direction: column; gap: 6px;
+      background-color: #0b141a; background-image: radial-gradient(rgba(255,255,255,.025) 1px, transparent 1px); background-size: 18px 18px; }
+    .day { align-self: center; background: #182229; color: var(--wa-sub); font-size: .72rem; padding: 4px 10px; border-radius: 8px; margin-bottom: 6px; }
+    .msg { max-width: 82%; min-width: 84px; padding: 7px 9px 18px; border-radius: 8px; position: relative; color: var(--wa-text); font-size: .9rem; line-height: 1.38; white-space: pre-wrap; word-wrap: break-word; animation: pop .18s ease-out; }
+    .msg.in { align-self: flex-start; background: var(--wa-in); border-top-left-radius: 2px; }
+    .msg.out { align-self: flex-end; background: var(--wa-out); border-top-right-radius: 2px; }
+    .msg time { position: absolute; right: 8px; bottom: 3px; font-size: .64rem; color: rgba(233,237,239,.6); }
+    .msg a { color: var(--wa-link); word-break: break-all; }
+    .msg img.att { display: block; width: 100%; max-width: 220px; border-radius: 6px; margin-bottom: 4px; }
+    .imgs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; align-self: flex-start; max-width: 82%; background: var(--wa-in); padding: 3px; border-radius: 8px; }
+    .imgs img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 5px; }
+    .btns { align-self: flex-start; width: 82%; display: grid; gap: 2px; margin-top: -4px; }
+    .btns button { background: var(--wa-in); color: var(--wa-link); border: 0; padding: 10px; font: 600 .88rem "Manrope", sans-serif; cursor: pointer; border-radius: 4px; }
+    .btns button:last-child { border-radius: 4px 4px 8px 8px; }
+    .btns button:disabled { color: var(--wa-sub); cursor: default; }
+    .typing { align-self: flex-start; background: var(--wa-in); border-radius: 8px; padding: 10px 14px; display: flex; gap: 4px; }
+    .typing i { width: 6px; height: 6px; border-radius: 50%; background: var(--wa-sub); animation: blink 1s infinite; }
+    .typing i:nth-child(2) { animation-delay: .15s; } .typing i:nth-child(3) { animation-delay: .3s; }
+    @keyframes blink { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
+    @keyframes pop { from { transform: translateY(4px); opacity: 0; } to { transform: none; opacity: 1; } }
+    .chips { display: flex; gap: 6px; padding: 6px 10px 0; flex-wrap: wrap; background: var(--wa-bg); }
+    .chips button { background: #1f2c34; color: var(--wa-text); border: 1px solid #2a3942; border-radius: 16px; padding: 6px 12px; font: 500 .82rem "Manrope", sans-serif; cursor: pointer; }
+    .bar { display: flex; gap: 8px; padding: 8px 10px 10px; background: var(--wa-bg); align-items: center; }
+    .bar form { flex: 1; display: flex; gap: 8px; }
+    .bar input { flex: 1; min-width: 0; background: #2a3942; border: 0; border-radius: 22px; padding: 11px 16px; color: var(--wa-text); font: inherit; font-size: .92rem; }
+    .bar input::placeholder { color: var(--wa-sub); }
+    .bar input:focus { outline: 2px solid var(--wa-green); }
+    .icon-btn { width: 44px; height: 44px; border-radius: 50%; border: 0; display: grid; place-items: center; cursor: pointer; flex: none; }
+    .send { background: var(--wa-green); color: #0b141a; }
+    .attach { background: #2a3942; color: var(--wa-sub); }
+
+    /* Owner phone */
+    .owner { align-self: center; }
+    .owner h2 { font: 600 1.6rem/1.1 "Cormorant Garamond", Georgia, serif; margin: 0 0 6px; }
+    .owner > p { color: var(--muted); font-size: .88rem; margin: 0 0 16px; }
+    .alerts { display: grid; gap: 10px; }
+    .alert { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--wa-green); border-radius: 12px; padding: 12px 14px; font-size: .86rem; white-space: pre-wrap; animation: pop .25s ease-out; }
+    .alert > b { color: var(--wa-green); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; display: block; margin-bottom: 4px; }
+    .alerts .empty { color: var(--muted); font-size: .85rem; border: 1px dashed var(--line); border-radius: 12px; padding: 16px; }
+    .toast { position: fixed; left: 12px; right: 12px; top: 12px; z-index: 10; background: #1f2c34; color: var(--wa-text); border-radius: 14px; padding: 12px 14px; font-size: .84rem; white-space: pre-wrap; box-shadow: 0 12px 30px rgba(0,0,0,.6); border-left: 3px solid var(--wa-green); transform: translateY(-140%); transition: transform .3s ease; display: none; }
+    .toast.show { transform: none; }
+    .note { margin-top: 18px; font-size: .78rem; color: var(--muted); }
+
+    @media (max-width: 1080px) {
+      .page { grid-template-columns: minmax(340px, 400px) 1fr; }
+      .intro { grid-column: 1 / -1; }
+    }
+    @media (max-width: 720px) {
+      .page { display: block; padding: 0; }
+      .intro, .owner { display: none; }
+      .phone { height: 100vh; height: 100dvh; min-height: 0; border: 0; border-radius: 0; }
+      .toast { display: block; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+<div class="page">
+  <section class="intro">
+    <p class="eyebrow">Live demo · WhatsApp Assistant</p>
+    <h1>Every question answered, <span>every lead sent to you.</span></h1>
+    <p>This is how a customer's WhatsApp chat with The Tattoo Cafe looks with the assistant switched on. Tap the buttons or type a question, just like a customer would.</p>
+    <ul class="tries">
+      <li><button type="button" data-try="hi">Start like a customer<small>"Hi! I would like some information…"</small></button></li>
+      <li><button type="button" data-try="What time do you close?">Ask a quick question<small>"What time do you close?"</small></button></li>
+      <li><button type="button" data-try="I want a tattoo">Ask for a tattoo<small>Watch the lead reach the owner's phone</small></button></li>
+      <li><button type="button" data-try="I want to talk to the owner">Ask for a person<small>The chat is handed to the team</small></button></li>
+    </ul>
+    <a class="back" href="index.html">← Back to the website</a>
+  </section>
+
+  <section class="phone" aria-label="Customer WhatsApp chat demo">
+    <header class="wa-head">
+      <span class="wa-av" aria-hidden="true"></span>
+      <div><strong>The Tattoo Cafe &amp; Lounge</strong><small>Business account · replies instantly</small></div>
+      <button class="wa-reset" type="button" id="reset">Restart</button>
+    </header>
+    <div class="chat" id="chat" aria-live="polite"><span class="day">TODAY</span></div>
+    <div class="chips" id="chips"></div>
+    <div class="bar">
+      <button class="icon-btn attach" type="button" id="attach" aria-label="Send a reference photo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m21 12-8.5 8.5a6 6 0 0 1-8.5-8.5L13 3a4 4 0 0 1 5.7 5.7l-9 9a2 2 0 0 1-2.8-2.8L15 6.8"/></svg>
+      </button>
+      <form id="form">
+        <label for="msg" class="sr" style="position:absolute;left:-9999px">Message</label>
+        <input id="msg" autocomplete="off" placeholder="Type a message">
+        <button class="icon-btn send" type="submit" aria-label="Send">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 20.5 21 12 3 3.5 3 10l12 2-12 2z"/></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <aside class="owner" aria-label="Owner's phone">
+    <p class="eyebrow">Owner's WhatsApp</p>
+    <h2>Only real leads reach you</h2>
+    <p>Timing, location and menu questions are answered automatically. You're notified only for tattoo leads, table requests, or when a customer asks for a person.</p>
+    <div class="alerts" id="alerts"><p class="empty">No notifications yet. Try asking for a tattoo.</p></div>
+    <p class="note">Demo only: in this preview, answers come from the café's fixed replies. The live assistant also uses AI for any other question, in Hindi or English.</p>
+  </aside>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="bot/flow.js"></script>
+<script>
+(function () {
+  "use strict";
+  var F = window.BOT_FLOW;
+  var chat = document.getElementById("chat"), chipsEl = document.getElementById("chips");
+  var alertsEl = document.getElementById("alerts"), toast = document.getElementById("toast");
+  var input = document.getElementById("msg");
+  var state = {}, busy = false;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function now() { var d = new Date(); return d.toLocaleTimeString("en-IN", { hour: "numeric", minute: "2-digit" }); }
+  function esc(t) { return String(t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  // WhatsApp-style *bold* and clickable links.
+  function fmt(t) { return esc(t).replace(/\*([^*\n]+)\*/g, "<strong>$1</strong>").replace(/(https?:\/\/[^\s]+)/g, "<a href='$1' target='_blank' rel='noopener'>$1</a>"); }
+  function scroll() { chat.scrollTop = chat.scrollHeight; }
+  function bubble(side, html) {
+    var el = document.createElement("div");
+    el.className = "msg " + side; el.innerHTML = html + "<time>" + now() + "</time>";
+    chat.appendChild(el); scroll(); return el;
+  }
+  function setChips(list) {
+    chipsEl.innerHTML = "";
+    (list || []).forEach(function (c) {
+      var b = document.createElement("button"); b.type = "button"; b.textContent = c;
+      b.addEventListener("click", function () { send({ type: "text", value: c }, c); });
+      chipsEl.appendChild(b);
+    });
+  }
+  function renderReply(r) {
+    if (r.text) bubble("in", fmt(r.text));
+    if (r.images) {
+      var g = document.createElement("div"); g.className = "imgs";
+      g.innerHTML = r.images.slice(0, 6).map(function (s) { return "<img src='" + s + "' alt='Menu page' loading='lazy'>"; }).join("");
+      chat.appendChild(g);
+    }
+    if (r.buttons) {
+      var box = document.createElement("div"); box.className = "btns";
+      r.buttons.forEach(function (bt) {
+        var b = document.createElement("button"); b.type = "button"; b.textContent = bt.title;
+        b.addEventListener("click", function () {
+          box.querySelectorAll("button").forEach(function (x) { x.disabled = true; });
+          send({ type: "button", value: bt.id }, bt.title);
+        });
+        box.appendChild(b);
+      });
+      chat.appendChild(box);
+    }
+    setChips(r.chips); scroll();
+  }
+  function notifyOwner(alert) {
+    var text = F.ownerAlert(alert.kind, { name: "Demo customer", phone: "+91 98xxx xxx12" }, alert.answers);
+    var empty = alertsEl.querySelector(".empty"); if (empty) empty.remove();
+    var card = document.createElement("div"); card.className = "alert";
+    card.innerHTML = "<b>New WhatsApp · " + now() + "</b>" + fmt(text);
+    alertsEl.insertBefore(card, alertsEl.firstChild);
+    toast.innerHTML = "<b style='color:#25d366;font-size:.7rem;letter-spacing:.1em'>OWNER'S PHONE</b><br>" + fmt(text);
+    toast.classList.add("show");
+    clearTimeout(notifyOwner.t); notifyOwner.t = setTimeout(function () { toast.classList.remove("show"); }, 4200);
+  }
+  function send(inp, shown, attachHtml) {
+    if (busy) return;
+    busy = true; setChips([]);
+    bubble("out", attachHtml || fmt(shown));
+    var res = F.step(state, inp); state = res.state;
+    var replies = res.replies;
+    if (res.needAI) {
+      replies = [{ text: F.unknown, buttons: F.greeting.buttons }];
+      res.alert = { kind: "human", answers: {} };
+    }
+    var typing = document.createElement("div"); typing.className = "typing"; typing.innerHTML = "<i></i><i></i><i></i>";
+    setTimeout(function () { chat.appendChild(typing); scroll(); }, reduce ? 0 : 250);
+    setTimeout(function () {
+      typing.remove();
+      replies.forEach(renderReply);
+      if (res.alert) setTimeout(function () { notifyOwner(res.alert); }, reduce ? 0 : 500);
+      busy = false; input.focus({ preventScroll: true });
+    }, reduce ? 0 : 900);
+  }
+
+  document.getElementById("form").addEventListener("submit", function (e) {
+    e.preventDefault(); var v = input.value.trim(); if (!v) return;
+    input.value = ""; send({ type: "text", value: v }, v);
+  });
+  document.getElementById("attach").addEventListener("click", function () {
+    send({ type: "image", value: "" }, "", "<img class='att' src='assets/tattoos/tattoo-11.jpg' alt='Reference photo'>📷 Photo");
+  });
+  document.querySelectorAll("[data-try]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var v = b.getAttribute("data-try");
+      if (v === "hi") v = "Hi! I would like some information about The Tattoo Cafe & Lounge.";
+      send({ type: "text", value: v }, v);
+    });
+  });
+  document.getElementById("reset").addEventListener("click", function () {
+    state = {}; chat.innerHTML = "<span class='day'>TODAY</span>"; setChips([]);
+    alertsEl.innerHTML = "<p class='empty'>No notifications yet. Try asking for a tattoo.</p>";
+    start();
+  });
+
+  // Start the way a website visitor would: the prefilled WhatsApp message.
+  function start() {
+    setTimeout(function () { send({ type: "text", value: "Hi! I would like some information about The Tattoo Cafe & Lounge." }, "Hi! I would like some information about The Tattoo Cafe & Lounge."); }, reduce ? 0 : 400);
+  }
+  start();
+})();
+</script>
+</body>
+</html>

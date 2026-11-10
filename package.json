@@ -1,0 +1,9 @@
+{
+  "name": "the-tattoo-cafe",
+  "private": true,
+  "description": "Website and WhatsApp assistant for The Tattoo Cafe & Lounge, Jaipur",
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@anthropic-ai/sdk": "1.3.0"
+  }
+}
