@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brand Kit · The Tattoo Cafe &amp; Lounge</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#823018">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cormorant+Garamond:ital,wght@0,600;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <style>
+    :root { --maroon:#823018; --deep:#4a1a0b; --ink:#2a0f07; --gold:#e6ac78; --gold-l:#f2d296; --gold-d:#c9883f; --cream:#fcf6ec; --sand:#f4e7d4; --text:#2b1a12; --muted:#6e5a4c; --line:rgba(74,26,11,.14); }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--cream); color: var(--text); font: 400 15px/1.6 "DM Sans", system-ui, sans-serif; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    header.top { background: var(--maroon); color: var(--cream); padding: 64px 0 56px; }
+    .top .wrap { display: grid; grid-template-columns: 320px 1fr; gap: 48px; align-items: center; }
+    .top img { width: 100%; height: auto; box-shadow: 0 30px 60px -25px rgba(0,0,0,.7); }
+    .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin: 0 0 14px; }
+    h1 { font: 400 clamp(2.2rem, 5vw, 3.6rem)/1 "Archivo Black", sans-serif; text-transform: uppercase; margin: 0 0 18px; }
+    h1 span, .gold { background: linear-gradient(180deg, var(--gold-l), var(--gold) 55%, var(--gold-d)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .top p { color: rgba(252,246,236,.85); max-width: 52ch; margin: 0; }
+    section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+    h2 { font: 400 1.8rem/1.1 "Archivo Black", sans-serif; text-transform: uppercase; color: var(--deep); margin: 0 0 8px; }
+    .sub { color: var(--muted); margin: 0 0 32px; max-width: 64ch; }
+    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+    .sw { border: 1px solid var(--line); background: #fff; }
+    .sw i { display: block; height: 120px; }
+    .sw div { padding: 14px 16px; }
+    .sw strong { display: block; font-size: 15px; }
+    .sw code { font: 600 13px ui-monospace, Menlo, monospace; color: var(--maroon); }
+    .sw small { display: block; color: var(--muted); font-size: 12px; margin-top: 4px; }
+    .grad { height: 70px; background: linear-gradient(90deg, #d6954a, #e6ac78 40%, #f2d296 75%, #fffcf0); border: 1px solid var(--line); }
+    .grad-codes { display: flex; justify-content: space-between; font: 600 12px ui-monospace, Menlo, monospace; color: var(--muted); margin-top: 8px; }
+    .logos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .logos figure { margin: 0; border: 1px solid var(--line); }
+    .logos .pad { aspect-ratio: 4/3; display: grid; place-items: center; padding: 24px; }
+    .logos img { max-width: 100%; max-height: 100%; }
+    .logos figcaption { padding: 12px 16px; font-size: 13px; border-top: 1px solid var(--line); background: #fff; }
+    .type { display: grid; gap: 20px; }
+    .type div { display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: baseline; padding: 20px 0; border-top: 1px solid var(--line); }
+    .type small { color: var(--muted); font-size: 12px; display: block; }
+    .t1 { font: 400 2.6rem/1 "Archivo Black", sans-serif; text-transform: uppercase; color: var(--deep); }
+    .t2 { font: italic 500 1.8rem/1.2 "Cormorant Garamond", serif; color: var(--maroon); }
+    .t3 { font: 400 1.05rem/1.6 "DM Sans", sans-serif; }
+    .btns { display: flex; flex-wrap: wrap; gap: 14px; }
+    .b { display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; font: 700 12px "DM Sans"; letter-spacing: .1em; text-transform: uppercase; }
+    .b1 { background: linear-gradient(180deg, var(--gold-l), var(--gold) 55%, var(--gold-d)); color: var(--deep); }
+    .b2 { background: var(--maroon); color: var(--gold-l); }
+    .b3 { border: 1px solid var(--deep); color: var(--deep); }
+    .b4 { background: #1fa855; color: #fff; }
+    .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .rules div { padding: 20px 22px; background: #fff; border: 1px solid var(--line); }
+    .rules h3 { margin: 0 0 10px; font: 700 14px "DM Sans"; letter-spacing: .08em; text-transform: uppercase; }
+    .do h3 { color: #1f7a3f; } .dont h3 { color: #a8321e; }
+    .rules ul { margin: 0; padding-left: 18px; color: var(--muted); }
+    .rules li { margin: 6px 0; }
+    footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; }
+    footer a { color: var(--maroon); font-weight: 700; }
+    @media (max-width: 760px) {
+      .top .wrap, .rules, .type div { grid-template-columns: 1fr; }
+      .top img { max-width: 300px; }
+      .logos { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <img src="assets/logo-full.jpg" alt="The Tattoo Cafe &amp; Lounge logo" width="821" height="686">
+    <div>
+      <p class="eyebrow">Brand kit · 2026</p>
+      <h1>The Tattoo Cafe <span>&amp; Lounge</span></h1>
+      <p>Colours, logo, fonts and buttons for the website, menus, social posts and signage. Every colour here is sampled from the original logo: the maroon board and its gold lettering.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <h2>Colours</h2>
+    <p class="sub">Maroon and gold lead. Cream is the paper everything sits on. Use deep maroon for headings and dark sections.</p>
+    <div class="swatches">
+      <div class="sw"><i style="background:#823018"></i><div><strong>Logo Maroon</strong><code>#823018</code><small>RGB 130 48 24 · primary</small></div></div>
+      <div class="sw"><i style="background:#4a1a0b"></i><div><strong>Deep Maroon</strong><code>#4A1A0B</code><small>Headings, dark bands, footer</small></div></div>
+      <div class="sw"><i style="background:#2a0f07"></i><div><strong>Kohl Brown</strong><code>#2A0F07</code><small>Darkest backgrounds</small></div></div>
+      <div class="sw"><i style="background:#e6ac78"></i><div><strong>Logo Gold</strong><code>#E6AC78</code><small>RGB 230 172 120 · accent</small></div></div>
+      <div class="sw"><i style="background:#c9883f"></i><div><strong>Antique Gold</strong><code>#C9883F</code><small>Gold shadows, lines</small></div></div>
+      <div class="sw"><i style="background:#f2d296"></i><div><strong>Light Gold</strong><code>#F2D296</code><small>Gold highlights, text on maroon</small></div></div>
+      <div class="sw"><i style="background:#fcf6ec"></i><div><strong>Cream</strong><code>#FCF6EC</code><small>Page background</small></div></div>
+      <div class="sw"><i style="background:#f4e7d4"></i><div><strong>Sand</strong><code>#F4E7D4</code><small>Alternate sections, cards</small></div></div>
+      <div class="sw"><i style="background:#2b1a12"></i><div><strong>Text</strong><code>#2B1A12</code><small>Body text on cream</small></div></div>
+    </div>
+    <h2 style="margin-top:48px;font-size:1.2rem">Gold gradient (from the lettering)</h2>
+    <div class="grad" role="img" aria-label="Gold gradient from #D6954A to #FFFCF0"></div>
+    <div class="grad-codes"><span>#D6954A</span><span>#E6AC78</span><span>#F2D296</span><span>#FFFCF0</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Logo</h2>
+    <p class="sub">Use the full board logo where there's room. On photos or dark sections use the gold wordmark without the board.</p>
+    <div class="logos">
+      <figure><div class="pad" style="background:#f4e7d4"><img src="assets/logo-full.jpg" alt="Full board logo"></div><figcaption><strong>Full logo</strong> · menus, print, profile picture</figcaption></figure>
+      <figure><div class="pad" style="background:#4a1a0b"><img src="assets/logo-wordmark.png" alt="Gold wordmark on deep maroon"></div><figcaption><strong>Wordmark on maroon</strong> · website header, footer</figcaption></figure>
+      <figure><div class="pad" style="background:#2a0f07 url('assets/hawa-mahal-night.jpg') center 60%/cover"><img src="assets/logo-wordmark.png" alt="Gold wordmark on a photo"></div><figcaption><strong>Wordmark on photos</strong> · social posts, video</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Fonts</h2>
+    <p class="sub">All three are free Google Fonts. The logo's own serif is a custom lettering, so use the logo file for the name, never retype it.</p>
+    <div class="type">
+      <div><small>Headings · Archivo Black, uppercase</small><span class="t1">Came for the view</span></div>
+      <div><small>Accent · Cormorant Garamond Italic</small><span class="t2">Five storeys of pink sandstone, 953 windows</span></div>
+      <div><small>Body · DM Sans 400 / 700</small><span class="t3">Every tattoo is drawn with you and inked right here, facing Hawa Mahal. Open daily, 8:30 AM to 11 PM.</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Buttons</h2>
+    <p class="sub">Gold for the main action, maroon for the second one, green only for WhatsApp.</p>
+    <div class="btns">
+      <span class="b b1">Reserve a table now</span>
+      <span class="b b2">Send your tattoo idea</span>
+      <span class="b b3">Show more tattoos</span>
+      <span class="b b4">Enquire on WhatsApp</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Do &amp; don't</h2>
+    <div class="rules">
+      <div class="do"><h3>Do</h3><ul><li>Put gold on maroon, and maroon on cream</li><li>Show Hawa Mahal in hero images and posts</li><li>Leave space around the logo, at least the height of "The"</li><li>Use real photos of the café, tattoos and guests</li></ul></div>
+      <div class="dont"><h3>Don't</h3><ul><li>Stretch, recolour or add shadows to the logo</li><li>Put gold text on cream: it's hard to read</li><li>Use blue, teal or neon colours</li><li>Use stock photos of other cafés</li></ul></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">The Tattoo Cafe &amp; Lounge · Opposite Hawa Mahal, Jaipur · <a href="index.html">Back to the website</a></div></footer>
+</body>
+</html>
