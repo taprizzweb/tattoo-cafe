@@ -36,12 +36,17 @@ window.SITE = {
   // CELEBRITY FILM ROLL — har celebrity ki photo assets/celebs/ mein daalo aur yahan naam + path likho.
   // photo khaali ho toh placeholder frame dikhega.
   // TODO: har photo ke saath celebrity ka naam likho (name) aur chaho toh note (e.g. "Actor").
-  // name khaali ho toh frame pe caption nahi dikhega.
+  // name khaali ho toh frame pe caption nahi dikhega. pos = photo ka kaunsa hissa frame mein dikhe (optional).
   celebrities: [
     { name: "", note: "", photo: "assets/celebs/celeb-2.jpg" },
+    { name: "", note: "", photo: "assets/celebs/celeb-6.jpg", pos: "center 90%" },
     { name: "", note: "", photo: "assets/celebs/celeb-3.jpg" },
+    { name: "", note: "", photo: "assets/celebs/celeb-9.jpg", pos: "center 60%" },
     { name: "", note: "", photo: "assets/celebs/celeb-1.jpg" },
+    { name: "", note: "", photo: "assets/celebs/celeb-10.jpg" },
     { name: "", note: "", photo: "assets/celebs/celeb-4.jpg" },
+    { name: "", note: "", photo: "assets/celebs/celeb-8.jpg" },
+    { name: "", note: "", photo: "assets/celebs/celeb-7.jpg" },
     { name: "", note: "", photo: "assets/celebs/celeb-5.jpg" },
   ],
 

@@ -30,7 +30,7 @@
     var frames = list.map(function (c) {
       var alt = c.name ? c.name + " at The Tattoo Cafe" : "Celebrity guest at The Tattoo Cafe";
       var pic = c.photo
-        ? "<img src='" + esc0(c.photo) + "' alt='" + esc0(alt) + "' loading='lazy'>"
+        ? "<img src='" + esc0(c.photo) + "' alt='" + esc0(alt) + "' loading='lazy'" + (c.pos ? " style='object-position:" + esc0(c.pos) + "'" : "") + ">"
         : "<div class='frame__ph'><span>Celebrity photo</span></div>";
       var cap = c.name ? "<figcaption><strong>" + esc0(c.name) + "</strong><span>" + esc0(c.note) + "</span></figcaption>" : "";
       return "<figure class='frame'>" + pic + cap + "</figure>";
