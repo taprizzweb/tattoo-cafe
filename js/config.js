@@ -53,6 +53,9 @@ window.SITE = {
     { name: "", note: "", photo: "assets/celebs/celeb-11.jpg", pos: "78% center" },
     { name: "", note: "", photo: "assets/celebs/celeb-15.jpg" },
     { name: "", note: "", photo: "assets/celebs/celeb-13.jpg" },
+    { name: "", note: "", photo: "assets/celebs/celeb-16.jpg", pos: "75% center" },
+    { name: "", note: "", photo: "assets/celebs/celeb-17.jpg" },
+    { name: "", note: "", photo: "assets/celebs/celeb-18.jpg" },
   ],
 
   // Jab tak live Google reviews connect nahi hote, yeh numbers dikhte hain (TODO: verify)
