@@ -81,7 +81,7 @@
       </div>
       <a href="#reviews" class="rating-chip">
         <span class="stars" aria-hidden="true">★★★★★</span>
-        <span><strong data-rating>4.2</strong> on Google · <span data-review-count>5,990+</span> reviews</span>
+        <span><strong data-rating>4.2</strong> on Google · <span data-review-count>6,606+</span> reviews</span>
       </a>
     </div>
 
@@ -258,15 +258,18 @@
         <p class="score__num" data-rating>4.2</p>
         <div>
           <p class="stars stars--lg" aria-hidden="true">★★★★★</p>
-          <p class="score__meta"><span data-review-count>5,990+</span> reviews on Google</p>
+          <p class="score__meta"><span data-review-count>6,606+</span> reviews on Google</p>
         </div>
       </div>
     </header>
 
     <div class="reviews" id="reviewList" aria-live="polite"></div>
-    <p class="reviews__demo" id="reviewsDemo" hidden>These are sample reviews for the demo. Live Google reviews will show here automatically once the Google API key is added.</p>
 
     <div class="reviews__actions">
+      <div class="reviews__nav">
+        <button type="button" class="rnav" id="revPrev" aria-label="Previous reviews">←</button>
+        <button type="button" class="rnav" id="revNext" aria-label="More reviews">→</button>
+      </div>
       <a class="btn btn--gold" id="writeReview" href="#" target="_blank" rel="noopener">★ Write a review on Google</a>
       <a class="btn btn--ghost" id="allReviews" href="#" target="_blank" rel="noopener">Read all reviews</a>
     </div>

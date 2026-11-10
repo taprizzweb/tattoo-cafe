@@ -351,7 +351,7 @@ p { margin: 0; }
   scroll-snap-align: start; display: flex; flex-direction: column; gap: 16px;
   background: var(--ink-2); border: 1px solid var(--line-dark); border-radius: var(--radius); padding: 26px;
 }
-.review__text { margin: 0; font: 500 1.2rem/1.45 var(--serif); color: var(--on-dark); flex: 1; }
+.review__text { margin: 0; font: 500 1.12rem/1.5 var(--serif); color: var(--on-dark); flex: 1; }
 .review__by { display: flex; align-items: center; gap: 12px; font-size: 0.875rem; }
 .review__by span:not(.review__src):not(.review__avatar) { display: flex; flex-direction: column; }
 .review__by strong a { text-decoration: none; }
@@ -359,8 +359,14 @@ p { margin: 0; }
 .review__avatar { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; flex: none; }
 .review__avatar--ph { display: grid; place-items: center; background: var(--pink-deep); color: #fff; font-weight: 700; }
 .review__src { margin-left: auto; font-size: 0.72rem; color: var(--on-dark-muted); letter-spacing: .1em; text-transform: uppercase; }
-.reviews__demo { color: var(--on-dark-muted); font-size: 0.85rem; margin-top: 14px; font-style: italic; }
-.reviews__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+.reviews__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 36px; }
+.reviews__nav { display: flex; gap: 10px; margin-right: auto; }
+.rnav {
+  width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.2rem;
+  background: transparent; color: var(--on-dark); border: 1px solid rgba(246,238,228,.35);
+  transition: background-color .2s var(--ease), border-color .2s var(--ease);
+}
+.rnav:hover { background: rgba(246,238,228,.08); border-color: var(--on-dark); }
 
 /* ---------- Rooftop lounge ---------- */
 .cafe { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
@@ -612,6 +618,7 @@ p { margin: 0; }
 }
 
 @media (max-width: 560px) {
+  .reviews__nav { width: 100%; justify-content: flex-end; }
   .rform__row, .reserve__info { grid-template-columns: 1fr; }
   .services, .enquiry-grid, .steps { grid-template-columns: 1fr; }
   .enquiry { min-height: 0; }

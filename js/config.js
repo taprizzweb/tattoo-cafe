@@ -60,7 +60,19 @@ window.SITE = {
     { name: "", note: "", photo: "assets/celebs/celeb-18.jpg" },
   ],
 
-  // Jab tak live Google reviews connect nahi hote, yeh numbers dikhte hain (TODO: verify)
-  fallbackRating: 4.2,
-  fallbackReviewCount: 5990,
+  // Jab tak live Google reviews (API) connect nahi hote, yeh numbers + neeche ke reviews dikhte hain
+  fallbackRating: 4.2, // TODO: Google pe asli rating confirm karo
+  fallbackReviewCount: 6606,
+
+  // Asli Google reviews (cafe ke Google profile se, 5★). Jo text Google pe "More" pe katta hai, wahan "…" hai.
+  featuredReviews: [
+    { author: "Akileswaran Radhakrishnan", rating: 5, time: "Local Guide", text: "Fantastic venue opposite to Hawa Mahal. The food and the service was good too. The staff member Gajender Singh was too kind and went over and above to support myself and my son. Highly recommend if you are looking to get some cool shots with Hawa Mahal in the background and some good food." },
+    { author: "Seema Wadhwa", rating: 5, time: "Google review", text: "The best place in Jaipur for sunset view + Hawa Mahal view. If there's one thing you should do in Jaipur it should be visiting this cafe. I cannot thank Mr. Gajendra Singh from the staff enough for his excellent hospitality, kindness and …" },
+    { author: "akash dubey", rating: 5, time: "Local Guide", text: "If you're looking for a place that combines delicious food with an unforgettable view of Hawa Mahal, The Tattoo Cafe & Lounge is a must-visit! The rooftop seating offers one of the best panoramic views of the iconic Hawa …" },
+    { author: "Rahul Desai", rating: 5, time: "Local Guide", text: "Excellent location with great rooftop views opposite Hawa Mahal. They also offer a drone videography service which captures you and Hawa Mahal. Most important, great food… everything we ordered was amazing. Great staff and friendly owner." },
+    { author: "Hill Shah", rating: 5, time: "Local Guide", text: "It was an awesome experience of night view of Hawa Mahal with eating dinner with friends. Suman has provided good service and nice behaviour. Thanks for the awesome service and experience. Also drone video recording is available and must go places to eat and taking photos of night life." },
+    { author: "Vinay Kapadia", rating: 5, time: "Local Guide", text: "One of the best cafe in this area. The main highlight is that the cafe is just opposite the Hawa Mahal so that you can enjoy the view. Specially in the night you can enjoy the food and view of …" },
+    { author: "Chew KianPeng", rating: 5, time: "Local Guide", text: "Nice place for having dinner at Jaipur, rooftop view just in front of Hawa Mahal. Great place to take photos. Bro Gajendra is very helpful with the ordering. Food is fantastic!" },
+    { author: "Beini Tan", rating: 5, time: "Google review", text: "I had a really lovely experience here! The view is beautiful and the atmosphere is perfect for relaxing and taking photos." },
+  ],
 };

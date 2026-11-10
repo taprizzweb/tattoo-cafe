@@ -164,12 +164,7 @@
   }
 
   /* ---------- Google reviews ---------- */
-  var SAMPLE = [
-    { author: "Sample guest", rating: 5, time: "Sample review", text: "Got a small Hawa Mahal tattoo while looking at the real palace across the road. The artist was patient, everything was clean and sealed, and the view from the rooftop afterwards was unreal." },
-    { author: "Sample guest", rating: 5, time: "Sample review", text: "Best view of Hawa Mahal in Jaipur, hands down. We came for sunset chai and my friend ended up getting inked. Lovely people." },
-    { author: "Sample guest", rating: 5, time: "Sample review", text: "Messaged them on WhatsApp the night before, they had a design ready by morning. Perfect souvenir from Jaipur." },
-    { author: "Sample guest", rating: 4, time: "Sample review", text: "Great fine-line work and very hygienic. The rooftop is the perfect spot for photos of the palace. Gets busy at sunset!" },
-  ];
+  var SAMPLE = S.featuredReviews || [];
 
   function fmtCount(n) { return Number(n).toLocaleString("en-IN") + "+"; }
   function setSummary(rating, total) {
@@ -199,6 +194,15 @@
     }).join("");
   }
 
+  var revList = document.getElementById("reviewList");
+  function scrollReviews(dir) {
+    var card = revList.querySelector(".review");
+    var step = card ? card.getBoundingClientRect().width + 18 : 320;
+    revList.scrollBy({ left: dir * step, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }
+  document.getElementById("revPrev").addEventListener("click", function () { scrollReviews(-1); });
+  document.getElementById("revNext").addEventListener("click", function () { scrollReviews(1); });
+
   var writeUrl = S.googlePlaceId
     ? "https://search.google.com/local/writereview?placeid=" + encodeURIComponent(S.googlePlaceId)
     : S.mapsUrl;
@@ -208,7 +212,6 @@
 
   function useSample() {
     renderReviews(SAMPLE);
-    document.getElementById("reviewsDemo").hidden = false;
   }
 
   if (location.protocol === "file:") {
