@@ -117,6 +117,22 @@ h1, h2, h3, p { margin: 0; }
 .hero__sep { width: 1px; height: 16px; background: var(--line-l); }
 .hero__scroll { position: absolute; left: max(var(--pad), calc((100vw - var(--max)) / 2 + var(--pad))); bottom: 36px; display: flex; gap: 12px; align-items: center; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
 
+/* ---------- Hawa Mahal history ---------- */
+.history { position: relative; isolation: isolate; overflow: hidden; background: var(--ink); color: var(--cream); padding: clamp(80px, 10vw, 130px) 0; }
+.history__bg { position: absolute; inset: 0; z-index: -1; background: url("../assets/menu-cover.jpg") center 88% / cover no-repeat; opacity: .16; filter: grayscale(.3);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 55% 70%, #000 30%, transparent 80%); mask-image: radial-gradient(ellipse 80% 70% at 55% 70%, #000 30%, transparent 80%); }
+.history__inner { display: grid; grid-template-columns: minmax(240px, 380px) 1fr; gap: clamp(40px, 7vw, 96px); align-items: center; }
+.history__card { margin: 0; position: relative; transform: rotate(-2.5deg); }
+.history__card::before { content: ""; position: absolute; inset: -12px; border: 1px solid rgba(230,172,120,.45); transform: rotate(3deg); pointer-events: none; }
+.history__card img { width: 100%; height: auto; box-shadow: 0 30px 60px -20px rgba(0,0,0,.9); }
+.history__title { font: italic 500 clamp(2.2rem, 4.6vw, 3.6rem)/1.05 var(--serif); margin-bottom: 26px; }
+.history__body > p:not(.eyebrow) { color: rgba(252,246,236,.8); font-size: 15px; margin-bottom: 16px; max-width: 62ch; }
+.history__facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0 26px; }
+.history__facts div { border-top: 1px solid rgba(230,172,120,.35); padding-top: 14px; }
+.history__facts dt { font: 400 clamp(2rem, 4vw, 2.8rem)/1 var(--display); color: var(--gold); }
+.history__facts dd { margin: 8px 0 0; font-size: 13px; color: rgba(252,246,236,.7); }
+.history__note { color: var(--gold) !important; font-weight: 600; }
+
 /* ---------- Strip ---------- */
 .strip { background: var(--sand); border-bottom: 1px solid var(--line); }
 .strip__inner { display: flex; justify-content: center; align-items: center; gap: 18px 40px; flex-wrap: wrap; padding: 20px var(--pad); font-size: 13px; color: var(--text); }
@@ -373,7 +389,8 @@ h1, h2, h3, p { margin: 0; }
   .cards3 > .reveal:nth-child(n) { transition-delay: 0s; }
   .five { grid-template-columns: repeat(3, 1fr); }
   .five figure:nth-child(n+4) { display: none; }
-  .story, .phil, .visit, .reserve, .setting { grid-template-columns: 1fr; }
+  .story, .phil, .visit, .reserve, .setting, .history__inner { grid-template-columns: 1fr; }
+  .history__card { width: min(300px, 78%); margin: 8px auto 0; }
   .setting__img { aspect-ratio: 4 / 3; }
   .head-row__note { text-align: left; }
   .frame { width: 180px; }
@@ -396,6 +413,8 @@ h1, h2, h3, p { margin: 0; }
   .five figure:nth-child(n+4) { display: none; }
   .five figure:nth-child(3) { display: none; }
   .rform__row { grid-template-columns: 1fr; }
+  .history__facts { gap: 10px; }
+  .history__facts dd { font-size: 12px; }
   .review { width: 280px; }
   .hero__actions { flex-direction: column; width: 100%; }
   .hero__actions .button { width: 100%; }

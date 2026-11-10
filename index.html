@@ -50,18 +50,17 @@
     <nav class="nav" id="nav" aria-label="Main">
       <a href="#top" class="is-active">Home</a>
       <a href="#tattoos">Tattoos</a>
-      <a href="#menu">Our menu</a>
       <a href="#story">Our story</a>
-      <a href="#view">The view</a>
+      <a href="#history">Hawa Mahal</a>
     </nav>
     <a href="#reserve" class="button button--gold header__cta">Reserve a table now <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span></button>
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
     <a href="#top">Home</a>
+    <a href="#history">Hawa Mahal</a>
     <a href="#tattoos">Tattoos</a>
     <a href="#celebrities">Celebrities</a>
-    <a href="#menu">Our menu</a>
     <a href="#story">Our story</a>
     <a href="#reviews">Reviews</a>
     <a href="#reserve">Reserve a table</a>
@@ -89,7 +88,29 @@
       <span>Travellers' Choice 2026</span>
     </p>
   </div>
-  <a href="#favourites" class="hero__scroll"><svg width="14" height="14" aria-hidden="true"><use href="#i-down"/></svg>Your Jaipur story starts here</a>
+  <a href="#history" class="hero__scroll"><svg width="14" height="14" aria-hidden="true"><use href="#i-down"/></svg>Your Jaipur story starts here</a>
+</section>
+
+<!-- ============ HAWA MAHAL HISTORY ============ -->
+<section class="history" id="history" aria-labelledby="historyTitle">
+  <div class="history__bg" aria-hidden="true"></div>
+  <div class="wrap history__inner">
+    <figure class="history__card reveal">
+      <img src="assets/menu-cover.jpg" alt="Hawa Mahal artwork on The Tattoo Cafe's cover" width="707" height="793" loading="lazy">
+    </figure>
+    <div class="history__body reveal">
+      <p class="eyebrow c-gold">The story of our neighbour</p>
+      <h2 class="history__title" id="historyTitle">Hawa Mahal, <span class="c-gold">the Palace of Winds</span></h2>
+      <p>In 1799, Maharaja Sawai Pratap Singh of Jaipur built Hawa Mahal as an extension of the City Palace. Its architect, Lal Chand Ustad, shaped the façade like the crown of Lord Krishna, whom the Maharaja deeply revered.</p>
+      <p>The palace was made for the royal women, who followed purdah. From behind its 953 small jharokha windows, they could watch festivals and processions on the street below without being seen. The latticed windows also let the breeze flow through every room, keeping the palace cool in Jaipur's summers. That breeze gave it its name: Hawa Mahal, the Palace of Winds.</p>
+      <dl class="history__facts">
+        <div><dt>1799</dt><dd>Built by Maharaja Sawai Pratap Singh</dd></div>
+        <div><dt>953</dt><dd>Jharokha windows</dd></div>
+        <div><dt>5</dt><dd>Storeys of red and pink sandstone</dd></div>
+      </dl>
+      <p class="history__note">Today you can see it face to face from our studio and rooftop, directly across Hawa Mahal Road.</p>
+    </div>
+  </div>
 </section>
 
 <!-- ============ STRIP ============ -->
@@ -143,7 +164,7 @@
     <p class="eyebrow c-gold reveal">Ek baat yaad rakhna</p>
     <h2 class="display h1 reveal">Jaipur aaye, Hawa Mahal dekha? <span class="c-gold">Toh yahan kyun nahi aaye!</span></h2>
     <p class="band__italic reveal">Five storeys of pink sandstone, 953 windows, and one rooftop that looks straight at it.</p>
-    <p class="band__text reveal">Maharaja Sawai Pratap Singh built Hawa Mahal in 1799. Most visitors see it from the street. From our studio and rooftop you see it at eye level: golden in the morning, a silhouette at sunset, glowing amber at night.</p>
+    <p class="band__text reveal">Most visitors see Hawa Mahal from the street. From our studio and rooftop you see it at eye level: golden in the morning, a silhouette at sunset, glowing amber at night.</p>
     <div class="five reveal">
       <figure><img src="assets/hawa-mahal-facade.jpg" alt="Hawa Mahal façade in daylight" loading="lazy"><figcaption>Hawa Mahal</figcaption></figure>
       <figure><img src="assets/hero-poster.jpg" alt="Sunset behind Hawa Mahal from our rooftop" loading="lazy"><figcaption>Sunset silhouette</figcaption></figure>
@@ -247,26 +268,6 @@
       <button type="button" class="button button--outline" id="galleryMore">Show more tattoos <svg width="14" height="14" aria-hidden="true"><use href="#i-down"/></svg></button>
       <a href="#" class="button button--blue" data-wa="tattoo">Get a free design on WhatsApp <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
-  </div>
-</section>
-
-<!-- ============ MENU ============ -->
-<section class="section section--sand" id="menu">
-  <div class="wrap">
-    <div class="head-row reveal">
-      <div>
-        <p class="eyebrow eyebrow--dark">From our kitchen</p>
-        <h2 class="display h2">Something for <span class="c-red">every craving.</span></h2>
-      </div>
-      <p class="head-row__note">Tandoori starters, North Indian curries, vegan pizzas, <br>smoothie bowls and 20+ shakes. Tap a page to read it.</p>
-    </div>
-    <div class="cards3 menu-grid" id="menuPages"></div>
-    <ul class="promise reveal" aria-label="Our kitchen promise">
-      <li>Our tofu comes from Auroville</li>
-      <li>No artificial colours</li>
-      <li>No MSG</li>
-      <li>We bake our own pita bread</li>
-    </ul>
   </div>
 </section>
 
@@ -392,7 +393,6 @@
         <p>Jaipur aaye, Hawa Mahal dekha? <br>Toh The Tattoo Cafe bhi aana!</p>
       </div>
       <div class="footer__links">
-        <a href="#menu">Explore the menu <svg width="12" height="12" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a href="#reserve">Reserve a table now <svg width="12" height="12" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a href="#" data-wa="tattoo">Book a tattoo <svg width="12" height="12" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <span><svg width="14" height="14" aria-hidden="true"><use href="#i-pin"/></svg>Opposite Hawa Mahal, Jaipur</span>
