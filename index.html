@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>The Tattoo Cafe &amp; Lounge — Tattoo Studio facing Hawa Mahal, Jaipur</title>
-  <meta name="description" content="Get inked directly opposite Hawa Mahal, Jaipur. Tattoo studio and rooftop lounge with the best view of the Palace of Winds. Every tattoo style, designed and made in-house. Enquire on WhatsApp.">
-  <meta name="theme-color" content="#17110e">
+  <title>The Tattoo Cafe &amp; Lounge | Tattoo Studio &amp; Rooftop Café opposite Hawa Mahal, Jaipur</title>
+  <meta name="description" content="Get inked directly opposite Hawa Mahal, Jaipur. Tattoo studio and rooftop café with the best view of the Palace of Winds. Every tattoo style designed and made in-house. Enquire on WhatsApp.">
+  <meta name="theme-color" content="#14284b">
   <meta property="og:title" content="The Tattoo Cafe & Lounge · Facing Hawa Mahal, Jaipur">
-  <meta property="og:description" content="Get inked with the Palace of Winds in front of you. Tattoo studio + rooftop lounge on Hawa Mahal Road, Jaipur.">
+  <meta property="og:description" content="Get inked with the Palace of Winds in front of you. Tattoo studio + rooftop café on Hawa Mahal Road, Jaipur.">
   <meta property="og:image" content="assets/hero-poster.jpg">
   <meta property="og:type" content="website">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cormorant+Garamond:ital,wght@1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
   <script type="application/ld+json">
@@ -22,6 +22,7 @@
     "@type": ["TattooParlor", "CafeOrCoffeeShop"],
     "name": "The Tattoo Cafe & Lounge",
     "image": "assets/hero-poster.jpg",
+    "telephone": "+91-98280-65533",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "3rd Floor, 30, Opposite Hawa Mahal, Hawa Mahal Road",
@@ -30,256 +31,237 @@
       "postalCode": "302002",
       "addressCountry": "IN"
     },
-    "openingHours": "Mo-Su 08:30-23:00",
-    "telephone": "+91-98280-65533"
+    "openingHours": "Mo-Su 08:30-23:00"
   }
   </script>
 </head>
 <body>
-
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- ============ HEADER ============ -->
 <header class="header" id="header">
-  <div class="header__inner">
-    <a href="#top" class="logo" aria-label="The Tattoo Cafe & Lounge — home">
+  <div class="wrap header__inner">
+    <a href="#top" class="brand" aria-label="The Tattoo Cafe &amp; Lounge, home">
       <img src="assets/logo-wordmark-sm.png" alt="The Tattoo Cafe &amp; Lounge" width="360" height="226">
     </a>
-    <div class="award" title="Tripadvisor Travellers' Choice 2026">
+    <span class="award" title="Tripadvisor Travellers' Choice 2026">
       <img src="assets/tripadvisor-2026.png" alt="Tripadvisor Travellers' Choice 2026" width="172" height="220">
-      <span class="award__text"><strong>Travellers' Choice</strong><span>Tripadvisor 2026</span></span>
-    </div>
+    </span>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="#hawa-mahal">Hawa Mahal</a>
-      <a href="#celebrities">Celebrities</a>
+      <a href="#top" class="is-active">Home</a>
       <a href="#tattoos">Tattoos</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#lounge">Rooftop</a>
-      <a href="#menu">Menu</a>
-      <a href="#visit">Book a Table</a>
+      <a href="#menu">Our menu</a>
+      <a href="#story">Our story</a>
+      <a href="#view">The view</a>
     </nav>
-    <a href="#enquire" class="btn btn--gold btn--sm header__cta">Enquire</a>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span>
-    </button>
+    <a href="#reserve" class="button button--blue header__cta">Reserve a table now <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span></button>
   </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="#top">Home</a>
+    <a href="#tattoos">Tattoos</a>
+    <a href="#celebrities">Celebrities</a>
+    <a href="#menu">Our menu</a>
+    <a href="#story">Our story</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#reserve">Reserve a table</a>
+  </nav>
 </header>
 
 <main id="main">
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <div class="hero__ambient" aria-hidden="true"></div>
-  <div class="hero__inner">
-    <div class="hero__copy">
-      <p class="eyebrow">Directly opposite Hawa Mahal · Jaipur</p>
-      <h1 class="hero__title">Get inked facing the <em class="gold-text">Palace of&nbsp;Winds.</em></h1>
-      <p class="hero__lead">Our studio sits right across from Hawa Mahal. Its 953 windows are in front of you while you get your tattoo, and on the rooftop as the sun sets.</p>
-      <div class="hero__actions">
-        <a href="#" class="btn btn--wa" data-wa="general">
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><use href="#i-wa"/></svg>
-          Enquire on WhatsApp
-        </a>
-        <a href="#hawa-mahal" class="btn btn--ghost">See the view</a>
-      </div>
-      <a href="#reviews" class="rating-chip">
-        <span class="stars" aria-hidden="true">★★★★★</span>
-        <span><strong data-rating>4.2</strong> on Google · <span data-review-count>6,606+</span> reviews</span>
-      </a>
+  <video class="hero__media" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg" aria-label="Sunset over Hawa Mahal, filmed from our rooftop">
+    <source src="assets/hero.mp4" type="video/mp4">
+  </video>
+  <div class="wrap hero__inner">
+    <p class="eyebrow">The Tattoo Cafe · Tattoo studio &amp; rooftop café · Opposite Hawa Mahal</p>
+    <h1 class="display hero__title">Came to Jaipur? Then get inked facing the palace.</h1>
+    <p class="hero__lead">Jaipur aaye aur Hawa Mahal ke saamne tattoo nahi banwaya, toh kya Jaipur aaye? Every style drawn with you, chai on the rooftop, and the best view of the Palace of Winds.</p>
+    <div class="hero__actions">
+      <a href="#" class="button button--blue" data-wa="general">Enquire on WhatsApp <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="#reserve" class="link-arrow link-arrow--light">Reserve a table now <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
+    <p class="hero__meta">
+      <span><span class="stars" aria-hidden="true">★★★★★</span> <b data-rating>4.2</b> · <span data-review-count>6,606+</span> Google reviews</span>
+      <span class="hero__sep" aria-hidden="true"></span>
+      <span>Travellers' Choice 2026</span>
+    </p>
+  </div>
+  <a href="#favourites" class="hero__scroll"><svg width="14" height="14" aria-hidden="true"><use href="#i-down"/></svg>Your Jaipur story starts here</a>
+</section>
 
-    <div class="hero__frame">
-      <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg" aria-label="Sunset over Hawa Mahal, filmed from our rooftop">
-        <source src="assets/hero.mp4" type="video/mp4">
-      </video>
-      <span class="hero__caption">Filmed from our rooftop</span>
+<!-- ============ STRIP ============ -->
+<div class="strip" aria-label="Highlights">
+  <div class="wrap strip__inner">
+    <span><svg width="16" height="16" aria-hidden="true"><use href="#i-pin"/></svg>Directly opposite Hawa Mahal</span>
+    <i aria-hidden="true"></i>
+    <span><svg width="16" height="16" aria-hidden="true"><use href="#i-pen"/></svg>Every tattoo style, made in-house</span>
+    <i aria-hidden="true"></i>
+    <span><svg width="16" height="16" aria-hidden="true"><use href="#i-cup"/></svg>Rooftop café, chai to sunset dinner</span>
+  </div>
+</div>
+
+<!-- ============ FAVOURITES (3 tattoo cards) ============ -->
+<section class="section" id="favourites">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <p class="eyebrow eyebrow--dark">A few good pieces to start</p>
+        <h2 class="display h2">From our studio, <span class="c-red">with Jaipur love.</span></h2>
+      </div>
+      <a href="#tattoos" class="link-arrow">See all tattoos <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="cards3">
+      <article class="card reveal">
+        <a class="card__img" href="#" data-wa="hawamahal"><img src="assets/tattoos/tattoo-11.jpg" alt="Lotus tattoo on the nape, photographed facing Hawa Mahal" loading="lazy"><span class="card__go" aria-hidden="true"><svg width="14" height="14"><use href="#i-arrow"/></svg></span></a>
+        <p class="kicker">Shot facing Hawa Mahal</p>
+        <h3>Lotus on the nape</h3>
+        <p>Fine-line lotus, finished and photographed right across from the Palace of Winds.</p>
+      </article>
+      <article class="card reveal">
+        <a class="card__img" href="#" data-wa="tattoo"><img src="assets/tattoos/tattoo-7.jpg" alt="Trishul, serpent and Om tattoo on the arm" loading="lazy"><span class="card__go" aria-hidden="true"><svg width="14" height="14"><use href="#i-arrow"/></svg></span></a>
+        <p class="kicker">Sanskrit &amp; spiritual</p>
+        <h3>Trishul, serpent &amp; Om</h3>
+        <p>Blackwork with a touch of red, drawn around a yantra. One of our most-asked styles.</p>
+      </article>
+      <article class="card reveal">
+        <a class="card__img" href="#" data-wa="tattoo"><img src="assets/tattoos/tattoo-2.jpg" alt="Colour phoenix tattoo on the hand" loading="lazy"><span class="card__go" aria-hidden="true"><svg width="14" height="14"><use href="#i-arrow"/></svg></span></a>
+        <p class="kicker">Colour work</p>
+        <h3>Rising phoenix</h3>
+        <p>Fire-orange feathers flowing down the hand. Bold colour that heals bright.</p>
+      </article>
+    </div>
+    <p class="fineprint reveal">A few favourites from The Tattoo Cafe studio. Tap any piece to ask for something similar on WhatsApp.</p>
+  </div>
+</section>
+
+<!-- ============ VIEW BAND (navy) ============ -->
+<section class="band band--navy" id="view">
+  <div class="wrap band__inner">
+    <p class="eyebrow c-gold reveal">Ek baat yaad rakhna</p>
+    <h2 class="display h1 reveal">Jaipur aaye, Hawa Mahal dekha? <span class="c-gold">Toh yahan kyun nahi aaye!</span></h2>
+    <p class="band__italic reveal">Five storeys of pink sandstone, 953 windows, and one rooftop that looks straight at it.</p>
+    <p class="band__text reveal">Maharaja Sawai Pratap Singh built Hawa Mahal in 1799. Most visitors see it from the street. From our studio and rooftop you see it at eye level: golden in the morning, a silhouette at sunset, glowing amber at night.</p>
+    <div class="five reveal">
+      <figure><img src="assets/hawa-mahal-facade.jpg" alt="Hawa Mahal façade in daylight" loading="lazy"><figcaption>Hawa Mahal</figcaption></figure>
+      <figure><img src="assets/hero-poster.jpg" alt="Sunset behind Hawa Mahal from our rooftop" loading="lazy"><figcaption>Sunset silhouette</figcaption></figure>
+      <figure><img src="assets/hawa-mahal-night.jpg" alt="Hawa Mahal lit up at night" loading="lazy" style="object-position:center 60%"><figcaption>Lit up at night</figcaption></figure>
+      <figure><img src="assets/rooftop-1.jpg" alt="Our rooftop terrace facing Hawa Mahal" loading="lazy"><figcaption>Our rooftop</figcaption></figure>
+      <figure><img src="assets/cafe-interior.jpg" alt="Inside The Tattoo Cafe" loading="lazy"><figcaption>…and The Tattoo Cafe</figcaption></figure>
     </div>
   </div>
 </section>
 
-<!-- ============ CELEBRITY FILM ROLL ============ -->
-<section class="stars-reel" id="celebrities">
-  <div class="stars-reel__bg" aria-hidden="true"></div>
-  <div class="container stars-reel__head">
-    <p class="eyebrow">Famous faces at our window</p>
-    <h2>They came for the view. <span class="gold-text">Some left with ink.</span></h2>
-    <p class="section__lead">Over the years, many well-known faces have sat at our window, looked across at Hawa Mahal and left a little piece of Jaipur on their skin.</p>
-  </div>
-  <div class="film" aria-label="Celebrities who have visited The Tattoo Cafe">
-    <div class="film__track" id="filmTrack"></div>
-  </div>
-</section>
-
-<!-- ============ HAWA MAHAL ============ -->
-<section class="section section--maroon hm" id="hawa-mahal">
-  <div class="container">
-    <div class="hm__grid">
-      <div class="hm__photo">
-        <img src="assets/hawa-mahal-facade.jpg" alt="Hawa Mahal's pink sandstone façade and jharokha windows" loading="lazy">
-      </div>
-      <div class="hm__body">
-        <p class="eyebrow">Our neighbour since 1799</p>
-        <h2>Hawa Mahal, <span class="gold-text">the Palace of Winds</span></h2>
-        <p class="section__lead">Maharaja Sawai Pratap Singh built Hawa Mahal in 1799 so that the royal women could watch street festivals without being seen. It is five storeys of pink sandstone shaped like Lord Krishna's crown, with 953 small jharokha windows that keep the breeze moving through it. It is the face of Jaipur.</p>
-        <p class="section__lead">Most visitors only see it from the street. From our studio you see it straight on and at eye level.</p>
-        <dl class="hm__facts">
-          <div><dt>953</dt><dd>jharokha windows</dd></div>
-          <div><dt>5</dt><dd>storeys of pink sandstone</dd></div>
-          <div><dt>1799</dt><dd>year it was built</dd></div>
-        </dl>
-      </div>
-    </div>
-
-    <div class="moments">
-      <article class="moment">
-        <img src="assets/hawa-mahal-facade.jpg" alt="Hawa Mahal façade in daylight" loading="lazy">
-        <div class="moment__body">
-          <p class="moment__time">Morning</p>
-          <h3>Golden façade</h3>
-          <p>The palace faces east, so the morning sun lights up every window. This is the best light for photos of you and your new tattoo.</p>
-        </div>
-      </article>
-      <article class="moment">
-        <img src="assets/hero-poster.jpg" alt="Sun setting behind Hawa Mahal, seen from our rooftop" loading="lazy">
-        <div class="moment__body">
-          <p class="moment__time">Sunset</p>
-          <h3>The silhouette</h3>
-          <p>In the evening the sun sinks behind the palace and the sky turns gold, pink and blue. This is the view in our video.</p>
-        </div>
-      </article>
-      <article class="moment">
-        <img src="assets/hawa-mahal-night.jpg" alt="Hawa Mahal lit up at night, seen from our window" loading="lazy" style="object-position:center 62%">
-        <div class="moment__body">
-          <p class="moment__time">Night</p>
-          <h3>The palace lights up</h3>
-          <p>After dark the whole façade glows amber above the bazaar. From our window it looks close enough to touch.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TATTOOS ============ -->
-<section class="section tstudio" id="tattoos">
-  <div class="tstudio__glow" aria-hidden="true"></div>
-  <div class="container tstudio__head">
+<!-- ============ REVIEWS (marquee) ============ -->
+<section class="section section--mist" id="reviews">
+  <div class="wrap head-row reveal">
     <div>
-      <p class="eyebrow">The Tattoo Studio</p>
-      <h2>Take Jaipur home, <span class="gold-text">on your skin</span></h2>
+      <p class="eyebrow eyebrow--dark">Words from our guests · <span data-rating>4.2</span>★ on Google</p>
+      <h2 class="display h2">Came for the view. <br>Left with Jaipur.</h2>
     </div>
-    <div class="tstudio__intro">
-      <p class="section__lead">From a tiny Hawa Mahal outline to a full back piece, every design is drawn with you and inked right here, facing the palace.</p>
-      <a href="#" class="btn btn--wa" data-wa="tattoo" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><use href="#i-wa"/></svg>
-        Send your tattoo idea
-      </a>
+    <div class="head-row__tools">
+      <a href="#" class="link-arrow" id="allReviews" target="_blank" rel="noopener">Read <span data-review-count>6,606+</span> reviews <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <button type="button" class="pause" id="reviewPause" aria-pressed="false"><span class="pause__icon" aria-hidden="true"></span><span class="pause__label">Pause</span></button>
     </div>
   </div>
-
-  <div class="tmarquee" aria-label="Tattoos made in our studio">
-    <div class="tmarquee__row" id="tattooRowA"></div>
-    <div class="tmarquee__row tmarquee__row--rev" id="tattooRowB"></div>
+  <div class="marquee" id="reviewMarquee"><div class="track" id="reviewTrack"></div></div>
+  <div class="wrap reviews__foot reveal">
+    <a class="link-arrow" id="writeReview" href="#" target="_blank" rel="noopener">★ Write a review on Google <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </div>
+</section>
 
-  <div class="container">
-    <ul class="styles" aria-label="Tattoo styles we make">
-      <li>Hawa Mahal &amp; Jaipur motifs</li>
-      <li>Fine-line &amp; minimal</li>
-      <li>Names &amp; scripts</li>
-      <li>Sanskrit &amp; spiritual</li>
-      <li>Realism &amp; portraits</li>
-      <li>Colour &amp; watercolour</li>
-      <li>Couple tattoos</li>
-      <li>Custom designs</li>
-      <li>Cover-ups</li>
+<!-- ============ STORY ============ -->
+<section class="section section--sand" id="story">
+  <div class="wrap story">
+    <figure class="story__portrait reveal">
+      <img src="assets/cafe-interior.jpg" alt="Hand-painted mural, chandeliers and colourful chairs inside the café" loading="lazy">
+      <figcaption><strong>The Tattoo Cafe family</strong><span>Inked &amp; brewed opposite Hawa Mahal</span></figcaption>
+    </figure>
+    <div class="story__body reveal">
+      <p class="eyebrow eyebrow--dark">The heart behind the café</p>
+      <h2 class="display h2">Jaipur's view. <br>Jaipur's ink. <br>Jaipur's <span class="c-red">best rooftop.</span></h2>
+      <p>The Tattoo Cafe is a place where artists, travellers and locals share one table, three floors above Hawa Mahal Road. In the studio, every design is drawn with you. On the rooftop, painted haveli walls frame the palace right in front of you.</p>
+      <p>Come for a cup of chai and a photo of the view, and you might leave with a little piece of Jaipur on your skin.</p>
+      <p class="story__sign">Padharo mhare des, and stay a little longer.</p>
+      <a href="#" class="link-arrow" data-wa="general">We'd love to have you over <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CELEBRITIES (navy film roll) ============ -->
+<section class="band band--ink" id="celebrities">
+  <div class="wrap band__inner">
+    <p class="eyebrow c-gold reveal">Famous faces at our window</p>
+    <h2 class="display h1 reveal">They came for the view. <span class="c-gold">Some left with ink.</span></h2>
+    <p class="band__italic reveal">Many well-known faces have sat at the same window, looking across at Hawa Mahal.</p>
+  </div>
+  <div class="film" aria-label="Celebrities who have visited The Tattoo Cafe"><div class="film__track" id="filmTrack"></div></div>
+</section>
+
+<!-- ============ PHILOSOPHY (teal) ============ -->
+<section class="section section--teal" id="studio">
+  <div class="wrap phil">
+    <div class="reveal">
+      <p class="eyebrow c-gold">Safe by habit. Artistic by nature.</p>
+      <h2 class="display h2">Every style. <br><span class="c-gold">Made in-house.</span></h2>
+      <p>At The Tattoo Cafe, every tattoo starts with a conversation. Bring an idea, a photo or just a feeling, and our artist sketches it with you until it's exactly yours, from a tiny Hawa Mahal outline to a full back piece.</p>
+      <p>Hawa Mahal and Jaipur motifs, fine-line, names and scripts, Sanskrit and spiritual, realism, colour and watercolour, couple tattoos and cover-ups. All of it designed and inked right here.</p>
+      <div class="phil__links">
+        <a href="#" class="link-arrow link-arrow--light" data-wa="tattoo">Send your tattoo idea <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="#tattoos" class="link-arrow link-arrow--light">See our work <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <p class="fineprint fineprint--light">You must be 18 or older with a valid photo ID. Walk-ins welcome when an artist is free.</p>
+    </div>
+    <ul class="principles">
+      <li class="reveal"><svg width="18" height="18" aria-hidden="true"><use href="#i-shield"/></svg><div><h3>Sterile. Single-use. Every time.</h3><p>Fresh needles and cartridges opened in front of you, new gloves and a sanitised station for every guest.</p></div></li>
+      <li class="reveal"><svg width="18" height="18" aria-hidden="true"><use href="#i-pen"/></svg><div><h3>Drawn with you.</h3><p>Message your idea on WhatsApp, get a free design consultation, and change it until you love it.</p></div></li>
+      <li class="reveal"><svg width="18" height="18" aria-hidden="true"><use href="#i-pin"/></svg><div><h3>Inked facing the palace.</h3><p>Get your tattoo with Hawa Mahal in view, then take the photo on our rooftop. A souvenir that never fades.</p></div></li>
     </ul>
-
-    <ol class="tsteps">
-      <li><span class="tsteps__n">01</span><h3>Message us</h3><p>Send your idea and a reference photo on WhatsApp.</p></li>
-      <li><span class="tsteps__n">02</span><h3>Your design</h3><p>Our artist sketches it with you and confirms the time.</p></li>
-      <li><span class="tsteps__n">03</span><h3>Get inked</h3><p>Fresh needles opened in front of you, Hawa Mahal in view.</p></li>
-      <li><span class="tsteps__n">04</span><h3>Aftercare</h3><p>A care guide to take home, and WhatsApp help while it heals.</p></li>
-    </ol>
-
-    <div class="tpromise">
-      <div>
-        <p class="tpromise__kicker">Free design consultation</p>
-        <p class="tpromise__title">Every style, made in-house. <span class="gold-text">Walk-ins welcome.</span></p>
-      </div>
-      <a href="#" class="btn btn--gold" data-wa="tattoo" target="_blank" rel="noopener">Book your tattoo on WhatsApp</a>
-    </div>
   </div>
 </section>
 
-<!-- ============ REVIEWS ============ -->
-<section class="section section--ink" id="reviews">
-  <div class="container">
-    <header class="section__head reviews__head">
-      <div>
-        <p class="eyebrow">Guest reviews</p>
-        <h2>Loved by travellers &amp; locals</h2>
-      </div>
-      <div class="score">
-        <p class="score__num" data-rating>4.2</p>
-        <div>
-          <p class="stars stars--lg" aria-hidden="true">★★★★★</p>
-          <p class="score__meta"><span data-review-count>6,606+</span> reviews on Google</p>
-        </div>
-      </div>
-    </header>
-
-    <div class="reviews" id="reviewList" aria-live="polite"></div>
-
-    <div class="reviews__actions">
-      <div class="reviews__nav">
-        <button type="button" class="rnav" id="revPrev" aria-label="Previous reviews">←</button>
-        <button type="button" class="rnav" id="revNext" aria-label="More reviews">→</button>
-      </div>
-      <a class="btn btn--gold" id="writeReview" href="#" target="_blank" rel="noopener">★ Write a review on Google</a>
-      <a class="btn btn--ghost" id="allReviews" href="#" target="_blank" rel="noopener">Read all reviews</a>
-    </div>
+<!-- ============ BANNER (blue) ============ -->
+<section class="section section--blue banner">
+  <div class="wrap reveal">
+    <p class="eyebrow">Local roots. Every style.</p>
+    <h2 class="display h1">Something for <span class="c-peach">every story.</span></h2>
+    <p>First tattoos, travel souvenirs, matching pieces with your partner, names of the people you love, or a full sleeve you've dreamed about for years.</p>
+    <a href="#" class="button button--cream" data-wa="tattoo">Find your design <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </div>
 </section>
 
-<!-- ============ ROOFTOP LOUNGE ============ -->
-<section class="section" id="lounge">
-  <div class="container cafe">
-    <div class="cafe__photos">
-      <img class="cafe__ph cafe__ph--tall" src="assets/rooftop-1.jpg" alt="Rooftop lounge terrace facing Hawa Mahal" loading="lazy">
-      <img class="cafe__ph" src="assets/cafe-interior.jpg" alt="Inside the café: a hand-painted mural, chandeliers and colourful chairs" loading="lazy">
-      <img class="cafe__ph" src="assets/cafe-mural.jpg" alt="Hand-painted Rajasthani mural on the café's rooftop wall at dusk" loading="lazy">
-    </div>
-    <div class="cafe__body">
-      <p class="eyebrow eyebrow--dark">The Café &amp; Rooftop</p>
-      <h2>Art on every wall, <span class="gold-text">a royal view</span></h2>
-      <p class="section__lead">Inside, hand-painted murals, vintage chandeliers and colourful chairs make the café feel like an artist's studio. Up on the rooftop, the walls are painted like an old Jaipur haveli, with jharokhas, a musician at the window and our name in Hindi. Come for food, chai and the sunset, three floors above Hawa Mahal Road with the palace right in front of you.</p>
-      <p class="cafe__hours" data-hours>Open daily · 8:30 AM – 11:00 PM</p>
-      <p class="cafe__cover">A cover charge applies for entry to the café and rooftop. Message us on WhatsApp for current rates.</p>
-      <div class="cafe__actions">
-        <a href="#menu" class="btn btn--dark">See the menu</a>
-        <a href="#" class="btn btn--outline" data-wa="table">Ask about a rooftop table</a>
+<!-- ============ TATTOO GALLERY (staggered, scroll reveal) ============ -->
+<section class="section" id="tattoos">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <p class="eyebrow eyebrow--dark">Fresh from the chair</p>
+        <h2 class="display h2">A taste of <span class="c-red">the ink.</span></h2>
       </div>
+      <p class="head-row__note">Something royal. Something personal. <br>Tap a tattoo to see it full size.</p>
+    </div>
+    <div class="cards3 gallery" id="tattooGallery"></div>
+    <div class="gallery__more reveal">
+      <button type="button" class="button button--outline" id="galleryMore">Show more tattoos <svg width="14" height="14" aria-hidden="true"><use href="#i-down"/></svg></button>
+      <a href="#" class="button button--blue" data-wa="tattoo">Get a free design on WhatsApp <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
 
 <!-- ============ MENU ============ -->
-<section class="section section--ink menu-sec" id="menu">
-  <div class="menu-sec__bg" aria-hidden="true"></div>
-  <div class="container">
-    <div class="menu-sec__intro">
-      <figure class="menu-cover">
-        <img src="assets/menu-cover.jpg" alt="Cover of The Tattoo Cafe &amp; Lounge menu, with Hawa Mahal" width="707" height="793" loading="lazy">
-      </figure>
-      <header class="section__head menu-sec__head">
-        <p class="eyebrow">The Menu</p>
-        <h2>Food &amp; drinks <span class="gold-text">with a palace view</span></h2>
-        <p class="section__lead">Starters from the tandoor, North Indian curries, vegan pizzas, smoothie bowls and over twenty shakes and coolers, served three floors above Hawa Mahal Road. Tap a page below to see it full size.</p>
-        <p class="menu-sec__note"><span data-hours>Open daily · 8:30 AM – 11:00 PM</span><br>Cover charge applies for entry</p>
-      </header>
+<section class="section section--sand" id="menu">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <p class="eyebrow eyebrow--dark">From our kitchen</p>
+        <h2 class="display h2">Something for <span class="c-red">every craving.</span></h2>
+      </div>
+      <p class="head-row__note">Tandoori starters, North Indian curries, vegan pizzas, <br>smoothie bowls and 20+ shakes. Tap a page to read it.</p>
     </div>
-    <div class="menu-pages" id="menuPages"></div>
-    <ul class="menu-promise" aria-label="Our kitchen promise">
+    <div class="cards3 menu-grid" id="menuPages"></div>
+    <ul class="promise reveal" aria-label="Our kitchen promise">
       <li>Our tofu comes from Auroville</li>
       <li>No artificial colours</li>
       <li>No MSG</li>
@@ -288,209 +270,113 @@
   </div>
 </section>
 
-<dialog class="lightbox" id="lightbox" aria-label="Menu page">
-  <button class="lightbox__close" type="button" aria-label="Close menu page">×</button>
-  <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Previous page">‹</button>
-  <img alt="">
-  <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Next page">›</button>
-</dialog>
+<!-- ============ SETTING (split) ============ -->
+<section class="setting" aria-labelledby="settingTitle">
+  <div class="setting__img"><img src="assets/hawa-mahal-facade.jpg" alt="Hawa Mahal's pink sandstone façade" loading="lazy"></div>
+  <div class="setting__panel reveal">
+    <p class="eyebrow">A café with a view</p>
+    <h2 class="display h3" id="settingTitle">In the heart of the Pink City, with Hawa Mahal at your table.</h2>
+    <p>A cup of chai, a table facing the palace, and time to take the whole city in.</p>
+    <p class="setting__pin"><svg width="16" height="16" aria-hidden="true"><use href="#i-pin"/></svg>Hawa Mahal Road, Jaipur</p>
+    <a href="#reserve" class="button button--cream">Reserve a table now <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <p class="fineprint fineprint--light">Send us a WhatsApp message to request your table. Ask for a view seat!</p>
+  </div>
+</section>
 
-<!-- ============ FAQ ============ -->
-<section class="section section--sand" id="faq">
-  <div class="container container--narrow">
-    <header class="section__head">
-      <p class="eyebrow eyebrow--dark">Good to know</p>
-      <h2>Questions before your first tattoo</h2>
-    </header>
-    <div class="faq">
-      <details>
-        <summary>Does getting a tattoo hurt?</summary>
-        <p>Most guests describe it as a scratching or stinging feeling. Small pieces take only a few minutes, and you can ask for a break at any time.</p>
-      </details>
-      <details>
-        <summary>How long does a tattoo take?</summary>
-        <p>A small minimal tattoo usually takes 30–60 minutes. Larger custom pieces may need a few hours or more than one session. We'll tell you when we quote.</p>
-      </details>
-      <details>
-        <summary>Is it safe and hygienic?</summary>
-        <p>Yes. For every client we use sterile, single-use needles and cartridges opened in front of you, disposable gloves, and a sanitised workstation.</p>
-      </details>
-      <details>
-        <summary>I'm only in Jaipur for a day or two. Can I still get tattooed?</summary>
-        <p>Absolutely. Most travellers get a small or Hawa Mahal tattoo the same day. Send us your idea on WhatsApp before you arrive and we'll have a design ready.</p>
-      </details>
-      <details>
-        <summary>Can I walk in?</summary>
-        <p>Walk-ins are welcome when an artist is free. To be sure of a slot, message us on WhatsApp in advance.</p>
-      </details>
-      <details>
-        <summary>Is there an age limit?</summary>
-        <p>You must be 18 or older and carry a valid photo ID.</p>
-      </details>
-      <details>
-        <summary>How do I take care of my new tattoo?</summary>
-        <p>Keep it clean and apply a thin layer of the recommended balm. For two weeks, avoid swimming, direct sun and scratching. You'll get a printed aftercare guide after your session.</p>
-      </details>
-      <details>
-        <summary>Is there an entry fee?</summary>
-        <p>Yes. A cover charge applies for entry to the café and rooftop. Message us on WhatsApp for the current amount.</p>
-      </details>
-      <details>
-        <summary>How can I pay?</summary>
-        <p>We accept cash, UPI and cards, including international cards.</p>
-      </details>
+<!-- ============ VISIT ============ -->
+<section class="section section--sand" id="visit">
+  <div class="wrap visit">
+    <div class="reveal">
+      <p class="eyebrow eyebrow--dark">Pull up a chair</p>
+      <h2 class="display h2">Your Jaipur trip isn't <span class="c-red">complete without us.</span></h2>
+      <p>Come for a sunset chai, a rooftop dinner or your first tattoo. Jaipur aaye ho, toh The Tattoo Cafe zaroor aana.</p>
+      <p class="visit__brand"><svg width="16" height="16" aria-hidden="true"><use href="#i-pin"/></svg><span><strong>The Tattoo Cafe &amp; Lounge</strong><small>Tattoo studio &amp; rooftop café · Jaipur</small></span></p>
+    </div>
+    <div class="reveal">
+      <h3 class="display visit__h">Let's make your visit easy.</h3>
+      <ul class="info">
+        <li><svg width="18" height="18" aria-hidden="true"><use href="#i-pin"/></svg><div><strong>Find us</strong><p data-address>3rd Floor, 30, Opposite Hawa Mahal, Hawa Mahal Road, Jaipur, Rajasthan 302002</p><a href="#" class="link-arrow" data-maps target="_blank" rel="noopener">Get directions <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></li>
+        <li><svg width="18" height="18" aria-hidden="true"><use href="#i-clock"/></svg><div><strong>Opening hours</strong><p>Every day · 8:30 am–11 pm</p><small>Monday to Sunday · India Standard Time</small></div></li>
+        <li><svg width="18" height="18" aria-hidden="true"><use href="#i-phone"/></svg><div><strong>Call or WhatsApp</strong><p><a href="#" class="link-arrow" data-phone>+91 98280 65533</a></p><small>For questions before your visit, message or call us.</small></div></li>
+        <li><svg width="18" height="18" aria-hidden="true"><use href="#i-ticket"/></svg><div><strong>Entry</strong><p>A cover charge applies for entry to the café and rooftop. Ask us on WhatsApp for today's amount.</p></div></li>
+        <li><svg width="18" height="18" aria-hidden="true"><use href="#i-heart"/></svg><div><strong>Follow along</strong><p><a href="#" class="link-arrow" data-instagram target="_blank" rel="noopener">The Tattoo Cafe on Instagram <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a></p></div></li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ============ ENQUIRE (WHATSAPP) ============ -->
-<section class="section section--ink enquire" id="enquire">
-  <div class="enquire__bg" aria-hidden="true"></div>
-  <div class="container enquire__inner">
-    <header class="section__head enquire__head">
-      <p class="eyebrow">Enquire on WhatsApp</p>
-      <h2>Tell us what you're thinking</h2>
-      <p class="section__lead">Tap a button and WhatsApp opens with a message ready to send. Our team replies on WhatsApp with designs and free slots.</p>
-    </header>
-
-    <div class="enquiry-grid">
-      <a class="enquiry" href="#" data-wa="tattoo" target="_blank" rel="noopener">
-        <span class="enquiry__num" aria-hidden="true">01</span>
-        <span class="enquiry__title">Tattoo enquiry</span>
-        <span class="enquiry__text">Share your idea and get a free design</span>
-        <span class="enquiry__go">Open WhatsApp →</span>
-      </a>
-      <a class="enquiry enquiry--feature" href="#" data-wa="hawamahal" target="_blank" rel="noopener">
-        <span class="enquiry__num" aria-hidden="true">02</span>
-        <span class="enquiry__title">Hawa Mahal tattoo</span>
-        <span class="enquiry__text">Our most popular souvenir piece</span>
-        <span class="enquiry__go">Open WhatsApp →</span>
-      </a>
-      <a class="enquiry" href="#" data-wa="table" target="_blank" rel="noopener">
-        <span class="enquiry__num" aria-hidden="true">03</span>
-        <span class="enquiry__title">Rooftop table</span>
-        <span class="enquiry__text">Sunset seats facing the palace</span>
-        <span class="enquiry__go">Open WhatsApp →</span>
-      </a>
-      <a class="enquiry" href="#" data-wa="general" target="_blank" rel="noopener">
-        <span class="enquiry__num" aria-hidden="true">04</span>
-        <span class="enquiry__title">Any other question</span>
-        <span class="enquiry__text">Timings, prices, aftercare, anything</span>
-        <span class="enquiry__go">Open WhatsApp →</span>
-      </a>
-    </div>
-    <p class="enquire__small">Usually replies within minutes · No payment needed to enquire</p>
-  </div>
-</section>
-
-<!-- ============ RESERVATIONS + VISIT ============ -->
-<section class="section reserve" id="visit">
-  <div class="container reserve__grid">
-    <div class="reserve__main" id="reserve">
+<!-- ============ RESERVE ============ -->
+<section class="section" id="reserve">
+  <div class="wrap reserve">
+    <div class="reveal">
       <p class="eyebrow eyebrow--dark">Reservations</p>
-      <h2>Book your table.</h2>
-      <p class="section__lead">Fill in the details below. Your request opens in WhatsApp, and our team confirms it there.</p>
-
-      <form class="rform" id="reserveForm" novalidate>
-        <div class="rform__row">
-          <div class="field">
-            <label for="rName">Your name</label>
-            <input id="rName" name="name" autocomplete="name" placeholder="e.g. Priya Sharma" required>
-            <p class="field__err" id="rNameErr">Add your name so we know who to expect.</p>
-          </div>
-          <div class="field">
-            <label for="rPhone">Phone number</label>
-            <input id="rPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+91 98765 43210" required>
-            <p class="field__err" id="rPhoneErr">Add a phone number with at least 10 digits.</p>
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="rType">What are you looking for?</label>
-          <select id="rType" name="type" required>
-            <option value="">Select an option</option>
-            <option>Table Reservation</option>
-            <option>Sunset Table (Hawa Mahal view)</option>
-            <option>Birthday Celebration</option>
-            <option>Date Night</option>
-            <option>Group Booking</option>
-            <option>Private Event</option>
-            <option>Tattoo Appointment</option>
-          </select>
-          <p class="field__err" id="rTypeErr">Choose what you'd like to book.</p>
-        </div>
-
-        <div class="rform__row">
-          <div class="field">
-            <label for="rDate">Date</label>
-            <input id="rDate" name="date" type="date">
-          </div>
-          <div class="field">
-            <label for="rGuests">Guests</label>
-            <select id="rGuests" name="guests">
-              <option>1</option><option selected>2</option><option>3</option><option>4</option>
-              <option>5</option><option>6</option><option>7–10</option><option>10+</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="rNote">Anything we should know? <span class="field__opt">(optional)</span></label>
-          <textarea id="rNote" name="note" rows="3" placeholder="Preferred time, occasion, tattoo idea…"></textarea>
-        </div>
-
-        <button class="btn btn--wa btn--block" type="submit">
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><use href="#i-wa"/></svg>
-          Send booking request on WhatsApp
-        </button>
-        <p class="rform__small">No payment now. A cover charge applies for entry on the day.</p>
-      </form>
+      <h2 class="display h2">Book your table.</h2>
+      <p>Fill in the details below. Your request opens in WhatsApp, and our team confirms it there.</p>
+      <div class="reserve__map"><iframe title="Map showing The Tattoo Cafe &amp; Lounge opposite Hawa Mahal" data-map-embed loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
     </div>
-
-    <aside class="reserve__info" aria-label="Contact details">
-      <div class="icard">
-        <svg class="icard__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-        <h3>Find us</h3>
-        <p data-address>3rd Floor, 30, Opposite Hawa Mahal, Hawa Mahal Road, Jaipur, Rajasthan 302002</p>
-        <a class="icard__link" href="#" data-maps target="_blank" rel="noopener">Get directions →</a>
+    <form class="rform reveal" id="reserveForm" novalidate>
+      <div class="rform__row">
+        <div class="field">
+          <label for="rName">Your name</label>
+          <input id="rName" name="name" autocomplete="name" placeholder="e.g. Priya Sharma" required>
+          <p class="field__err" id="rNameErr">Add your name so we know who to expect.</p>
+        </div>
+        <div class="field">
+          <label for="rPhone">Phone number</label>
+          <input id="rPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+91 98765 43210" required>
+          <p class="field__err" id="rPhoneErr">Add a phone number with at least 10 digits.</p>
+        </div>
       </div>
-      <div class="icard">
-        <svg class="icard__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
-        <h3>Call or WhatsApp</h3>
-        <p><a href="#" data-phone>+91 98280 65533</a></p>
-        <a class="icard__link" href="#" data-wa="general" target="_blank" rel="noopener">Chat on WhatsApp →</a>
+      <div class="field">
+        <label for="rType">What are you looking for?</label>
+        <select id="rType" name="type" required>
+          <option value="">Select an option</option>
+          <option>Table Reservation</option>
+          <option>Sunset Table (Hawa Mahal view)</option>
+          <option>Birthday Celebration</option>
+          <option>Date Night</option>
+          <option>Group Booking</option>
+          <option>Private Event</option>
+          <option>Tattoo Appointment</option>
+        </select>
+        <p class="field__err" id="rTypeErr">Choose what you'd like to book.</p>
       </div>
-      <div class="icard">
-        <svg class="icard__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        <h3>Opening hours</h3>
-        <p>Monday – Sunday<br>8:30 AM – 11:00 PM</p>
+      <div class="rform__row">
+        <div class="field">
+          <label for="rDate">Date</label>
+          <input id="rDate" name="date" type="date">
+        </div>
+        <div class="field">
+          <label for="rGuests">Guests</label>
+          <select id="rGuests" name="guests">
+            <option>1</option><option selected>2</option><option>3</option><option>4</option>
+            <option>5</option><option>6</option><option>7–10</option><option>10+</option>
+          </select>
+        </div>
       </div>
-      <div class="icard">
-        <svg class="icard__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9Z"/><path d="M7 9V6a5 5 0 0 1 10 0v3"/></svg>
-        <h3>Entry</h3>
-        <p>Cover charge applies. Ask us on WhatsApp for current rates.</p>
+      <div class="field">
+        <label for="rNote">Anything we should know? <span class="field__opt">(optional)</span></label>
+        <textarea id="rNote" name="note" rows="3" placeholder="Preferred time, occasion, tattoo idea…"></textarea>
       </div>
-    </aside>
-  </div>
-
-  <div class="reserve__map">
-    <iframe title="Map showing The Tattoo Cafe &amp; Lounge opposite Hawa Mahal" data-map-embed loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <button class="button button--wa button--block" type="submit">
+        <svg width="18" height="18" aria-hidden="true"><use href="#i-wa"/></svg>
+        Send booking request on WhatsApp
+      </button>
+      <p class="fineprint">No payment now. A cover charge applies for entry on the day.</p>
+    </form>
   </div>
 </section>
 
-<!-- ============ FINAL BOOKING BANNER ============ -->
+<!-- ============ FINALE ============ -->
 <section class="finale" aria-labelledby="finaleTitle">
   <div class="finale__bg" aria-hidden="true"></div>
-  <div class="container finale__inner">
-    <p class="eyebrow">Opposite Hawa Mahal · Open daily 8:30 AM – 11 PM</p>
-    <h2 id="finaleTitle">Your Jaipur night <span class="gold-text">starts here.</span></h2>
-    <p class="finale__lead">Watch the palace light up from our rooftop, or take a piece of it home on your skin.</p>
+  <div class="wrap finale__inner reveal">
+    <p class="eyebrow c-gold">Opposite Hawa Mahal · Open daily 8:30 AM – 11 PM</p>
+    <h2 class="display h1" id="finaleTitle">Your Jaipur night <span class="c-gold">starts here.</span></h2>
+    <p>Watch the palace light up from our rooftop, or take a piece of it home on your skin.</p>
     <div class="finale__actions">
-      <a href="#reserve" class="btn btn--gold btn--lg">Book a Table</a>
-      <a href="#" class="btn btn--wa btn--lg" data-wa="tattoo" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="#i-wa"/></svg>
-        Book a Tattoo
-      </a>
+      <a href="#reserve" class="button button--cream">Book a table <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="#" class="button button--wa" data-wa="tattoo"><svg width="18" height="18" aria-hidden="true"><use href="#i-wa"/></svg>Book a tattoo</a>
     </div>
   </div>
 </section>
@@ -499,38 +385,48 @@
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
-  <div class="container footer__inner">
-    <div>
-      <img class="footer__logo" src="assets/logo-wordmark.png" alt="The Tattoo Cafe &amp; Lounge" width="702" height="440" loading="lazy">
-      <p class="footer__sub">Opposite Hawa Mahal, Hawa Mahal Road, Jaipur</p>
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <img src="assets/logo-wordmark.png" alt="The Tattoo Cafe &amp; Lounge" width="702" height="440" loading="lazy">
+        <p>Jaipur aaye, Hawa Mahal dekha? <br>Toh The Tattoo Cafe bhi aana!</p>
+      </div>
+      <div class="footer__links">
+        <a href="#menu">Explore the menu <svg width="12" height="12" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="#reserve">Reserve a table now <svg width="12" height="12" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="#" data-wa="tattoo">Book a tattoo <svg width="12" height="12" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <span><svg width="14" height="14" aria-hidden="true"><use href="#i-pin"/></svg>Opposite Hawa Mahal, Jaipur</span>
+        <a href="#" data-phone>+91 98280 65533</a>
+        <a href="#" data-instagram target="_blank" rel="noopener">Instagram <svg width="12" height="12" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <small>Every day · 8:30 am–11 pm</small>
+      </div>
     </div>
-    <nav class="footer__links" aria-label="Footer">
-      <a href="#hawa-mahal">Hawa Mahal</a>
-      <a href="#celebrities">Celebrities</a>
-      <a href="#tattoos">Tattoos</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#menu">Menu</a>
-      <a href="#enquire">Enquire</a>
-      <a href="#" data-instagram target="_blank" rel="noopener">Instagram</a>
-    </nav>
-    <p class="footer__copy">© <span id="year"></span> The Tattoo Cafe &amp; Lounge, Jaipur</p>
+    <div class="footer__bot"><span>© <span id="year"></span> The Tattoo Cafe &amp; Lounge. All rights reserved.</span><span>Made with love in the Pink City.</span></div>
   </div>
 </footer>
 
-<!-- Floating WhatsApp (desktop) -->
-<a class="wa-float" href="#" data-wa="general" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
-  <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><use href="#i-wa"/></svg>
-</a>
+<!-- Floating WhatsApp + mobile bar -->
+<a class="wa-float" href="#" data-wa="general" aria-label="Chat with us on WhatsApp"><svg width="28" height="28" aria-hidden="true"><use href="#i-wa"/></svg></a>
+<div class="mobile-bar"><a href="#" data-wa="general"><svg width="18" height="18" aria-hidden="true"><use href="#i-wa"/></svg>Enquire on WhatsApp</a></div>
 
-<!-- Sticky bar (mobile) -->
-<div class="mobile-bar">
-  <a class="mobile-bar__wa" href="#" data-wa="general" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><use href="#i-wa"/></svg>
-    Enquire on WhatsApp
-  </a>
-</div>
+<dialog class="lightbox" id="lightbox" aria-label="Photo">
+  <button class="lightbox__close" type="button" aria-label="Close">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Previous">‹</button>
+  <img alt="">
+  <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Next">›</button>
+</dialog>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 14 14"><path d="M3.5 10.5l7-7M5 3.5h5.5V9" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-down" viewBox="0 0 14 14"><path d="M7 2v10M3 8l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4Z M14 7l3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-cup" viewBox="0 0 24 24"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Zm12 1h2a2.5 2.5 0 0 1 0 5h-2M8 3v3M12 3v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 0 0 4v4h18v-4a2 2 0 0 1 0-4V4H3v4Z M14 4v16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="0"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
 </svg>
 
