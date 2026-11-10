@@ -22,12 +22,18 @@
 
   /* ---------- Celebrity film roll ---------- */
   var track = document.getElementById("filmTrack");
-  if (track && S.celebrities) {
-    var frames = S.celebrities.map(function (c) {
+  if (track && S.celebrities && S.celebrities.length) {
+    var esc0 = function (t) { return String(t || "").replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+    // Repeat the list so one set is wider than any screen, otherwise the loop shows a gap.
+    var list = S.celebrities.slice();
+    while (list.length < 10) list = list.concat(S.celebrities);
+    var frames = list.map(function (c) {
+      var alt = c.name ? c.name + " at The Tattoo Cafe" : "Celebrity guest at The Tattoo Cafe";
       var pic = c.photo
-        ? "<img src='" + c.photo + "' alt='" + c.name.replace(/'/g, "&#39;") + " at The Tattoo Cafe' loading='lazy'>"
-        : "<div class='frame__ph'><svg viewBox='0 0 24 24' width='30' height='30' aria-hidden='true'><path fill='none' stroke='currentColor' stroke-width='1.3' d='M4 7h3l2-2.5h6L17 7h3v12H4z'/><circle cx='12' cy='13' r='3.6' fill='none' stroke='currentColor' stroke-width='1.3'/></svg><span>Celebrity photo</span></div>";
-      return "<figure class='frame'>" + pic + "<figcaption><strong>" + c.name + "</strong><span>" + (c.note || "") + "</span></figcaption></figure>";
+        ? "<img src='" + esc0(c.photo) + "' alt='" + esc0(alt) + "' loading='lazy'>"
+        : "<div class='frame__ph'><span>Celebrity photo</span></div>";
+      var cap = c.name ? "<figcaption><strong>" + esc0(c.name) + "</strong><span>" + esc0(c.note) + "</span></figcaption>" : "";
+      return "<figure class='frame'>" + pic + cap + "</figure>";
     }).join("");
     // Two copies make a seamless loop; the second copy is hidden from screen readers.
     track.innerHTML = "<div class='film__set'>" + frames + "</div><div class='film__set' aria-hidden='true'>" + frames + "</div>";

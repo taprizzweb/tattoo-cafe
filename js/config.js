@@ -35,15 +35,14 @@ window.SITE = {
 
   // CELEBRITY FILM ROLL — har celebrity ki photo assets/celebs/ mein daalo aur yahan naam + path likho.
   // photo khaali ho toh placeholder frame dikhega.
+  // TODO: har photo ke saath celebrity ka naam likho (name) aur chaho toh note (e.g. "Actor").
+  // name khaali ho toh frame pe caption nahi dikhega.
   celebrities: [
-    { name: "Celebrity name", note: "Actor", photo: "" },
-    { name: "Celebrity name", note: "Cricketer", photo: "" },
-    { name: "Celebrity name", note: "Singer", photo: "" },
-    { name: "Celebrity name", note: "Actor", photo: "" },
-    { name: "Celebrity name", note: "Influencer", photo: "" },
-    { name: "Celebrity name", note: "Musician", photo: "" },
-    { name: "Celebrity name", note: "Actor", photo: "" },
-    { name: "Celebrity name", note: "Comedian", photo: "" },
+    { name: "", note: "", photo: "assets/celebs/celeb-2.jpg" },
+    { name: "", note: "", photo: "assets/celebs/celeb-3.jpg" },
+    { name: "", note: "", photo: "assets/celebs/celeb-1.jpg" },
+    { name: "", note: "", photo: "assets/celebs/celeb-4.jpg" },
+    { name: "", note: "", photo: "assets/celebs/celeb-5.jpg" },
   ],
 
   // Jab tak live Google reviews connect nahi hote, yeh numbers dikhte hain (TODO: verify)
