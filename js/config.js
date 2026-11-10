@@ -29,7 +29,7 @@ window.SITE = {
     tattoo: "Hi! I'm interested in getting a tattoo at The Tattoo Cafe.\n\nMy idea: \nSize / placement: \nPreferred date: ",
     hawamahal: "Hi! I'd like a Hawa Mahal tattoo at The Tattoo Cafe.\n\nSize / placement: \nPreferred date: ",
     table: "Hi! I'd like to reserve a rooftop table facing Hawa Mahal.\n\nDate: \nTime: \nNumber of guests: ",
-    general: "Hi! I have a question about The Tattoo Cafe & Lounge.",
+    general: "Hi! I would like some information about The Tattoo Cafe & Lounge.",
   },
 
   // TATTOO SLIDESHOW — photos assets/tattoos/ mein, caption = chhota description
