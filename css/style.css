@@ -370,10 +370,9 @@ p { margin: 0; }
 
 /* ---------- Rooftop lounge ---------- */
 .cafe { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
-.cafe__photos { display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px; align-items: end; }
-.cafe__photos img { width: 100%; object-fit: cover; border-radius: var(--radius); }
-.cafe__photos img:first-child { aspect-ratio: 3 / 4; border-radius: 999px 999px var(--radius) var(--radius); }
-.cafe__photos img:last-child { aspect-ratio: 3 / 4; margin-bottom: 40px; }
+.cafe__photos { display: grid; grid-template-columns: 1.1fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; height: clamp(420px, 44vw, 600px); }
+.cafe__ph { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); min-height: 0; }
+.cafe__ph--tall { grid-row: span 2; border-radius: 999px 999px var(--radius) var(--radius); }
 .cafe__hours { margin: 24px 0; font-weight: 600; color: var(--pink-deep); }
 
 .cafe__cover { color: var(--muted); font-size: .95rem; margin: -10px 0 24px; }
