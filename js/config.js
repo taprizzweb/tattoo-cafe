@@ -33,6 +33,19 @@ window.SITE = {
     general: "Hi! I have a question about The Tattoo Cafe & Lounge.",
   },
 
+  // CELEBRITY FILM ROLL — har celebrity ki photo assets/celebs/ mein daalo aur yahan naam + path likho.
+  // photo khaali ho toh placeholder frame dikhega.
+  celebrities: [
+    { name: "Celebrity name", note: "Actor", photo: "" },
+    { name: "Celebrity name", note: "Cricketer", photo: "" },
+    { name: "Celebrity name", note: "Singer", photo: "" },
+    { name: "Celebrity name", note: "Actor", photo: "" },
+    { name: "Celebrity name", note: "Influencer", photo: "" },
+    { name: "Celebrity name", note: "Musician", photo: "" },
+    { name: "Celebrity name", note: "Actor", photo: "" },
+    { name: "Celebrity name", note: "Comedian", photo: "" },
+  ],
+
   // Jab tak live Google reviews connect nahi hote, yeh numbers dikhte hain (TODO: verify)
   fallbackRating: 4.2,
   fallbackReviewCount: 5990,

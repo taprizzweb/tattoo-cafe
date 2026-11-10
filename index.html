@@ -42,11 +42,11 @@
 <header class="header" id="header">
   <div class="header__inner">
     <a href="#top" class="logo" aria-label="The Tattoo Cafe & Lounge — home">
-      <span class="logo__mark">The Tattoo Cafe</span>
-      <span class="logo__sub">&amp; Lounge · Hawa Mahal, Jaipur</span>
+      <img src="assets/logo-wordmark-sm.png" alt="The Tattoo Cafe &amp; Lounge" width="360" height="226">
     </a>
     <nav class="nav" id="nav" aria-label="Main">
       <a href="#hawa-mahal">Hawa Mahal</a>
+      <a href="#celebrities">Celebrities</a>
       <a href="#tattoos">Tattoos</a>
       <a href="#work">Our Work</a>
       <a href="#reviews">Reviews</a>
@@ -68,7 +68,7 @@
   <div class="hero__inner">
     <div class="hero__copy">
       <p class="eyebrow">Directly opposite Hawa Mahal · Jaipur</p>
-      <h1 class="hero__title">Get inked facing the <em>Palace of&nbsp;Winds.</em></h1>
+      <h1 class="hero__title">Get inked facing the <em class="gold-text">Palace of&nbsp;Winds.</em></h1>
       <p class="hero__lead">Our studio sits right across from Hawa Mahal. Its 953 windows are in front of you while you get your tattoo, and on the rooftop as the sun sets.</p>
       <div class="hero__actions">
         <a href="#" class="btn btn--wa" data-wa="tattoo">
@@ -92,26 +92,29 @@
   </div>
 </section>
 
-<!-- ============ TRUST BAR ============ -->
-<section class="trust" aria-label="Why guests choose us">
-  <ul class="trust__list">
-    <li><span class="trust__icon" aria-hidden="true">✦</span>Face-to-face view of Hawa Mahal</li>
-    <li><span class="trust__icon" aria-hidden="true">✦</span>Sterile, single-use needles</li>
-    <li><span class="trust__icon" aria-hidden="true">✦</span>Custom designs, drawn for you</li>
-    <li><span class="trust__icon" aria-hidden="true">✦</span>Walk-ins welcome</li>
-  </ul>
+<!-- ============ CELEBRITY FILM ROLL ============ -->
+<section class="stars-reel" id="celebrities">
+  <div class="stars-reel__bg" aria-hidden="true"></div>
+  <div class="container stars-reel__head">
+    <p class="eyebrow">Famous faces at our window</p>
+    <h2>They came for the view. <span class="gold-text">Some left with ink.</span></h2>
+    <p class="section__lead">Over the years, many well-known faces have sat at our window, looked across at Hawa Mahal and left a little piece of Jaipur on their skin.</p>
+  </div>
+  <div class="film" aria-label="Celebrities who have visited The Tattoo Cafe">
+    <div class="film__track" id="filmTrack"></div>
+  </div>
 </section>
 
 <!-- ============ HAWA MAHAL ============ -->
-<section class="section section--ink hm" id="hawa-mahal">
+<section class="section section--maroon hm" id="hawa-mahal">
   <div class="container">
     <div class="hm__grid">
       <div class="hm__photo">
-        <img src="assets/rooftop-2.jpg" alt="Hawa Mahal's pink sandstone façade at sunset, seen from our rooftop" loading="lazy">
+        <img src="assets/hawa-mahal-facade.jpg" alt="Hawa Mahal's pink sandstone façade and jharokha windows" loading="lazy">
       </div>
       <div class="hm__body">
         <p class="eyebrow">Our neighbour since 1799</p>
-        <h2>Hawa Mahal, the Palace of Winds</h2>
+        <h2>Hawa Mahal, <span class="gold-text">the Palace of Winds</span></h2>
         <p class="section__lead">Maharaja Sawai Pratap Singh built Hawa Mahal in 1799 so that the royal women could watch street festivals without being seen. It is five storeys of pink sandstone shaped like Lord Krishna's crown, with 953 small jharokha windows that keep the breeze moving through it. It is the face of Jaipur.</p>
         <p class="section__lead">Most visitors only see it from the street. From our studio you see it straight on and at eye level.</p>
         <dl class="hm__facts">
@@ -124,7 +127,7 @@
 
     <div class="moments">
       <article class="moment">
-        <img src="assets/rooftop-1.jpg" alt="Rooftop terrace with Hawa Mahal ahead" loading="lazy">
+        <img src="assets/hawa-mahal-facade.jpg" alt="Hawa Mahal façade in daylight" loading="lazy">
         <div class="moment__body">
           <p class="moment__time">Morning</p>
           <h3>Golden façade</h3>
@@ -132,7 +135,7 @@
         </div>
       </article>
       <article class="moment">
-        <img src="assets/hero-poster.jpg" alt="Sun setting behind Hawa Mahal" loading="lazy">
+        <img src="assets/hero-poster.jpg" alt="Sun setting behind Hawa Mahal, seen from our rooftop" loading="lazy">
         <div class="moment__body">
           <p class="moment__time">Sunset</p>
           <h3>The silhouette</h3>
@@ -140,11 +143,11 @@
         </div>
       </article>
       <article class="moment">
-        <img src="assets/rooftop-3.jpg" alt="Evening crowd on Hawa Mahal Road below" loading="lazy">
+        <img src="assets/hawa-mahal-night.jpg" alt="Hawa Mahal lit up at night, seen from our window" loading="lazy" style="object-position:center 62%">
         <div class="moment__body">
-          <p class="moment__time">Evening</p>
-          <h3>The old city below</h3>
-          <p>Below, Hawa Mahal Road fills with bazaars, rickshaws and lights. Watch it from above with a chai in your hand.</p>
+          <p class="moment__time">Night</p>
+          <h3>The palace lights up</h3>
+          <p>After dark the whole façade glows amber above the bazaar. From our window it looks close enough to touch.</p>
         </div>
       </article>
     </div>
@@ -268,12 +271,12 @@
   <div class="container cafe">
     <div class="cafe__photos">
       <img src="assets/rooftop-1.jpg" alt="Rooftop lounge terrace facing Hawa Mahal" loading="lazy">
-      <img src="assets/rooftop-3.jpg" alt="Hawa Mahal Road from the rooftop at dusk" loading="lazy">
+      <img src="assets/cafe-mural.jpg" alt="Hand-painted Rajasthani mural on the café's rooftop wall at dusk" loading="lazy">
     </div>
     <div class="cafe__body">
       <p class="eyebrow eyebrow--dark">The Rooftop Lounge</p>
-      <h2>Stay for chai and the sunset</h2>
-      <p class="section__lead">After your session, come up to the rooftop. We serve home-style food, vegan and international plates, and chai, three floors above Hawa Mahal Road with the palace right in front of you.</p>
+      <h2>Painted walls, <span class="gold-text">a royal view</span></h2>
+      <p class="section__lead">Our rooftop walls are hand-painted like an old Jaipur haveli, with jharokhas, a musician at the window and our name in Hindi. After your session, come up for home-style food, vegan plates and chai, three floors above Hawa Mahal Road with the palace right in front of you.</p>
       <p class="cafe__hours" data-hours>Open daily · 7:00 AM – 11:00 PM</p>
       <a href="#" class="btn btn--dark" data-wa="table">Ask about a rooftop table</a>
     </div>
@@ -336,25 +339,25 @@
 
     <div class="enquiry-grid">
       <a class="enquiry" href="#" data-wa="tattoo" target="_blank" rel="noopener">
-        <span class="enquiry__icon" aria-hidden="true">✒</span>
+        <span class="enquiry__num" aria-hidden="true">01</span>
         <span class="enquiry__title">Tattoo enquiry</span>
         <span class="enquiry__text">Share your idea and get a design and a price</span>
         <span class="enquiry__go">Open WhatsApp →</span>
       </a>
       <a class="enquiry enquiry--feature" href="#" data-wa="hawamahal" target="_blank" rel="noopener">
-        <span class="enquiry__icon" aria-hidden="true">✦</span>
+        <span class="enquiry__num" aria-hidden="true">02</span>
         <span class="enquiry__title">Hawa Mahal tattoo</span>
         <span class="enquiry__text">Our most popular souvenir piece</span>
         <span class="enquiry__go">Open WhatsApp →</span>
       </a>
       <a class="enquiry" href="#" data-wa="table" target="_blank" rel="noopener">
-        <span class="enquiry__icon" aria-hidden="true">☕</span>
+        <span class="enquiry__num" aria-hidden="true">03</span>
         <span class="enquiry__title">Rooftop table</span>
         <span class="enquiry__text">Sunset seats facing the palace</span>
         <span class="enquiry__go">Open WhatsApp →</span>
       </a>
       <a class="enquiry" href="#" data-wa="general" target="_blank" rel="noopener">
-        <span class="enquiry__icon" aria-hidden="true">?</span>
+        <span class="enquiry__num" aria-hidden="true">04</span>
         <span class="enquiry__title">Any other question</span>
         <span class="enquiry__text">Timings, prices, aftercare, anything</span>
         <span class="enquiry__go">Open WhatsApp →</span>
@@ -392,11 +395,12 @@
 <footer class="footer">
   <div class="container footer__inner">
     <div>
-      <p class="logo__mark">The Tattoo Cafe</p>
-      <p class="footer__sub">&amp; Lounge · Opposite Hawa Mahal, Jaipur</p>
+      <img class="footer__logo" src="assets/logo-wordmark.png" alt="The Tattoo Cafe &amp; Lounge" width="702" height="440" loading="lazy">
+      <p class="footer__sub">Opposite Hawa Mahal, Hawa Mahal Road, Jaipur</p>
     </div>
     <nav class="footer__links" aria-label="Footer">
       <a href="#hawa-mahal">Hawa Mahal</a>
+      <a href="#celebrities">Celebrities</a>
       <a href="#tattoos">Tattoos</a>
       <a href="#reviews">Reviews</a>
       <a href="#enquire">Enquire</a>

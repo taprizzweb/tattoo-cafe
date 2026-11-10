@@ -20,6 +20,19 @@
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
+  /* ---------- Celebrity film roll ---------- */
+  var track = document.getElementById("filmTrack");
+  if (track && S.celebrities) {
+    var frames = S.celebrities.map(function (c) {
+      var pic = c.photo
+        ? "<img src='" + c.photo + "' alt='" + c.name.replace(/'/g, "&#39;") + " at The Tattoo Cafe' loading='lazy'>"
+        : "<div class='frame__ph'><svg viewBox='0 0 24 24' width='30' height='30' aria-hidden='true'><path fill='none' stroke='currentColor' stroke-width='1.3' d='M4 7h3l2-2.5h6L17 7h3v12H4z'/><circle cx='12' cy='13' r='3.6' fill='none' stroke='currentColor' stroke-width='1.3'/></svg><span>Celebrity photo</span></div>";
+      return "<figure class='frame'>" + pic + "<figcaption><strong>" + c.name + "</strong><span>" + (c.note || "") + "</span></figcaption></figure>";
+    }).join("");
+    // Two copies make a seamless loop; the second copy is hidden from screen readers.
+    track.innerHTML = "<div class='film__set'>" + frames + "</div><div class='film__set' aria-hidden='true'>" + frames + "</div>";
+  }
+
   /* ---------- Header: solid on scroll + mobile menu ---------- */
   var header = document.getElementById("header");
   function onScroll() { header.classList.toggle("is-solid", window.scrollY > 40); }
@@ -42,7 +55,7 @@
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeMenu(); });
 
   /* ---------- Reveal on scroll ---------- */
-  var revealEls = document.querySelectorAll(".section__head, .service, .moment, .tile, .artist, .enquiry, .hm__grid, .cafe, .visit, .steps li");
+  var revealEls = document.querySelectorAll(".section__head, .service, .moment, .tile, .stars-reel__head, .artist, .enquiry, .hm__grid, .cafe, .visit, .steps li");
   if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     revealEls.forEach(function (el) { el.classList.add("reveal"); });
     var io = new IntersectionObserver(function (entries) {

@@ -2,11 +2,11 @@
    The Tattoo Cafe & Lounge — styles
    ========================================================= */
 :root {
-  --ink: #17110e;
+  --ink: #150e0b;
   --ink-2: #211814;
   --ink-3: #2c211c;
-  --paper: #fbf7f2;
-  --sand: #f3e9dd;
+  --paper: #fcf7ef;
+  --sand: #f3e7d4;
   --text: #1f1814;
   --muted: #6e625a;
   --line: rgba(31, 24, 20, 0.12);
@@ -15,10 +15,13 @@
   --on-dark-muted: rgba(246, 238, 228, 0.68);
   --line-dark: rgba(246, 238, 228, 0.14);
 
-  --pink: #d36f52;       /* Hawa Mahal sandstone */
-  --pink-deep: #b4523a;
-  --gold: #dcae5f;
-  --gold-deep: #c4933f;
+  --pink: #d9774f;       /* Hawa Mahal sandstone */
+  --pink-deep: #8c3519;  /* logo maroon, slightly lifted for text */
+  --maroon: #7f3016;     /* logo background */
+  --maroon-deep: #4f1c0c;
+  --gold: #dcae66;
+  --gold-light: #f3d9a6;
+  --gold-deep: #a9742f;
   --wa: #1fa855;
 
   --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
@@ -67,7 +70,11 @@ p { margin: 0; }
   margin-bottom: 18px;
   display: inline-flex; align-items: center; gap: 12px;
 }
-.eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; opacity: .7; }
+.eyebrow::before { content: ""; width: 30px; height: 1px; background: linear-gradient(90deg, transparent, currentColor); }
+.gold-text {
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 55%, var(--gold-deep) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
 .eyebrow--dark { color: var(--pink-deep); }
 .section__lead { color: var(--muted); font-size: 1.075rem; max-width: 62ch; margin-top: 18px; }
 .section--ink .section__lead { color: var(--on-dark-muted); }
@@ -84,8 +91,8 @@ p { margin: 0; }
 }
 .btn:active { transform: translateY(1px); }
 .btn--sm { min-height: 42px; padding: 0 20px; font-size: 0.875rem; }
-.btn--gold { background: var(--gold); color: var(--ink); }
-.btn--gold:hover { background: #e7bd72; }
+.btn--gold { background: linear-gradient(180deg, var(--gold-light), var(--gold) 60%, #c18c45); color: #2a1309; }
+.btn--gold:hover { filter: brightness(1.06); }
 .btn--ghost { color: var(--on-dark); border-color: rgba(246, 238, 228, .4); }
 .btn--ghost:hover { border-color: var(--on-dark); background: rgba(246, 238, 228, .08); }
 .btn--dark { background: var(--ink); color: var(--on-dark); }
@@ -112,9 +119,8 @@ p { margin: 0; }
   max-width: 1320px; margin: 0 auto; padding: 0 var(--gutter);
   height: 76px; display: flex; align-items: center; gap: 32px;
 }
-.logo { display: flex; flex-direction: column; text-decoration: none; line-height: 1; margin-right: auto; }
-.logo__mark { font: 600 1.5rem/1 var(--serif); letter-spacing: 0.01em; }
-.logo__sub { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: .7; margin-top: 6px; }
+.logo { display: block; margin-right: auto; }
+.logo img { height: 66px; width: auto; filter: drop-shadow(0 2px 8px rgba(0,0,0,.45)); }
 .nav { display: flex; gap: 28px; }
 .nav a { text-decoration: none; font-size: 0.9rem; font-weight: 500; opacity: .85; padding: 8px 0; position: relative; }
 .nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 2px; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform .25s var(--ease); }
@@ -147,7 +153,8 @@ p { margin: 0; }
   display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(32px, 6vw, 96px); align-items: center;
 }
 .hero__title { font-size: clamp(2.8rem, 6.4vw, 5.6rem); line-height: 1.02; font-weight: 500; }
-.hero__title em { font-style: italic; color: var(--pink); }
+#lounge .gold-text, .section--sand .gold-text { background: none; color: var(--pink-deep); }
+.hero__title em { font-style: italic; padding-right: .06em; }
 .hero__lead { font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: var(--on-dark-muted); max-width: 46ch; margin-top: 26px; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
 .rating-chip {
@@ -180,23 +187,70 @@ p { margin: 0; }
 .hero__caption::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #ff5a4a; margin-right: 8px; vertical-align: middle; box-shadow: 0 0 0 3px rgba(255,90,74,.25); }
 
 /* =========================================================
-   TRUST BAR
-   ========================================================= */
-.trust { background: var(--pink-deep); color: #fff7f0; }
-.trust__list {
-  list-style: none; margin: 0 auto; max-width: 1320px; padding: 18px var(--gutter);
-  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 28px;
-  font-size: 0.9rem; font-weight: 500;
-}
-.trust__list li { display: flex; align-items: center; gap: 10px; }
-.trust__icon { color: #ffd9a3; font-size: 0.8rem; }
-
-/* =========================================================
    SECTIONS
    ========================================================= */
 .section { padding: clamp(72px, 10vw, 128px) 0; }
 .section--ink { background: var(--ink); color: var(--on-dark); }
 .section--sand { background: var(--sand); }
+.section--maroon { background: var(--maroon-deep); color: var(--on-dark); }
+.section--maroon .section__lead { color: var(--on-dark-muted); }
+.section--maroon .moment { background: rgba(0,0,0,.22); border-color: rgba(243,217,166,.16); }
+.section--maroon .hm__facts div { border-color: rgba(243,217,166,.2); }
+
+/* ---------- Celebrity film roll ---------- */
+.stars-reel {
+  position: relative; isolation: isolate; overflow: hidden;
+  background: var(--ink); color: var(--on-dark);
+  padding: clamp(72px, 9vw, 120px) 0 clamp(80px, 10vw, 130px);
+}
+.stars-reel__bg {
+  position: absolute; inset: 0; z-index: -1;
+  background: url("../assets/hawa-mahal-night.jpg") center 64% / cover no-repeat;
+}
+.stars-reel__bg::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, var(--ink) 0%, rgba(21,14,11,.6) 30%, rgba(21,14,11,.42) 60%, var(--ink) 100%);
+}
+.stars-reel__head { text-align: center; display: flex; flex-direction: column; align-items: center; margin-bottom: clamp(44px, 6vw, 72px); }
+.stars-reel__head .section__lead { color: rgba(246,238,228,.8); margin-left: auto; margin-right: auto; }
+
+.film {
+  --hole: rgba(246, 238, 228, .82);
+  position: relative; background: #0b0706;
+  padding: 30px 0; transform: rotate(-2deg); margin: 0 -40px;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,.8);
+}
+.film::before, .film::after {
+  content: ""; position: absolute; left: 0; right: 0; height: 12px;
+  background: repeating-linear-gradient(90deg, transparent 0 9px, var(--hole) 9px 21px, transparent 21px 30px);
+  opacity: .85;
+}
+.film::before { top: 9px; }
+.film::after { bottom: 9px; }
+.film__track { display: flex; width: max-content; animation: film-roll 55s linear infinite; }
+.film:hover .film__track { animation-play-state: paused; }
+.film__set { display: flex; gap: 12px; padding-right: 12px; }
+@keyframes film-roll { to { transform: translateX(-50%); } }
+
+.frame {
+  margin: 0; position: relative; width: 250px; aspect-ratio: 4 / 5; flex: none;
+  background: #1d1410; overflow: hidden; border-radius: 3px;
+}
+.frame img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.05) contrast(1.03); }
+.frame__ph {
+  width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  color: rgba(243,217,166,.55); font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(217,119,79,.35), transparent 60%),
+    linear-gradient(180deg, #3a2014, #1b110c);
+}
+.frame figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 14px 12px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,.85));
+  display: flex; flex-direction: column; line-height: 1.25;
+}
+.frame figcaption strong { font: 600 1.2rem var(--serif); }
+.frame figcaption span { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
 .section__head { margin-bottom: clamp(36px, 5vw, 56px); }
 .sub-head { margin: clamp(56px, 7vw, 88px) 0 28px; font-size: 2rem; }
 
@@ -204,7 +258,7 @@ p { margin: 0; }
 .hm__grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
 .hm__photo { position: relative; }
 .hm__photo img {
-  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 55%;
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 30%;
   border-radius: 999px 999px var(--radius) var(--radius);
 }
 .hm__photo::before {
@@ -234,7 +288,7 @@ p { margin: 0; }
 .service p { color: var(--muted); font-size: 0.95rem; }
 .service__price { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
 .service__price strong { font: 600 1.45rem var(--serif); color: var(--text); margin-left: 4px; }
-.service--feature { background: var(--ink); color: var(--on-dark); border-color: var(--ink); }
+.service--feature { background: var(--maroon); color: var(--on-dark); border-color: var(--maroon); }
 .service--feature p { color: var(--on-dark-muted); }
 .service--feature .service__price { border-color: var(--line-dark); }
 .service--feature .service__price strong { color: var(--gold); }
@@ -332,8 +386,8 @@ p { margin: 0; }
 .enquire { position: relative; isolation: isolate; overflow: hidden; }
 .enquire__bg {
   position: absolute; inset: 0; z-index: -1;
-  background: url("../assets/rooftop-2.jpg") center 40% / cover no-repeat;
-  opacity: .22;
+  background: url("../assets/hawa-mahal-night.jpg") center 66% / cover no-repeat;
+  opacity: .35;
 }
 .enquire__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, var(--ink), rgba(23,17,14,.6) 50%, var(--ink)); }
 .enquire__head { text-align: center; display: flex; flex-direction: column; align-items: center; }
@@ -346,15 +400,12 @@ p { margin: 0; }
   transition: border-color .2s var(--ease), transform .2s var(--ease), background-color .2s var(--ease);
 }
 .enquiry:hover { border-color: var(--wa); transform: translateY(-3px); }
-.enquiry__icon {
-  width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 8px;
-  background: rgba(220,174,95,.14); color: var(--gold); font-size: 1.1rem;
-}
+.enquiry__num { font: 500 1rem var(--serif); color: var(--gold); letter-spacing: .12em; margin-bottom: 18px; }
 .enquiry__title { font: 600 1.45rem/1.15 var(--serif); }
 .enquiry__text { color: var(--on-dark-muted); font-size: 0.92rem; }
 .enquiry__go { margin-top: auto; padding-top: 12px; color: #4cd383; font-weight: 600; font-size: 0.9rem; }
-.enquiry--feature { background: var(--pink-deep); border-color: var(--pink-deep); }
-.enquiry--feature .enquiry__icon { background: rgba(255,255,255,.18); color: #fff; }
+.enquiry--feature { background: var(--maroon); border-color: rgba(243,217,166,.35); }
+.enquiry--feature .enquiry__num { color: var(--gold-light); }
 .enquiry--feature .enquiry__text { color: rgba(255,255,255,.85); }
 .enquiry--feature .enquiry__go { color: #fff; }
 .enquire__small { text-align: center; color: var(--on-dark-muted); font-size: 0.875rem; margin-top: 28px; }
@@ -369,9 +420,10 @@ p { margin: 0; }
 .visit__map iframe { width: 100%; height: 100%; min-height: 420px; border: 0; }
 
 /* ---------- Footer ---------- */
-.footer { background: var(--ink); color: var(--on-dark); padding: 56px 0 40px; }
+.footer { background: var(--maroon-deep); color: var(--on-dark); padding: 56px 0 40px; }
 .footer__inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 28px; }
-.footer__sub { color: var(--on-dark-muted); font-size: 0.85rem; margin-top: 6px; }
+.footer__logo { width: 190px; height: auto; }
+.footer__sub { color: var(--on-dark-muted); font-size: 0.85rem; margin-top: 12px; }
 .footer__links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 .footer__links a { text-decoration: none; color: var(--on-dark-muted); font-size: 0.9rem; }
 .footer__links a:hover { color: var(--on-dark); }
@@ -467,6 +519,12 @@ p { margin: 0; }
   .footer { padding-bottom: 110px; }
 }
 
+@media (max-width: 900px) {
+  .logo img { height: 46px; }
+  .frame { width: 190px; }
+  .film { padding: 26px 0; }
+}
+
 @media (max-width: 560px) {
   .services, .enquiry-grid, .steps { grid-template-columns: 1fr; }
   .enquiry { min-height: 0; }
@@ -482,5 +540,8 @@ p { margin: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+  .film__track { animation: none; }
+  .film { overflow-x: auto; }
+  .film__set[aria-hidden] { display: none; }
 }
