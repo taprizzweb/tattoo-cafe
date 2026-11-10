@@ -103,7 +103,7 @@
     } else {
       menuWrap.innerHTML = pages.map(function (src, i) {
         return "<button type='button' class='menu-page' data-i='" + i + "' aria-label='Open menu page " + (i + 1) + "'>" +
-          "<img src='" + src + "' alt='Menu page " + (i + 1) + "' loading='lazy'></button>";
+          "<img src='" + src + "' alt='Menu page " + (i + 1) + "' loading='lazy' onload=\"if(this.naturalWidth>this.naturalHeight)this.classList.add('is-wide')\"></button>";
       }).join("");
       var box = document.getElementById("lightbox");
       var boxImg = box.querySelector("img");

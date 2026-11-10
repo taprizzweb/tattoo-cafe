@@ -49,7 +49,7 @@ Auto-reply cafe ke **WhatsApp Business** se hoga:
 
 - [x] WhatsApp number
 - [ ] Instagram handle → `js/config.js`
-- [ ] Menu photos → `assets/menu/` + `menuPages` in `js/config.js`
+- [x] Menu photos (5 pages)
 - [ ] Cover charge amount (abhi "ask on WhatsApp" likha hai)
 - [ ] Asli tattoo photos → `#work` gallery
 - [ ] Artists ke naam/photos

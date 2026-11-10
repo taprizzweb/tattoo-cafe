@@ -399,7 +399,7 @@ p { margin: 0; }
 }
 .menu-cover img { width: 100%; height: auto; border-radius: 4px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.9); }
 .menu-sec__head { margin-bottom: 0; }
-.menu-pages { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
+.menu-pages { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
 .menu-page {
   padding: 0; border: 1px solid rgba(243,217,166,.25); border-radius: 10px; overflow: hidden;
   background: #2a120a; cursor: zoom-in; aspect-ratio: 3 / 4;
@@ -407,7 +407,16 @@ p { margin: 0; }
 }
 .menu-page:hover { transform: translateY(-4px); border-color: var(--gold); }
 .menu-page img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.menu-page img.is-wide { object-fit: contain; object-position: center; background: #1a0f0b; }
 .menu-pages__empty { grid-column: 1 / -1; text-align: center; color: var(--on-dark-muted); padding: 40px; border: 1px dashed rgba(243,217,166,.3); border-radius: 12px; }
+.menu-promise {
+  list-style: none; margin: 32px 0 0; padding: 18px 24px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 36px;
+  border-top: 1px solid rgba(243,217,166,.2); border-bottom: 1px solid rgba(243,217,166,.2);
+  color: var(--gold-light); font: 500 1.15rem var(--serif);
+}
+.menu-promise li { display: flex; align-items: center; gap: 12px; }
+.menu-promise li::before { content: ""; width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex: none; }
 .menu-sec__note { color: var(--gold); font-size: .95rem; font-weight: 600; margin-top: 24px; line-height: 1.7; }
 
 .lightbox { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; }
@@ -609,7 +618,11 @@ p { margin: 0; }
   .footer { padding-bottom: 110px; }
 }
 
+@media (max-width: 1080px) {
+  .menu-pages { grid-template-columns: repeat(3, 1fr); }
+}
 @media (max-width: 900px) {
+  .menu-pages { grid-template-columns: repeat(2, 1fr); }
   .menu-sec__intro { grid-template-columns: 1fr; }
   .menu-cover { width: min(300px, 78%); margin: 12px auto 0; }
   .logo img { height: 46px; }

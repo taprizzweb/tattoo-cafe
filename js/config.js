@@ -33,7 +33,13 @@ window.SITE = {
   },
 
   // MENU — har page ki photo assets/menu/ mein daalo aur yahan path likho.
-  menuPages: [],
+  menuPages: [
+    "assets/menu/menu-1.jpg", // Starters
+    "assets/menu/menu-3.jpg", // Main course
+    "assets/menu/menu-2.jpg", // Smoothie bowls & vegan
+    "assets/menu/menu-4.jpg", // Shakes & coolers
+    "assets/menu/menu-5.jpg", // Maggie & pakora
+  ],
 
   // CELEBRITY FILM ROLL — har celebrity ki photo assets/celebs/ mein daalo aur yahan naam + path likho.
   // photo khaali ho toh placeholder frame dikhega.
