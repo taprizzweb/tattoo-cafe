@@ -12,11 +12,6 @@
     el.target = "_blank";
     el.rel = "noopener";
   });
-  document.querySelectorAll("[data-wa-style]").forEach(function (el) {
-    var style = el.getAttribute("data-wa-style");
-    var text = "Hi! I'm interested in a " + style + " tattoo at The Tattoo Cafe.\n\nMy idea: \nSize / placement: \nPreferred date: ";
-    el.href = "https://wa.me/" + S.whatsapp + "?text=" + encodeURIComponent(text);
-  });
   document.querySelectorAll("[data-instagram]").forEach(function (el) { el.href = S.instagram; });
   document.querySelectorAll("[data-maps]").forEach(function (el) { el.href = S.mapsUrl; });
   document.querySelectorAll("[data-hours]").forEach(function (el) { el.textContent = S.hours; });
@@ -94,6 +89,82 @@
     if (rDate) rDate.min = new Date().toISOString().slice(0, 10);
   }
 
+  /* ---------- Shared lightbox ---------- */
+  var box = document.getElementById("lightbox");
+  var boxImg = box.querySelector("img");
+  var lbList = [], lbCur = 0, lbLabel = "";
+  function lbShow(i) {
+    lbCur = (i + lbList.length) % lbList.length;
+    boxImg.src = lbList[lbCur].src;
+    boxImg.alt = lbList[lbCur].alt || (lbLabel + " " + (lbCur + 1) + " of " + lbList.length);
+  }
+  function openLightbox(list, i, label) {
+    lbList = list; lbLabel = label;
+    box.setAttribute("aria-label", label);
+    box.querySelectorAll(".lightbox__nav").forEach(function (n) { n.hidden = list.length < 2; });
+    lbShow(i);
+    if (box.showModal) box.showModal(); else window.open(list[i].src, "_blank");
+  }
+  box.querySelector(".lightbox__close").addEventListener("click", function () { box.close(); });
+  box.querySelector(".lightbox__nav--prev").addEventListener("click", function () { lbShow(lbCur - 1); });
+  box.querySelector(".lightbox__nav--next").addEventListener("click", function () { lbShow(lbCur + 1); });
+  box.addEventListener("click", function (e) { if (e.target === box) box.close(); });
+  box.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") lbShow(lbCur - 1);
+    if (e.key === "ArrowRight") lbShow(lbCur + 1);
+  });
+
+  /* ---------- Tattoo slideshow ---------- */
+  var tTrack = document.getElementById("tattooTrack");
+  var tats = S.tattoos || [];
+  if (tTrack && tats.length) {
+    var escT = function (t) { return String(t || "").replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+    tTrack.innerHTML = tats.map(function (t, i) {
+      return "<figure class='tslide' role='group' aria-roledescription='slide' aria-label='" + (i + 1) + " of " + tats.length + "'>" +
+        "<button type='button' class='tslide__btn' data-i='" + i + "' aria-label='View " + escT(t.caption) + " full size'>" +
+        "<img src='" + escT(t.src) + "' alt='" + escT(t.caption) + " tattoo made at The Tattoo Cafe' loading='lazy'></button>" +
+        "<figcaption><strong>" + escT(t.caption) + "</strong><span>" + escT(t.note) + "</span></figcaption></figure>";
+    }).join("");
+    var dots = document.getElementById("tattooDots");
+    dots.innerHTML = tats.map(function (t, i) {
+      return "<button type='button' role='tab' class='tdot' data-i='" + i + "' aria-label='Show " + escT(t.caption) + "'></button>";
+    }).join("");
+    var slides = tTrack.querySelectorAll(".tslide");
+    var tIndex = 0;
+    var goTo = function (i, smooth) {
+      tIndex = (i + slides.length) % slides.length;
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      tTrack.scrollTo({ left: slides[tIndex].offsetLeft - tTrack.offsetLeft, behavior: smooth === false || reduce ? "auto" : "smooth" });
+    };
+    var markDots = function () {
+      var x = tTrack.scrollLeft, best = 0, bestD = Infinity;
+      slides.forEach(function (sl, i) { var d = Math.abs(sl.offsetLeft - tTrack.offsetLeft - x); if (d < bestD) { bestD = d; best = i; } });
+      tIndex = best;
+      dots.querySelectorAll(".tdot").forEach(function (d, i) { d.classList.toggle("is-on", i === best); d.setAttribute("aria-selected", i === best ? "true" : "false"); });
+    };
+    tTrack.addEventListener("scroll", function () { window.requestAnimationFrame(markDots); }, { passive: true });
+    markDots();
+    document.getElementById("tPrev").addEventListener("click", function () { stopAuto(); goTo(tIndex - 1); });
+    document.getElementById("tNext").addEventListener("click", function () { stopAuto(); goTo(tIndex + 1); });
+    dots.addEventListener("click", function (e) { var d = e.target.closest(".tdot"); if (d) { stopAuto(); goTo(Number(d.getAttribute("data-i"))); } });
+    tTrack.addEventListener("click", function (e) {
+      var b = e.target.closest(".tslide__btn"); if (!b) return;
+      stopAuto();
+      openLightbox(tats.map(function (t) { return { src: t.src, alt: t.caption }; }), Number(b.getAttribute("data-i")), "Tattoo photo");
+    });
+    // Autoplay: advance every 4s while visible; stop for good once the visitor takes control.
+    var auto = null, stopped = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var stopAuto = function () { stopped = true; clearInterval(auto); };
+    var startAuto = function () { if (!stopped && !auto) auto = setInterval(function () { goTo(tIndex + 1); }, 4000); };
+    var pauseAuto = function () { clearInterval(auto); auto = null; };
+    ["pointerdown", "touchstart", "wheel", "keydown"].forEach(function (ev) { tTrack.addEventListener(ev, stopAuto, { passive: true }); });
+    tTrack.addEventListener("mouseenter", pauseAuto);
+    tTrack.addEventListener("mouseleave", startAuto);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (en) { en[0].isIntersecting ? startAuto() : pauseAuto(); }, { threshold: 0.4 }).observe(tTrack);
+    }
+  }
+
   /* ---------- Menu pages + lightbox ---------- */
   var menuWrap = document.getElementById("menuPages");
   var pages = S.menuPages || [];
@@ -105,28 +176,10 @@
         return "<button type='button' class='menu-page' data-i='" + i + "' aria-label='Open menu page " + (i + 1) + "'>" +
           "<img src='" + src + "' alt='Menu page " + (i + 1) + "' loading='lazy' onload=\"if(this.naturalWidth>this.naturalHeight)this.classList.add('is-wide')\"></button>";
       }).join("");
-      var box = document.getElementById("lightbox");
-      var boxImg = box.querySelector("img");
-      var cur = 0;
-      var show = function (i) {
-        cur = (i + pages.length) % pages.length;
-        boxImg.src = pages[cur];
-        boxImg.alt = "Menu page " + (cur + 1) + " of " + pages.length;
-      };
       menuWrap.addEventListener("click", function (e) {
         var b = e.target.closest(".menu-page"); if (!b) return;
-        show(Number(b.getAttribute("data-i")));
-        if (box.showModal) box.showModal(); else window.open(pages[cur], "_blank");
+        openLightbox(pages.map(function (src, i) { return { src: src, alt: "Menu page " + (i + 1) + " of " + pages.length }; }), Number(b.getAttribute("data-i")), "Menu page");
       });
-      box.querySelector(".lightbox__close").addEventListener("click", function () { box.close(); });
-      box.querySelector(".lightbox__nav--prev").addEventListener("click", function () { show(cur - 1); });
-      box.querySelector(".lightbox__nav--next").addEventListener("click", function () { show(cur + 1); });
-      box.addEventListener("click", function (e) { if (e.target === box) box.close(); });
-      box.addEventListener("keydown", function (e) {
-        if (e.key === "ArrowLeft") show(cur - 1);
-        if (e.key === "ArrowRight") show(cur + 1);
-      });
-      if (pages.length < 2) box.querySelectorAll(".lightbox__nav").forEach(function (n) { n.hidden = true; });
     }
   }
 
@@ -152,7 +205,7 @@
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeMenu(); });
 
   /* ---------- Reveal on scroll ---------- */
-  var revealEls = document.querySelectorAll(".section__head, .service, .moment, .tile, .stars-reel__head, .enquiry, .hm__grid, .cafe, .reserve__grid, .steps li");
+  var revealEls = document.querySelectorAll(".section__head, .moment, .stars-reel__head, .enquiry, .hm__grid, .cafe, .reserve__grid, .steps li");
   if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     revealEls.forEach(function (el) { el.classList.add("reveal"); });
     var io = new IntersectionObserver(function (entries) {

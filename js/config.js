@@ -32,6 +32,15 @@ window.SITE = {
     general: "Hi! I have a question about The Tattoo Cafe & Lounge.",
   },
 
+  // TATTOO SLIDESHOW — photos assets/tattoos/ mein, caption = chhota description
+  tattoos: [
+    { src: "assets/tattoos/tattoo-3.jpg", caption: "Trishul & Sanskrit spine piece", note: "Shot with Hawa Mahal behind" },
+    { src: "assets/tattoos/tattoo-5.jpg", caption: "Shiva & trishul with Sanskrit", note: "Spiritual · Blackwork" },
+    { src: "assets/tattoos/tattoo-1.jpg", caption: "Eye of Horus", note: "Fine-line · Dotwork" },
+    { src: "assets/tattoos/tattoo-4.jpg", caption: "Little tiger", note: "Fine-line · Minimal" },
+    { src: "assets/tattoos/tattoo-2.jpg", caption: "\"Blessed\" hand script", note: "Lettering" },
+  ],
+
   // MENU — har page ki photo assets/menu/ mein daalo aur yahan path likho.
   menuPages: [
     "assets/menu/menu-1.jpg", // Starters

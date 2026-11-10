@@ -49,7 +49,6 @@
       <a href="#hawa-mahal">Hawa Mahal</a>
       <a href="#celebrities">Celebrities</a>
       <a href="#tattoos">Tattoos</a>
-      <a href="#work">Our Work</a>
       <a href="#reviews">Reviews</a>
       <a href="#lounge">Rooftop</a>
       <a href="#menu">Menu</a>
@@ -162,52 +161,31 @@
     <header class="section__head">
       <p class="eyebrow eyebrow--dark">The Tattoo Studio</p>
       <h2>Take Jaipur home, on your skin</h2>
-      <p class="section__lead">Whether it's your first tattoo or your tenth, our artists design every piece with you. It can be a tiny Hawa Mahal outline or a full custom sleeve.</p>
+      <p class="section__lead">Whether it's your first tattoo or your tenth, our artists design every piece with you, from a tiny Hawa Mahal outline to a full back piece. Here are a few made in our studio.</p>
     </header>
 
-    <div class="services">
-      <article class="service service--feature">
-        <p class="service__tag">Most loved</p>
-        <h3>Hawa Mahal Tattoo</h3>
-        <p>The palace's crown-shaped façade in fine line, drawn while you look at the real thing across the road.</p>
-        <a class="service__cta" href="#" data-wa-style="Hawa Mahal" target="_blank" rel="noopener">Free design on WhatsApp →</a>
-      </article>
-      <article class="service">
-        <h3>Jaipur &amp; Rajasthani Motifs</h3>
-        <p>Elephants, mandalas, jharokha arches, peacocks and block-print patterns inspired by the Pink City.</p>
-        <a class="service__cta" href="#" data-wa-style="Rajasthani motif" target="_blank" rel="noopener">Free design on WhatsApp →</a>
-      </article>
-      <article class="service">
-        <h3>Minimal &amp; Fine-line</h3>
-        <p>Small, delicate pieces such as symbols, dates and line art. Perfect for a first tattoo.</p>
-        <a class="service__cta" href="#" data-wa-style="minimal / fine-line" target="_blank" rel="noopener">Free design on WhatsApp →</a>
-      </article>
-      <article class="service">
-        <h3>Names, Scripts &amp; Quotes</h3>
-        <p>Names of loved ones, dates and quotes in English, Hindi, Sanskrit or any language, in a lettering style made for you.</p>
-        <a class="service__cta" href="#" data-wa-style="name / script" target="_blank" rel="noopener">Free design on WhatsApp →</a>
-      </article>
-      <article class="service">
-        <h3>Realism &amp; Portraits</h3>
-        <p>Detailed black-and-grey or colour pieces: portraits, animals, gods and anything you want to look real.</p>
-        <a class="service__cta" href="#" data-wa-style="realism / portrait" target="_blank" rel="noopener">Free design on WhatsApp →</a>
-      </article>
-      <article class="service">
-        <h3>Couple &amp; Friends Tattoos</h3>
-        <p>Matching or connecting designs for partners, friends and family, made together on the same day.</p>
-        <a class="service__cta" href="#" data-wa-style="couple / matching" target="_blank" rel="noopener">Free design on WhatsApp →</a>
-      </article>
-      <article class="service">
-        <h3>Custom Designs</h3>
-        <p>Bring an idea, a photo or just a feeling. We sketch it with you until it's exactly yours.</p>
-        <a class="service__cta" href="#" data-wa-style="custom" target="_blank" rel="noopener">Free design on WhatsApp →</a>
-      </article>
-      <article class="service">
-        <h3>Cover-ups &amp; Touch-ups</h3>
-        <p>Turn an old or faded tattoo into something you love again, or refresh its lines and colour.</p>
-        <a class="service__cta" href="#" data-wa-style="cover-up / touch-up" target="_blank" rel="noopener">Free design on WhatsApp →</a>
-      </article>
+    <div class="tshow" id="tattooShow" aria-roledescription="carousel" aria-label="Tattoos made in our studio">
+      <div class="tshow__track" id="tattooTrack" tabindex="0"></div>
+      <div class="tshow__bar">
+        <div class="tshow__dots" id="tattooDots" role="tablist" aria-label="Choose a tattoo"></div>
+        <div class="tshow__nav">
+          <button type="button" class="rnav rnav--dark" id="tPrev" aria-label="Previous tattoo">←</button>
+          <button type="button" class="rnav rnav--dark" id="tNext" aria-label="Next tattoo">→</button>
+        </div>
+      </div>
     </div>
+
+    <ul class="styles" aria-label="Tattoo styles we make">
+      <li>Hawa Mahal &amp; Jaipur motifs</li>
+      <li>Fine-line &amp; minimal</li>
+      <li>Names &amp; scripts</li>
+      <li>Sanskrit &amp; spiritual</li>
+      <li>Realism &amp; portraits</li>
+      <li>Couple tattoos</li>
+      <li>Custom designs</li>
+      <li>Cover-ups</li>
+    </ul>
+
     <div class="studio-promise">
       <p><strong>Every style, made in-house.</strong> From your first tiny tattoo to a full sleeve, all of it is designed and tattooed right here, facing Hawa Mahal. Send your idea on WhatsApp for a free design consultation.</p>
       <a href="#" class="btn btn--wa" data-wa="tattoo" target="_blank" rel="noopener">
@@ -222,27 +200,6 @@
       <li><span class="steps__n">03</span><h3>Get inked</h3><p>Fresh needles are opened in front of you, with Hawa Mahal in view.</p></li>
       <li><span class="steps__n">04</span><h3>Aftercare</h3><p>You get a care guide, and you can WhatsApp us any healing questions.</p></li>
     </ol>
-  </div>
-</section>
-
-<!-- ============ WORK / ARTISTS ============ -->
-<section class="section section--sand" id="work">
-  <div class="container">
-    <header class="section__head">
-      <p class="eyebrow eyebrow--dark">Our Work</p>
-      <h2>Fresh from the chair</h2>
-      <p class="section__lead">A few pieces made in our studio. See more every day on <a href="#" data-instagram target="_blank" rel="noopener">Instagram</a>.</p>
-    </header>
-    <!-- TODO: in tiles ko asli tattoo photos se replace karo: <img src="assets/work-1.jpg" alt="..."> -->
-    <div class="gallery">
-      <figure class="tile tile--tall"><div class="tile__ph"><span>Tattoo photo</span></div><figcaption>Hawa Mahal fine-line</figcaption></figure>
-      <figure class="tile"><div class="tile__ph"><span>Tattoo photo</span></div><figcaption>Jharokha arch</figcaption></figure>
-      <figure class="tile"><div class="tile__ph"><span>Tattoo photo</span></div><figcaption>Script &amp; names</figcaption></figure>
-      <figure class="tile"><div class="tile__ph"><span>Tattoo photo</span></div><figcaption>Couple tattoo</figcaption></figure>
-      <figure class="tile tile--wide"><div class="tile__ph"><span>Tattoo photo</span></div><figcaption>Mandala sleeve</figcaption></figure>
-      <figure class="tile"><div class="tile__ph"><span>Tattoo photo</span></div><figcaption>Elephant motif</figcaption></figure>
-    </div>
-
   </div>
 </section>
 
