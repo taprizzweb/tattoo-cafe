@@ -47,9 +47,12 @@ Auto-reply cafe ke **WhatsApp Business** se hoga:
 
 ## Abhi baaki (TODO)
 
-- [ ] WhatsApp number, phone, Instagram → `js/config.js`
+- [x] WhatsApp number
+- [ ] Instagram handle → `js/config.js`
+- [ ] Menu photos → `assets/menu/` + `menuPages` in `js/config.js`
+- [ ] Cover charge amount (abhi "ask on WhatsApp" likha hai)
 - [ ] Asli tattoo photos → `#work` gallery
 - [ ] Artists ke naam/photos
 - [ ] Tattoo starting prices confirm
-- [ ] Timings confirm
+- [x] Timings (8:30 AM – 11 PM)
 - [ ] Google API key + Place ID

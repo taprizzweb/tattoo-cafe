@@ -17,6 +17,7 @@
   document.querySelectorAll("[data-hours]").forEach(function (el) { el.textContent = S.hours; });
   document.querySelectorAll("[data-address]").forEach(function (el) { el.textContent = S.address; });
   document.querySelectorAll("[data-map-embed]").forEach(function (el) { el.src = S.mapsEmbed; });
+  document.querySelectorAll("[data-phone]").forEach(function (el) { el.textContent = S.phoneDisplay; el.href = "tel:" + S.phoneLink; });
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
@@ -38,6 +39,42 @@
     // Two copies make a seamless loop; the second copy is hidden from screen readers.
     track.style.animationDuration = Math.round(list.length * 5.5) + "s"; // same speed whatever the count
     track.innerHTML = "<div class='film__set'>" + frames + "</div><div class='film__set' aria-hidden='true'>" + frames + "</div>";
+  }
+
+  /* ---------- Menu pages + lightbox ---------- */
+  var menuWrap = document.getElementById("menuPages");
+  var pages = S.menuPages || [];
+  if (menuWrap) {
+    if (!pages.length) {
+      menuWrap.innerHTML = "<p class='menu-pages__empty'>Menu photos coming soon. Ask us on WhatsApp for today's menu.</p>";
+    } else {
+      menuWrap.innerHTML = pages.map(function (src, i) {
+        return "<button type='button' class='menu-page' data-i='" + i + "' aria-label='Open menu page " + (i + 1) + "'>" +
+          "<img src='" + src + "' alt='Menu page " + (i + 1) + "' loading='lazy'></button>";
+      }).join("");
+      var box = document.getElementById("lightbox");
+      var boxImg = box.querySelector("img");
+      var cur = 0;
+      var show = function (i) {
+        cur = (i + pages.length) % pages.length;
+        boxImg.src = pages[cur];
+        boxImg.alt = "Menu page " + (cur + 1) + " of " + pages.length;
+      };
+      menuWrap.addEventListener("click", function (e) {
+        var b = e.target.closest(".menu-page"); if (!b) return;
+        show(Number(b.getAttribute("data-i")));
+        if (box.showModal) box.showModal(); else window.open(pages[cur], "_blank");
+      });
+      box.querySelector(".lightbox__close").addEventListener("click", function () { box.close(); });
+      box.querySelector(".lightbox__nav--prev").addEventListener("click", function () { show(cur - 1); });
+      box.querySelector(".lightbox__nav--next").addEventListener("click", function () { show(cur + 1); });
+      box.addEventListener("click", function (e) { if (e.target === box) box.close(); });
+      box.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowLeft") show(cur - 1);
+        if (e.key === "ArrowRight") show(cur + 1);
+      });
+      if (pages.length < 2) box.querySelectorAll(".lightbox__nav").forEach(function (n) { n.hidden = true; });
+    }
   }
 
   /* ---------- Header: solid on scroll + mobile menu ---------- */

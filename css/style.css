@@ -367,6 +367,36 @@ p { margin: 0; }
 .cafe__photos img:last-child { aspect-ratio: 3 / 4; margin-bottom: 40px; }
 .cafe__hours { margin: 24px 0; font-weight: 600; color: var(--pink-deep); }
 
+.cafe__cover { color: var(--muted); font-size: .95rem; margin: -10px 0 24px; }
+.cafe__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ---------- Menu ---------- */
+.menu-sec__head { text-align: center; display: flex; flex-direction: column; align-items: center; }
+.menu-sec__head .section__lead { margin-left: auto; margin-right: auto; }
+.menu-pages { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
+.menu-page {
+  padding: 0; border: 1px solid rgba(243,217,166,.25); border-radius: 10px; overflow: hidden;
+  background: #2a120a; cursor: zoom-in; aspect-ratio: 3 / 4;
+  transition: transform .25s var(--ease), border-color .25s var(--ease);
+}
+.menu-page:hover { transform: translateY(-4px); border-color: var(--gold); }
+.menu-page img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.menu-pages__empty { grid-column: 1 / -1; text-align: center; color: var(--on-dark-muted); padding: 40px; border: 1px dashed rgba(243,217,166,.3); border-radius: 12px; }
+.menu-sec__note { text-align: center; color: var(--on-dark-muted); font-size: .9rem; margin-top: 28px; }
+
+.lightbox { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; }
+.lightbox::backdrop { background: rgba(10,6,4,.92); }
+.lightbox[open] { display: grid; place-items: center; }
+.lightbox img { max-width: min(92vw, 900px); max-height: 90vh; object-fit: contain; border-radius: 6px; }
+.lightbox__close, .lightbox__nav {
+  position: fixed; border: 0; cursor: pointer; color: #fff; background: rgba(255,255,255,.12);
+  width: 48px; height: 48px; border-radius: 50%; font-size: 1.8rem; line-height: 1; display: grid; place-items: center;
+}
+.lightbox__close { top: 18px; right: 18px; }
+.lightbox__nav--prev { left: 18px; top: 50%; transform: translateY(-50%); }
+.lightbox__nav--next { right: 18px; top: 50%; transform: translateY(-50%); }
+.lightbox__close:hover, .lightbox__nav:hover { background: rgba(255,255,255,.22); }
+
 /* ---------- FAQ ---------- */
 .faq { border-top: 1px solid var(--line); }
 .faq details { border-bottom: 1px solid var(--line); }

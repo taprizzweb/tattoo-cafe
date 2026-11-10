@@ -6,16 +6,15 @@ window.SITE = {
   name: "The Tattoo Cafe & Lounge",
   shortName: "The Tattoo Cafe",
 
-  // TODO: cafe ka WhatsApp number — country code ke saath, bina + aur spaces ke (e.g. 919876543210)
-  whatsapp: "910000000000",
-  // TODO: calling number (display ke liye)
-  phoneDisplay: "+91 00000 00000",
-  phoneLink: "+910000000000",
+  // WhatsApp number — country code ke saath, bina + aur spaces ke
+  whatsapp: "919828065533",
+  phoneDisplay: "+91 98280 65533",
+  phoneLink: "+919828065533",
   // TODO: Instagram handle
   instagram: "https://www.instagram.com/",
 
   address: "3rd Floor, 30, Opposite Hawa Mahal, Hawa Mahal Road, Jaipur, Rajasthan 302002",
-  hours: "Open daily · 7:00 AM – 11:00 PM", // TODO: confirm
+  hours: "Open daily · 8:30 AM – 11:00 PM",
 
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=The+Tattoo+Cafe+%26+Lounge+Hawa+Mahal+Road+Jaipur",
   mapsEmbed: "https://maps.google.com/maps?q=The%20Tattoo%20Cafe%20%26%20Lounge%2C%20Hawa%20Mahal%20Road%2C%20Jaipur&z=17&output=embed",
@@ -32,6 +31,9 @@ window.SITE = {
     table: "Hi! I'd like to reserve a rooftop table facing Hawa Mahal.\n\nDate: \nTime: \nNumber of guests: ",
     general: "Hi! I have a question about The Tattoo Cafe & Lounge.",
   },
+
+  // MENU — har page ki photo assets/menu/ mein daalo aur yahan path likho.
+  menuPages: [],
 
   // CELEBRITY FILM ROLL — har celebrity ki photo assets/celebs/ mein daalo aur yahan naam + path likho.
   // photo khaali ho toh placeholder frame dikhega.
