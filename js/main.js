@@ -12,6 +12,11 @@
     el.target = "_blank";
     el.rel = "noopener";
   });
+  document.querySelectorAll("[data-wa-style]").forEach(function (el) {
+    var style = el.getAttribute("data-wa-style");
+    var text = "Hi! I'm interested in a " + style + " tattoo at The Tattoo Cafe.\n\nMy idea: \nSize / placement: \nPreferred date: ";
+    el.href = "https://wa.me/" + S.whatsapp + "?text=" + encodeURIComponent(text);
+  });
   document.querySelectorAll("[data-instagram]").forEach(function (el) { el.href = S.instagram; });
   document.querySelectorAll("[data-maps]").forEach(function (el) { el.href = S.mapsUrl; });
   document.querySelectorAll("[data-hours]").forEach(function (el) { el.textContent = S.hours; });
@@ -147,7 +152,7 @@
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeMenu(); });
 
   /* ---------- Reveal on scroll ---------- */
-  var revealEls = document.querySelectorAll(".section__head, .service, .moment, .tile, .stars-reel__head, .artist, .enquiry, .hm__grid, .cafe, .reserve__grid, .steps li");
+  var revealEls = document.querySelectorAll(".section__head, .service, .moment, .tile, .stars-reel__head, .enquiry, .hm__grid, .cafe, .reserve__grid, .steps li");
   if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     revealEls.forEach(function (el) { el.classList.add("reveal"); });
     var io = new IntersectionObserver(function (entries) {
