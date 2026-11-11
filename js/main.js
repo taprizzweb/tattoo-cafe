@@ -220,6 +220,16 @@
       var w = window.open(url, "_blank");
       if (w) w.opener = null; else location.href = url;
     });
+    // Occasion cards pre-fill the booking type, then jump to the form.
+    document.querySelectorAll("[data-occasion]").forEach(function (a) {
+      a.addEventListener("click", function () {
+        var sel = document.getElementById("rType");
+        sel.value = a.getAttribute("data-occasion");
+        sel.dispatchEvent(new Event("change"));
+        sel.closest(".field").classList.add("is-picked");
+        setTimeout(function () { sel.closest(".field").classList.remove("is-picked"); document.getElementById("rName").focus({ preventScroll: true }); }, 900);
+      });
+    });
     var rDate = document.getElementById("rDate");
     if (rDate) rDate.min = new Date().toISOString().slice(0, 10);
   }
