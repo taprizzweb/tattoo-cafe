@@ -39,6 +39,7 @@ h1, h2, h3, p { margin: 0; }
 :focus-visible { outline: 2px solid var(--gold-d); outline-offset: 3px; }
 .skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--gold); color: var(--ink); padding: 10px 16px; font-weight: 700; }
 .skip:focus { top: 12px; }
+main { overflow-x: clip; }
 .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
 
 /* ---------- Type ---------- */
@@ -125,11 +126,18 @@ h1, h2, h3, p { margin: 0; }
 .hero__media { overflow: hidden; }
 .hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; animation: kenburns 16s cubic-bezier(.2,.6,.2,1) both; }
 @keyframes kenburns { from { transform: scale(1.16); } to { transform: scale(1.02); } }
-.hero__inner > * { animation: fadeUp 1s var(--ease) both; }
-.hero__inner > :nth-child(2) { animation-delay: .15s; }
-.hero__inner > :nth-child(3) { animation-delay: .3s; }
-.hero__inner > :nth-child(4) { animation-delay: .45s; }
-.hero__inner > :nth-child(5) { animation-delay: .6s; }
+/* Intro: the headline starts huge and zooms out into place, then the rest arrives and the header drops in */
+.hero__inner { animation: heroZoom 1.9s cubic-bezier(.75, 0, .2, 1) both; transform-origin: 50% 32%; will-change: transform; }
+@keyframes heroZoom { from { transform: scale(2.5); } to { transform: none; } }
+.hero__inner > :not(.hero__title) { animation: fadeUp .9s var(--ease) both; }
+.hero__inner > :nth-child(1) { animation-delay: 1.15s; }
+.hero__inner > :nth-child(3) { animation-delay: 1.45s; }
+.hero__inner > :nth-child(4) { animation-delay: 1.6s; }
+.hero__inner > :nth-child(5) { animation-delay: 1.75s; }
+.header { animation: headerDrop .9s cubic-bezier(.2, .8, .2, 1) 1.55s both; }
+@keyframes headerDrop { from { transform: translateY(-110%); opacity: 0; } to { transform: none; opacity: 1; } }
+.hero__scroll { animation: fadeUp .9s var(--ease) 2s both; }
+@media (max-width: 700px) { @keyframes heroZoom { from { transform: scale(1.9); } to { transform: none; } } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } }
 .mouse { position: relative; width: 20px; height: 32px; border: 1.5px solid currentColor; border-radius: 12px; flex: none; }
 .mouse::after { content: ""; position: absolute; left: 50%; top: 6px; width: 3px; height: 7px; margin-left: -1.5px; border-radius: 2px; background: currentColor; animation: cue 1.8s ease-in-out infinite; }
@@ -539,7 +547,7 @@ h1, h2, h3, p { margin: 0; }
   .track, .film__track { animation: none; }
   .marquee, .film { overflow-x: auto; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
-  .hero__media img, .hero__inner > *, .ribbon__track, .mouse::after, .wa-float::after { animation: none; }
+  .hero__media img, .hero__inner, .hero__inner > *, .header, .hero__scroll, .ribbon__track, .mouse::after, .wa-float::after { animation: none; }
   .js .reveal .card__img img, .js .reveal .occ__img img { transform: none; }
   [data-parallax] { transform: none !important; }
 }
