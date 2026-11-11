@@ -436,6 +436,9 @@ main { overflow-x: clip; }
 .footer__links a, .footer__links span { display: inline-flex; align-items: center; gap: 10px; }
 .footer__links a:hover { color: var(--gold); }
 .footer__links small { color: rgba(250,246,238,.6); }
+.footer__credit { margin: 18px 0 0; padding-top: 16px; border-top: 1px solid var(--line-l); text-align: center; font-size: 12px; letter-spacing: .08em; color: rgba(250,246,238,.55); }
+.footer__credit a { color: var(--gold-l); font-weight: 700; border-bottom: 1px solid rgba(242,210,150,.4); }
+.footer__credit a:hover { color: #fff; border-color: #fff; }
 .footer__bot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 22px; font-size: 12px; color: rgba(250,246,238,.6); }
 
 /* ---------- Connect (WhatsApp + Instagram) ---------- */
