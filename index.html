@@ -436,11 +436,19 @@
         <p class="eyebrow eyebrow--dark">Fresh from the chair</p>
         <h2 class="display h2">A taste of <span class="c-red">the ink.</span></h2>
       </div>
-      <p class="head-row__note">Something royal. Something personal. <br>Tap a tattoo to see it full size.</p>
+      <div class="slider__tools">
+        <span class="slider__count" id="galleryCount" aria-hidden="true">01 / 20</span>
+        <button type="button" class="slider__btn" id="galleryPrev" aria-label="Previous tattoos"><svg width="16" height="16" viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2.5 4.5 7 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <button type="button" class="slider__btn" id="galleryNext" aria-label="Next tattoos"><svg width="16" height="16" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 2.5 9.5 7 5 11.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+      </div>
     </div>
-    <div class="cards3 gallery" id="tattooGallery"></div>
+  </div>
+  <div class="slider" id="tattooSlider" tabindex="0" aria-label="Tattoos made in our studio. Swipe or use the arrow buttons.">
+    <div class="slider__track" id="tattooGallery"></div>
+  </div>
+  <div class="wrap">
+    <div class="slider__bar" aria-hidden="true"><span id="galleryBar"></span></div>
     <div class="gallery__more reveal">
-      <button type="button" class="button button--outline" id="galleryMore">Show more tattoos <svg width="14" height="14" aria-hidden="true"><use href="#i-down"/></svg></button>
       <a href="#" class="button button--blue" data-wa="tattoo">Get a free design on WhatsApp <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
   </div>

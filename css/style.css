@@ -348,13 +348,27 @@ main { overflow-x: clip; }
 .banner .h1 { max-width: 14ch; }
 .banner p:not(.eyebrow) { max-width: 46ch; margin: 28px 0 34px; font-size: 15px; color: rgba(42,15,7,.82); }
 
-/* ---------- Tattoo gallery ---------- */
-.gallery { row-gap: 56px; }
-.gallery .card__img { aspect-ratio: 4 / 5; }
-.gallery > :nth-child(3n+2) .card__img { aspect-ratio: 3 / 3.4; }
-.gallery .card { cursor: zoom-in; }
-.gallery .card[hidden] { display: none; }
-.gallery__more { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 72px; }
+/* ---------- Tattoo gallery: one-row slider ---------- */
+.slider__tools { display: flex; align-items: center; gap: 12px; }
+.slider__count { font: 600 .95rem var(--display); color: var(--red); letter-spacing: .08em; margin-right: 6px; font-variant-numeric: tabular-nums; }
+.slider__btn { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; background: transparent; color: var(--navy); border: 1px solid rgba(74,26,11,.3); transition: background-color .2s, color .2s, border-color .2s, opacity .2s; }
+.slider__btn:hover:not(:disabled) { background: var(--navy); color: var(--gold-l); border-color: var(--navy); }
+.slider__btn:disabled { opacity: .35; cursor: default; }
+.slider { overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-padding-left: max(var(--pad), calc((100vw - var(--max)) / 2 + var(--pad))); scrollbar-width: none; cursor: grab; outline: none; }
+.slider::-webkit-scrollbar { display: none; }
+.slider.is-drag { cursor: grabbing; scroll-snap-type: none; }
+.slider.is-drag .slide { pointer-events: none; }
+.slider:focus-visible { box-shadow: inset 0 0 0 2px var(--gold-d); }
+.slider__track { display: flex; gap: 24px; width: max-content; padding: 6px max(var(--pad), calc((100vw - var(--max)) / 2 + var(--pad))) 10px; }
+.slide { width: clamp(230px, 24vw, 310px); flex: none; scroll-snap-align: start; }
+.slide .card__img { display: block; width: 100%; aspect-ratio: 4 / 5; border: 0; padding: 0; cursor: zoom-in; position: relative; overflow: hidden; background: var(--sand); border-radius: 10px; }
+.slide .card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.slide:hover .card__img img { transform: scale(1.05); }
+.slide:hover .card__go { transform: rotate(45deg); background: var(--gold-l); }
+.slide h3 { font: 500 1.15rem/1.3 var(--sans); color: var(--navy); }
+.slider__bar { height: 2px; margin-top: 28px; background: rgba(74,26,11,.12); overflow: hidden; }
+.slider__bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--red), var(--gold-d)); transform-origin: 0 50%; transform: scaleX(.06); transition: transform .2s linear; }
+.gallery__more { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 48px; }
 
 /* ---------- Menu ---------- */
 .menu-grid { row-gap: 56px; }
@@ -554,10 +568,9 @@ main { overflow-x: clip; }
   .cards3 { grid-template-columns: 1fr; }
   .cards3 > :nth-child(2n) { margin-top: 0; }
   .card__img { aspect-ratio: 4 / 3.4; }
-  .gallery { grid-template-columns: 1fr 1fr; gap: 28px 14px; }
-  .gallery > :nth-child(2n) { margin-top: 36px; }
-  .gallery .card h3 { font-size: 1rem; }
-  .gallery .card > p:last-child { display: none; }
+  .slide { width: 72vw; }
+  .slider__btn { width: 42px; height: 42px; }
+  .slide h3 { font-size: 1rem; }
   .menu-grid { grid-template-columns: 1fr 1fr; gap: 28px 14px; }
   .menu-grid > :nth-child(2n) { margin-top: 36px; }
   .five { grid-template-columns: 1fr 1fr; }

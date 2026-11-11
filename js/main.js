@@ -91,27 +91,65 @@
     film.innerHTML = "<div class='film__set'>" + frames + "</div><div class='film__set' aria-hidden='true'>" + frames + "</div>";
   }
 
-  /* ---------- Tattoo gallery: staggered 3-up, reveals on scroll ---------- */
+  /* ---------- Tattoo gallery: one-row slider ---------- */
   var gal = document.getElementById("tattooGallery");
+  var slider = document.getElementById("tattooSlider");
   var tats = S.tattoos || [];
-  var FIRST = 9;
   if (gal && tats.length) {
     gal.innerHTML = tats.map(function (t, i) {
-      return "<article class='card reveal'" + (i >= FIRST ? " hidden" : "") + ">" +
-        "<button type='button' class='card__img' data-i='" + i + "' aria-label='View " + esc(t.caption) + " full size' style='border:0;padding:0;width:100%;cursor:zoom-in'>" +
-        "<img src='" + esc(t.src) + "' alt='" + esc(t.caption) + " tattoo made at The Tattoo Cafe' loading='lazy'>" +
+      return "<article class='slide'>" +
+        "<button type='button' class='card__img' data-i='" + i + "' aria-label='View " + esc(t.caption) + " full size'>" +
+        "<img src='" + esc(t.src) + "' alt='" + esc(t.caption) + " tattoo made at The Tattoo Cafe' loading='lazy' draggable='false'>" +
         "<span class='card__go' aria-hidden='true'>" + ARROW + "</span></button>" +
         "<p class='kicker'>" + esc(t.note) + "</p><h3>" + esc(t.caption) + "</h3></article>";
     }).join("");
+    var slides = gal.querySelectorAll(".slide");
+    var count = document.getElementById("galleryCount");
+    var bar = document.getElementById("galleryBar");
+    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+    var update = function () {
+      var max = slider.scrollWidth - slider.clientWidth;
+      var k = max > 0 ? slider.scrollLeft / max : 0;
+      bar.style.transform = "scaleX(" + Math.max(0.06, k) + ")";
+      var w = slides[0].getBoundingClientRect().width + 24;
+      var idx = Math.min(slides.length, Math.round(slider.scrollLeft / w) + 1);
+      count.textContent = pad(idx) + " / " + pad(slides.length);
+      document.getElementById("galleryPrev").disabled = slider.scrollLeft < 4;
+      document.getElementById("galleryNext").disabled = slider.scrollLeft > max - 4;
+    };
+    var step = function (dir) {
+      var w = slides[0].getBoundingClientRect().width + 24;
+      var n = Math.max(1, Math.floor(slider.clientWidth / w) - 1);
+      slider.scrollBy({ left: dir * w * n, behavior: reduce ? "auto" : "smooth" });
+    };
+    document.getElementById("galleryPrev").addEventListener("click", function () { step(-1); });
+    document.getElementById("galleryNext").addEventListener("click", function () { step(1); });
+    slider.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
+    });
+    slider.addEventListener("scroll", function () { requestAnimationFrame(update); }, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+
+    // Drag to scroll with the mouse (touch already swipes natively).
+    var down = false, moved = false, sx = 0, sl = 0;
+    slider.addEventListener("pointerdown", function (e) {
+      if (e.pointerType !== "mouse") return;
+      down = true; moved = false; sx = e.clientX; sl = slider.scrollLeft;
+    });
+    window.addEventListener("pointermove", function (e) {
+      if (!down) return;
+      var dx = e.clientX - sx;
+      if (!moved && Math.abs(dx) > 5) { moved = true; slider.classList.add("is-drag"); }
+      if (moved) slider.scrollLeft = sl - dx;
+    });
+    window.addEventListener("pointerup", function () { down = false; setTimeout(function () { slider.classList.remove("is-drag"); moved = false; }, 0); });
+
     gal.addEventListener("click", function (e) {
+      if (slider.classList.contains("is-drag")) { e.preventDefault(); return; }
       var b = e.target.closest(".card__img"); if (!b) return;
       openLightbox(tats.map(function (t) { return { src: t.src, alt: t.caption }; }), Number(b.getAttribute("data-i")), "Tattoo photo");
-    });
-    var more = document.getElementById("galleryMore");
-    if (tats.length <= FIRST) more.hidden = true;
-    more.addEventListener("click", function () {
-      gal.querySelectorAll(".card[hidden]").forEach(function (c) { c.hidden = false; observe(c); });
-      more.hidden = true;
     });
   }
 
