@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#823018">
   <meta property="og:title" content="The Tattoo Cafe & Lounge · Facing Hawa Mahal, Jaipur">
   <meta property="og:description" content="Get inked with the Palace of Winds in front of you. Tattoo studio + rooftop café on Hawa Mahal Road, Jaipur.">
-  <meta property="og:image" content="assets/hero-poster.jpg">
+  <meta property="og:image" content="assets/hero-hawa-mahal.jpg">
   <meta property="og:type" content="website">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,9 +71,10 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <video class="hero__media" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg" aria-label="Sunset over Hawa Mahal, filmed from our rooftop">
-    <source src="assets/hero.mp4" type="video/mp4">
-  </video>
+  <picture class="hero__media">
+    <source media="(max-width: 700px)" srcset="assets/hero-hawa-mahal-m.jpg">
+    <img src="assets/hero-hawa-mahal.jpg" alt="" width="2000" height="1333" fetchpriority="high">
+  </picture>
   <div class="wrap hero__inner">
     <p class="eyebrow">The Tattoo Cafe · Tattoo studio &amp; rooftop café · Opposite Hawa Mahal</p>
     <h1 class="display hero__title">Came to Jaipur? Then get inked facing the palace.</h1>
@@ -177,7 +178,7 @@
     <p class="band__text reveal">Most visitors see Hawa Mahal from the street. From our studio and rooftop you see it at eye level: golden in the morning, a silhouette at sunset, glowing amber at night.</p>
     <div class="five reveal">
       <figure><img src="assets/hawa-mahal-facade.jpg" alt="Hawa Mahal façade in daylight" loading="lazy"><figcaption>Hawa Mahal</figcaption></figure>
-      <figure><img src="assets/hero-poster.jpg" alt="Sunset behind Hawa Mahal from our rooftop" loading="lazy"><figcaption>Sunset silhouette</figcaption></figure>
+      <figure><video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-label="Sunset over Hawa Mahal, filmed from our rooftop"><source src="assets/hero.mp4" type="video/mp4"></video><figcaption>Sunset, live from our rooftop</figcaption></figure>
       <figure><img src="assets/hawa-mahal-night.jpg" alt="Hawa Mahal lit up at night" loading="lazy" style="object-position:center 60%"><figcaption>Lit up at night</figcaption></figure>
       <figure><img src="assets/rooftop-1.jpg" alt="Our rooftop terrace facing Hawa Mahal" loading="lazy"><figcaption>Our rooftop</figcaption></figure>
       <figure><img src="assets/cafe-interior.jpg" alt="Inside The Tattoo Cafe" loading="lazy"><figcaption>…and The Tattoo Cafe</figcaption></figure>

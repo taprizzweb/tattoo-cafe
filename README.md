@@ -77,3 +77,6 @@ Website sirf **4★ aur 5★** reviews dikhati hai aur 24 ghante mein ek baar Go
 - [ ] Tattoo starting prices confirm
 - [x] Timings (8:30 AM – 11 PM)
 - [ ] Google API key + Place ID
+
+## Photo credits
+- `assets/hero-hawa-mahal.jpg` / `-m.jpg`: Hawa Mahal photo from Unsplash (photo-1603262110263), free to use under the Unsplash License. Baaki saari photos cafe ki apni hain.
