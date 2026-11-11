@@ -20,6 +20,10 @@
     el.href = waUrl(el.getAttribute("data-wa"));
     el.target = "_blank"; el.rel = "noopener";
   });
+  document.querySelectorAll("[data-wa-occasion]").forEach(function (el) {
+    var text = "Hi! I'd like to plan " + el.getAttribute("data-wa-occasion") + " at The Tattoo Cafe & Lounge.\n\nDate: \nNumber of guests: \nAnything special: ";
+    el.href = "https://wa.me/" + S.whatsapp + "?text=" + encodeURIComponent(text);
+  });
   document.querySelectorAll("[data-instagram]").forEach(function (el) { el.href = S.instagram; });
   document.querySelectorAll("[data-maps]").forEach(function (el) { el.href = S.mapsUrl; });
   document.querySelectorAll("[data-address]").forEach(function (el) { el.textContent = S.address; });
