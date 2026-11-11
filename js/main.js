@@ -325,4 +325,10 @@
     }, { threshold: 0.12 });
   }
   document.querySelectorAll(".reveal").forEach(observe);
+  // Cards in a sideways swipe row (phones) can't be "scrolled into view" vertically: show them as soon as the row is swiped.
+  document.querySelectorAll(".swipe-row").forEach(function (row) {
+    row.addEventListener("scroll", function () {
+      row.querySelectorAll(".reveal:not(.in)").forEach(function (c) { c.classList.add("in"); });
+    }, { passive: true, once: true });
+  });
 })();
