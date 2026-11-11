@@ -224,6 +224,48 @@
     if (rDate) rDate.min = new Date().toISOString().slice(0, 10);
   }
 
+  /* ---------- Sticky header, progress bar, parallax ---------- */
+  var header = document.getElementById("header");
+  var progress = document.getElementById("progress");
+  var parallax = reduce ? [] : [].slice.call(document.querySelectorAll("[data-parallax]"));
+  var ticking = false;
+  function onScroll() {
+    ticking = false;
+    var y = window.scrollY, max = document.documentElement.scrollHeight - window.innerHeight;
+    header.classList.toggle("is-solid", y > 60);
+    if (progress) progress.style.transform = "scaleX(" + (max > 0 ? Math.min(1, y / max) : 0) + ")";
+    parallax.forEach(function (el) {
+      var box = el.parentElement.getBoundingClientRect();
+      if (box.bottom < 0 || box.top > window.innerHeight) return;
+      var shift = (box.top + box.height / 2 - window.innerHeight / 2) * Number(el.getAttribute("data-parallax"));
+      el.style.transform = "translate3d(0," + shift.toFixed(1) + "px,0) scale(1.12)";
+    });
+  }
+  window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  window.addEventListener("resize", onScroll);
+  onScroll();
+
+  /* ---------- Number counters ---------- */
+  function runCounter(el) {
+    var end = Number(el.getAttribute("data-count")), start = end > 100 ? Math.round(end * 0.9) : 0;
+    if (reduce) { el.textContent = end; return; }
+    var t0 = null, dur = 1600;
+    function frame(t) {
+      if (!t0) t0 = t;
+      var k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = Math.round(start + (end - start) * e);
+      if (k < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  var counters = document.querySelectorAll("[data-count]");
+  if ("IntersectionObserver" in window) {
+    var cio = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { runCounter(en.target); cio.unobserve(en.target); } });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { cio.observe(el); });
+  }
+
   /* ---------- Scroll reveal ---------- */
   var io = null;
   function observe(el) {

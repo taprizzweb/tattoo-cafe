@@ -13,7 +13,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cormorant+Garamond:ital,wght@1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,600;1,500;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
   <script type="application/ld+json">
@@ -39,6 +39,7 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- ============ HEADER ============ -->
+<div class="progress" id="progress" aria-hidden="true"></div>
 <header class="header" id="header">
   <div class="wrap header__inner">
     <a href="#top" class="brand" aria-label="The Tattoo Cafe &amp; Lounge, home">
@@ -90,25 +91,30 @@
       <span>Travellers' Choice 2026</span>
     </p>
   </div>
-  <a href="#history" class="hero__scroll"><svg width="14" height="14" aria-hidden="true"><use href="#i-down"/></svg>Your Jaipur story starts here</a>
+  <a href="#history" class="hero__scroll"><span class="mouse" aria-hidden="true"></span>Your Jaipur story starts here</a>
 </section>
 
+<!-- ============ RIBBON ============ -->
+<div class="ribbon" aria-label="Highlights">
+  <div class="ribbon__track"><div class="ribbon__set"><span>Tattoo studio</span><i aria-hidden="true">✦</i><span>Rooftop café</span><i aria-hidden="true">✦</i><span>Directly opposite Hawa Mahal</span><i aria-hidden="true">✦</i><span>Celebrity favourite</span><i aria-hidden="true">✦</i><span>Every style, made in-house</span><i aria-hidden="true">✦</i><span>Couple tattoos</span><i aria-hidden="true">✦</i><span>Sunset chai</span><i aria-hidden="true">✦</i><span>Travellers' Choice 2026</span><i aria-hidden="true">✦</i></div><div class="ribbon__set" aria-hidden="true"><span>Tattoo studio</span><i aria-hidden="true">✦</i><span>Rooftop café</span><i aria-hidden="true">✦</i><span>Directly opposite Hawa Mahal</span><i aria-hidden="true">✦</i><span>Celebrity favourite</span><i aria-hidden="true">✦</i><span>Every style, made in-house</span><i aria-hidden="true">✦</i><span>Couple tattoos</span><i aria-hidden="true">✦</i><span>Sunset chai</span><i aria-hidden="true">✦</i><span>Travellers' Choice 2026</span><i aria-hidden="true">✦</i></div></div>
+</div>
+
 <!-- ============ HAWA MAHAL HISTORY ============ -->
-<section class="history" id="history" aria-labelledby="historyTitle">
-  <div class="history__bg" aria-hidden="true"></div>
+<section class="history on-light" id="history" aria-labelledby="historyTitle">
+  <div class="history__bg" aria-hidden="true" data-parallax="0.12"></div>
   <div class="wrap history__inner">
-    <figure class="history__card reveal">
+    <figure class="history__card reveal reveal--left">
       <img src="assets/menu-cover.jpg" alt="Hawa Mahal artwork on The Tattoo Cafe's cover" width="707" height="793" loading="lazy">
     </figure>
-    <div class="history__body reveal">
+    <div class="history__body reveal reveal--right">
       <p class="eyebrow c-gold">The story of our neighbour</p>
       <h2 class="display h2 history__title" id="historyTitle">Hawa Mahal, <span class="c-gold">the Palace of Winds</span></h2>
       <p>In 1799, Maharaja Sawai Pratap Singh of Jaipur built Hawa Mahal as an extension of the City Palace. Its architect, Lal Chand Ustad, shaped the façade like the crown of Lord Krishna, whom the Maharaja deeply revered.</p>
       <p>The palace was made for the royal women, who followed purdah. From behind its 953 small jharokha windows, they could watch festivals and processions on the street below without being seen. The latticed windows also let the breeze flow through every room, keeping the palace cool in Jaipur's summers. That breeze gave it its name: Hawa Mahal, the Palace of Winds.</p>
       <dl class="history__facts">
-        <div><dt>1799</dt><dd>Built by Maharaja Sawai Pratap Singh</dd></div>
-        <div><dt>953</dt><dd>Jharokha windows</dd></div>
-        <div><dt>5</dt><dd>Storeys of red and pink sandstone</dd></div>
+        <div><dt data-count="1799">1799</dt><dd>Built by Maharaja Sawai Pratap Singh</dd></div>
+        <div><dt data-count="953">953</dt><dd>Jharokha windows</dd></div>
+        <div><dt data-count="5">5</dt><dd>Storeys of red and pink sandstone</dd></div>
       </dl>
       <p class="history__note">Today you can see it face to face from our studio and rooftop, directly across Hawa Mahal Road.</p>
     </div>
@@ -198,17 +204,6 @@
   </div>
 </section>
 
-<!-- ============ STRIP ============ -->
-<div class="strip" aria-label="Highlights">
-  <div class="wrap strip__inner">
-    <span><svg width="16" height="16" aria-hidden="true"><use href="#i-pin"/></svg>Directly opposite Hawa Mahal</span>
-    <i aria-hidden="true"></i>
-    <span><svg width="16" height="16" aria-hidden="true"><use href="#i-pen"/></svg>Every tattoo style, made in-house</span>
-    <i aria-hidden="true"></i>
-    <span><svg width="16" height="16" aria-hidden="true"><use href="#i-cup"/></svg>Rooftop café, chai to sunset dinner</span>
-  </div>
-</div>
-
 <!-- ============ FAVOURITES (3 tattoo cards) ============ -->
 <section class="section" id="favourites">
   <div class="wrap">
@@ -244,13 +239,13 @@
 </section>
 
 <!-- ============ VIEW BAND (navy) ============ -->
-<section class="band band--navy" id="view">
+<section class="band band--light on-light" id="view">
   <div class="wrap band__inner">
     <p class="eyebrow c-gold reveal">Ek baat yaad rakhna</p>
     <h2 class="display h1 reveal">Jaipur aaye, Hawa Mahal dekha? <span class="c-gold">Toh yahan kyun nahi aaye!</span></h2>
     <p class="band__italic reveal">Five storeys of pink sandstone, 953 windows, and one rooftop that looks straight at it.</p>
     <p class="band__text reveal">Most visitors see Hawa Mahal from the street. From our studio and rooftop you see it at eye level: golden in the morning, a silhouette at sunset, glowing amber at night.</p>
-    <div class="five reveal">
+    <div class="five reveal reveal--zoom">
       <figure><img src="assets/hawa-mahal-facade.jpg" alt="Hawa Mahal façade in daylight" loading="lazy"><figcaption>Hawa Mahal</figcaption></figure>
       <figure><video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-label="Sunset over Hawa Mahal, filmed from our rooftop"><source src="assets/hero.mp4" type="video/mp4"></video><figcaption>Sunset, live from our rooftop</figcaption></figure>
       <figure><img src="assets/hawa-mahal-night.jpg" alt="Hawa Mahal lit up at night" loading="lazy" style="object-position:center 60%"><figcaption>Lit up at night</figcaption></figure>
@@ -281,11 +276,11 @@
 <!-- ============ STORY ============ -->
 <section class="section section--sand" id="story">
   <div class="wrap story">
-    <figure class="story__portrait reveal">
+    <figure class="story__portrait reveal reveal--left">
       <img src="assets/cafe-interior.jpg" alt="Hand-painted mural, chandeliers and colourful chairs inside the café" loading="lazy">
       <figcaption><strong>The Tattoo Cafe family</strong><span>Inked &amp; brewed opposite Hawa Mahal</span></figcaption>
     </figure>
-    <div class="story__body reveal">
+    <div class="story__body reveal reveal--right">
       <p class="eyebrow eyebrow--dark">The heart behind the café</p>
       <h2 class="display h2">Jaipur's view. <br>Jaipur's ink. <br>Jaipur's <span class="c-red">best rooftop.</span></h2>
       <p>The Tattoo Cafe is a place where artists, travellers and locals share one table, three floors above Hawa Mahal Road. In the studio, every design is drawn with you. On the rooftop, painted haveli walls frame the palace right in front of you.</p>
@@ -297,7 +292,7 @@
 </section>
 
 <!-- ============ PHILOSOPHY (teal) ============ -->
-<section class="section section--teal" id="studio">
+<section class="section section--light on-light" id="studio">
   <div class="wrap phil">
     <div class="reveal">
       <p class="eyebrow c-gold">Safe by habit. Artistic by nature.</p>
@@ -349,7 +344,7 @@
 <!-- ============ SETTING (split) ============ -->
 <section class="setting" aria-labelledby="settingTitle">
   <div class="setting__img"><img src="assets/hawa-mahal-facade.jpg" alt="Hawa Mahal's pink sandstone façade" loading="lazy"></div>
-  <div class="setting__panel reveal">
+  <div class="setting__panel reveal reveal--right">
     <p class="eyebrow">A café with a view</p>
     <h2 class="display h3" id="settingTitle">In the heart of the Pink City, with Hawa Mahal at your table.</h2>
     <p>A cup of chai, a table facing the palace, and time to take the whole city in.</p>
@@ -390,7 +385,7 @@
       <p>Fill in the details below. Your request opens in WhatsApp, and our team confirms it there.</p>
       <div class="reserve__map"><iframe title="Map showing The Tattoo Cafe &amp; Lounge opposite Hawa Mahal" data-map-embed loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
     </div>
-    <form class="rform reveal" id="reserveForm" novalidate>
+    <form class="rform reveal reveal--right" id="reserveForm" novalidate>
       <div class="rform__row">
         <div class="field">
           <label for="rName">Your name</label>
@@ -445,7 +440,7 @@
 
 <!-- ============ FINALE ============ -->
 <section class="finale" aria-labelledby="finaleTitle">
-  <div class="finale__bg" aria-hidden="true"></div>
+  <div class="finale__bg" aria-hidden="true" data-parallax="0.18"></div>
   <div class="wrap finale__inner reveal">
     <p class="eyebrow c-gold">Opposite Hawa Mahal · Open daily 8:30 AM – 11 PM</p>
     <h2 class="display h1" id="finaleTitle">Your Jaipur night <span class="c-gold">starts here.</span></h2>
