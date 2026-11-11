@@ -590,12 +590,18 @@ main { overflow-x: clip; }
   .strip__inner { justify-content: flex-start; flex-direction: column; align-items: flex-start; gap: 10px; }
   .strip i { display: none; }
 }
+/* Reduced motion (iOS "Reduce Motion", Android "Remove animations"):
+   no zooming, sliding or parallax, but content still fades in gently so the page doesn't feel static. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .track, .film__track { animation: none; }
-  .marquee, .film { overflow-x: auto; }
-  .js .reveal { opacity: 1; transform: none; transition: none; }
-  .hero__media img, .hero__inner, .hero__inner > *, .header, .hero__scroll, .ribbon__track, .mouse::after, .wa-float::after { animation: none; }
+  .js .reveal, .js .reveal--left, .js .reveal--right, .js .reveal--zoom { transform: none; transition: opacity .9s ease; }
   .js .reveal .card__img img, .js .reveal .occ__img img { transform: none; }
+  .hero__media img { animation: none; }
+  .hero__inner { animation: rmFade 1.2s ease both; }
+  .hero__inner > *, .hero__scroll { animation: rmFade 1s ease both; }
+  .header { animation: rmFade .9s ease .5s both; }
+  @keyframes rmFade { from { opacity: 0; } to { opacity: 1; } }
+  .track, .film__track, .ribbon__track { animation-duration: 160s; }
+  .mouse::after, .wa-float::after { animation: none; }
   [data-parallax] { transform: none !important; }
 }

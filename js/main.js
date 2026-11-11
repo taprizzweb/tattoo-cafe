@@ -188,7 +188,6 @@
     pauseBtn.setAttribute("aria-pressed", String(paused));
     pauseBtn.querySelector(".pause__label").textContent = paused ? "Play" : "Pause";
   });
-  if (reduce) pauseBtn.hidden = true;
 
   function fmtCount(n) { return Number(n).toLocaleString("en-IN") + "+"; }
   function setSummary(rating, total) {
@@ -296,7 +295,6 @@
   /* ---------- Number counters ---------- */
   function runCounter(el) {
     var end = Number(el.getAttribute("data-count")), start = end > 100 ? Math.round(end * 0.9) : 0;
-    if (reduce) { el.textContent = end; return; }
     var t0 = null, dur = 1600;
     function frame(t) {
       if (!t0) t0 = t;
@@ -319,7 +317,7 @@
   function observe(el) {
     if (io) io.observe(el); else el.classList.add("in");
   }
-  if ("IntersectionObserver" in window && !reduce) {
+  if ("IntersectionObserver" in window) {
     io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
