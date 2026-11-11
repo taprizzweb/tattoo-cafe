@@ -10,8 +10,8 @@ window.SITE = {
   whatsapp: "919828065533",
   phoneDisplay: "+91 98280 65533",
   phoneLink: "+919828065533",
-  // TODO: Instagram handle
-  instagram: "https://www.instagram.com/",
+  instagram: "https://www.instagram.com/thetattoocafe/",
+  instagramHandle: "@thetattoocafe",
 
   address: "3rd Floor, 30, Opposite Hawa Mahal, Hawa Mahal Road, Jaipur, Rajasthan 302002",
   hours: "Open daily · 8:30 AM – 11:00 PM",
